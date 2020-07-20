@@ -21,6 +21,9 @@
 		1604FFB924C15970000AE266 /* RequestSubmittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604FFB824C15970000AE266 /* RequestSubmittedViewController.swift */; };
 		1604FFBB24C15978000AE266 /* BarterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604FFBA24C15978000AE266 /* BarterViewController.swift */; };
 		1604FFBD24C15A19000AE266 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604FFBC24C15A19000AE266 /* HistoryTableViewController.swift */; };
+		164C67EF24C5333B006D681F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67ED24C5333B006D681F /* Profile.storyboard */; };
+		164C67F224C53357006D681F /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67F024C53357006D681F /* Shop.storyboard */; };
+		164C67F524C53373006D681F /* NewProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67F324C53373006D681F /* NewProduct.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		1604FFB824C15970000AE266 /* RequestSubmittedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSubmittedViewController.swift; sourceTree = "<group>"; };
 		1604FFBA24C15978000AE266 /* BarterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarterViewController.swift; sourceTree = "<group>"; };
 		1604FFBC24C15A19000AE266 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		164C67EE24C5333B006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		164C67F124C53357006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/Shop.storyboard; sourceTree = "<group>"; };
+		164C67F424C53373006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/NewProduct.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 		1604FF8B24C14F20000AE266 = {
 			isa = PBXGroup;
 			children = (
+				164C67F324C53373006D681F /* NewProduct.storyboard */,
+				164C67F024C53357006D681F /* Shop.storyboard */,
+				164C67ED24C5333B006D681F /* Profile.storyboard */,
 				1604FF9624C14F20000AE266 /* Bartani */,
 				1604FF9524C14F20000AE266 /* Products */,
 			);
@@ -158,7 +167,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1604FFA424C14F21000AE266 /* LaunchScreen.storyboard in Resources */,
+				164C67F524C53373006D681F /* NewProduct.storyboard in Resources */,
+				164C67F224C53357006D681F /* Shop.storyboard in Resources */,
 				1604FFA124C14F21000AE266 /* Assets.xcassets in Resources */,
+				164C67EF24C5333B006D681F /* Profile.storyboard in Resources */,
 				1604FF9F24C14F20000AE266 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +213,30 @@
 				1604FFA324C14F21000AE266 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		164C67ED24C5333B006D681F /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				164C67EE24C5333B006D681F /* Base */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		164C67F024C53357006D681F /* Shop.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				164C67F124C53357006D681F /* Base */,
+			);
+			name = Shop.storyboard;
+			sourceTree = "<group>";
+		};
+		164C67F324C53373006D681F /* NewProduct.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				164C67F424C53373006D681F /* Base */,
+			);
+			name = NewProduct.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
