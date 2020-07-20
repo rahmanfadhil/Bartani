@@ -44,6 +44,11 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        performSegue(withIdentifier: "toProductDetail", sender: product)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,20 +59,25 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         productCollectionView.dataSource = self
         
         productCollectionView.showsVerticalScrollIndicator = false
-        navigationController?.isNavigationBarHidden = true
-        
-        // Do any additional setup after loading the view.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ProductDetailViewController, let product = sender as? Product {
+            vc.product = product
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

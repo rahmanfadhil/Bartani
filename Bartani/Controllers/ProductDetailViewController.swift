@@ -9,11 +9,28 @@
 import UIKit
 
 class ProductDetailViewController: UIViewController {
+    
+    var product: Product?
 
+    @IBOutlet weak var barterButton: UIButton!
+    @IBOutlet weak var productThumbnailImage: UIImageView!
+    @IBOutlet weak var productTitleLabel: UILabel!
+    @IBOutlet weak var productQuantityLabel: UILabel!
+    @IBOutlet weak var productPriceLabel: UILabel!
+    @IBOutlet weak var sellerDistanceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        barterButton.layer.cornerRadius = 10
+        
+        productTitleLabel.text = product?.title
+        productThumbnailImage.image = product?.image
+        productQuantityLabel.text = product?.quantity
+        
+        if let price = product?.price {
+            productPriceLabel.text = "Rp \(price)"
+        }
     }
     
 
