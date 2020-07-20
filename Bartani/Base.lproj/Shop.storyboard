@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s7y-uo-djF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dcq-X4-fZn">
                                     <size key="itemSize" width="190" height="250"/>
@@ -26,13 +26,23 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="enn-Ae-QaH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SbK-5I-OBk"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="s7y-uo-djF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CoF-gI-2bX"/>
+                            <constraint firstItem="s7y-uo-djF" firstAttribute="top" secondItem="enn-Ae-QaH" secondAttribute="bottom" id="KpL-4t-1aX"/>
+                            <constraint firstItem="enn-Ae-QaH" firstAttribute="trailing" secondItem="s7y-uo-djF" secondAttribute="trailing" id="NfB-W9-6eE"/>
                             <constraint firstItem="s7y-uo-djF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RFG-1A-WHM"/>
+                            <constraint firstItem="enn-Ae-QaH" firstAttribute="leading" secondItem="s7y-uo-djF" secondAttribute="leading" id="ZOD-ye-WFn"/>
                             <constraint firstItem="s7y-uo-djF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="nJ4-YF-fZh"/>
-                            <constraint firstItem="s7y-uo-djF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="x07-31-QYv"/>
+                            <constraint firstItem="enn-Ae-QaH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rer-62-Y3r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

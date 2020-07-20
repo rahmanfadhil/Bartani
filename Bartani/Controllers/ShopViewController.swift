@@ -56,6 +56,7 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         productCollectionView.dataSource = self
         
         productCollectionView.showsVerticalScrollIndicator = false
+        navigationController?.isNavigationBarHidden = true
         
         // Do any additional setup after loading the view.
     }
