@@ -11,25 +11,21 @@ import UIKit
 struct Product {
     var title: String
     var price: Int
+    var quantity: String
+    var image: UIImage?
 }
 
 class ShopViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var products = [
-        Product(title: "Cabai", price: 3500),
-        Product(title: "Bayam", price: 4000),
-        Product(title: "Cabai", price: 3500),
-        Product(title: "Bayam", price: 4000),
-        Product(title: "Cabai", price: 3500),
-        Product(title: "Bayam", price: 4000),
-        Product(title: "Cabai", price: 3500),
-        Product(title: "Bayam", price: 4000),
-        Product(title: "Cabai", price: 3500),
-        Product(title: "Bayam", price: 4000),
-        Product(title: "Cabai", price: 3500),
-        Product(title: "Bayam", price: 4000),
-        Product(title: "Cabai", price: 3500),
-        Product(title: "Bayam", price: 4000)
+        Product(title: "Bayam", price: 5500, quantity: "1 ikat", image: UIImage(named: "bayam")),
+        Product(title: "Cabai", price: 7000, quantity: "1,5 kg", image: UIImage(named: "cabai")),
+        Product(title: "Kentang", price: 8000, quantity: "5 buah", image: UIImage(named: "kentang")),
+        Product(title: "Kangkung", price: 3000, quantity: "2 ikat", image: UIImage(named: "kangkung")),
+        Product(title: "Bayam", price: 5500, quantity: "1 ikat", image: UIImage(named: "bayam")),
+        Product(title: "Cabai", price: 7000, quantity: "1,5 kg", image: UIImage(named: "cabai")),
+        Product(title: "Kentang", price: 8000, quantity: "5 buah", image: UIImage(named: "kentang")),
+        Product(title: "Kangkung", price: 3000, quantity: "2 ikat", image: UIImage(named: "kangkung"))
     ]
 
     @IBOutlet weak var productCollectionView: UICollectionView!
@@ -42,7 +38,9 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
         let product = products[indexPath.row]
         cell.titleLabel.text = product.title
-        cell.priceLabel.text = "\(product.price)"
+        cell.priceLabel.text = "Rp \(product.price)"
+        cell.thumbnailImage.image = product.image
+        cell.amountLabel.text = product.quantity
         return cell
     }
     

@@ -16,42 +16,53 @@
                 <rect key="frame" x="0.0" y="0.0" width="190" height="250"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYU-aB-9gw">
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYU-aB-9gw">
                         <rect key="frame" x="0.0" y="0.0" width="190" height="250"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rp 3500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHf-nf-GZ2">
+                                <rect key="frame" x="14" y="215" width="163" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cabai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwl-WY-eaR">
+                                <rect key="frame" x="14" y="147" width="163" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cabai" translatesAutoresizingMaskIntoConstraints="NO" id="gnH-sm-uE9">
+                                <rect key="frame" x="0.0" y="0.0" width="190" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQv-Ji-5KU">
+                                <rect key="frame" x="14" y="176" width="163" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cabai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwl-WY-eaR">
-                        <rect key="frame" x="73" y="114.5" width="44" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp 3500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHf-nf-GZ2">
-                        <rect key="frame" x="61.5" y="153.5" width="67" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
-            <constraints>
-                <constraint firstItem="Zwl-WY-eaR" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="2zx-0p-UlL"/>
-                <constraint firstItem="lYU-aB-9gw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6Y0-9K-Mws"/>
-                <constraint firstItem="AHf-nf-GZ2" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="GqW-mC-h0C"/>
-                <constraint firstAttribute="trailing" secondItem="lYU-aB-9gw" secondAttribute="trailing" id="OIZ-HP-VjB"/>
-                <constraint firstItem="AHf-nf-GZ2" firstAttribute="top" secondItem="Zwl-WY-eaR" secondAttribute="bottom" constant="18" id="UY5-3F-1gd"/>
-                <constraint firstItem="Zwl-WY-eaR" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="YJt-fH-CgI"/>
-                <constraint firstItem="lYU-aB-9gw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bbV-p7-59c"/>
-                <constraint firstAttribute="bottom" secondItem="lYU-aB-9gw" secondAttribute="bottom" id="hGU-b8-BuX"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="200" height="250"/>
             <connections>
+                <outlet property="amountLabel" destination="lQv-Ji-5KU" id="PSF-J9-JVt"/>
                 <outlet property="boxView" destination="lYU-aB-9gw" id="RJ5-j1-fkB"/>
                 <outlet property="priceLabel" destination="AHf-nf-GZ2" id="pYZ-yL-5jB"/>
+                <outlet property="thumbnailImage" destination="gnH-sm-uE9" id="rn7-ZC-hUl"/>
                 <outlet property="titleLabel" destination="Zwl-WY-eaR" id="h0f-Tl-msE"/>
             </connections>
             <point key="canvasLocation" x="242.0289855072464" y="198.88392857142856"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="cabai" width="731" height="488"/>
+    </resources>
 </document>

@@ -10,8 +10,10 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var boxView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
     override func awakeFromNib() {
@@ -19,6 +21,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         // Initialization code
         
         boxView.layer.cornerRadius = 10
+        boxView.clipsToBounds = true
     }
 
 }
