@@ -24,6 +24,7 @@
 		164C67EF24C5333B006D681F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67ED24C5333B006D681F /* Profile.storyboard */; };
 		164C67F224C53357006D681F /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67F024C53357006D681F /* Shop.storyboard */; };
 		164C67F524C53373006D681F /* NewProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67F324C53373006D681F /* NewProduct.storyboard */; };
+		7F2F02E124C547DE00544571 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F2F02E024C547DE00544571 /* ImageAssets.xcassets */; };
 		16F5A99624C549DA00DBF7D7 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F5A99424C549DA00DBF7D7 /* ProductCollectionViewCell.swift */; };
 		16F5A99724C549DA00DBF7D7 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F5A99524C549DA00DBF7D7 /* ProductCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		164C67EE24C5333B006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		164C67F124C53357006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/Shop.storyboard; sourceTree = "<group>"; };
 		164C67F424C53373006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/NewProduct.storyboard; sourceTree = "<group>"; };
+		7F2F02E024C547DE00544571 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
 		16F5A99424C549DA00DBF7D7 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		16F5A99524C549DA00DBF7D7 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 		1604FF8B24C14F20000AE266 = {
 			isa = PBXGroup;
 			children = (
+				7F2F02E024C547DE00544571 /* ImageAssets.xcassets */,
 				164C67F324C53373006D681F /* NewProduct.storyboard */,
 				164C67F024C53357006D681F /* Shop.storyboard */,
 				164C67ED24C5333B006D681F /* Profile.storyboard */,
@@ -182,6 +185,7 @@
 			files = (
 				1604FFA424C14F21000AE266 /* LaunchScreen.storyboard in Resources */,
 				164C67F524C53373006D681F /* NewProduct.storyboard in Resources */,
+				7F2F02E124C547DE00544571 /* ImageAssets.xcassets in Resources */,
 				164C67F224C53357006D681F /* Shop.storyboard in Resources */,
 				16F5A99724C549DA00DBF7D7 /* ProductCollectionViewCell.xib in Resources */,
 				1604FFA124C14F21000AE266 /* Assets.xcassets in Resources */,
