@@ -29,16 +29,29 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var productTitleLabel: UILabel!
     @IBOutlet weak var productQuantityLabel: UILabel!
     @IBOutlet weak var productCollectionView: UICollectionView!
+    @IBOutlet weak var proceedButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        productBox.layer.cornerRadius = 10
-        productBox.clipsToBounds = true
+        proceedButton.layer.cornerRadius = 10
         
         productTitleLabel.text = product?.title
         productQuantityLabel.text = product?.quantity
         productImage.image = product?.image
+        
+        let path = UIBezierPath(roundedRect: productImage.bounds, byRoundingCorners:[.bottomLeft, .topLeft], cornerRadii: CGSize(width: 7, height: 7))
+        let maskLayer = CAShapeLayer()
+
+        maskLayer.path = path.cgPath
+        productImage.layer.mask = maskLayer
+        
+        productBox.layer.shadowOffset = .zero
+        productBox.layer.shadowOpacity = 0.5
+        productBox.layer.shadowRadius = 3
+        productBox.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+        productBox.layer.masksToBounds = false
+        productBox.layer.cornerRadius = 7
         
         if let price = product?.price {
             productPriceLabel.text = "Rp \(price)"
@@ -66,7 +79,6 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell.priceLabel.text = "Rp \(product.price)"
         cell.thumbnailImage.image = product.image
         cell.amountLabel.text = product.quantity
-        cell.boxView.backgroundColor = UIColor.systemGray6
         return cell
     }
     
