@@ -268,14 +268,29 @@
                                     <constraint firstAttribute="height" constant="128" id="wKj-MS-ZAd"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nvx-Bq-vxr">
+                                <rect key="frame" x="0.0" y="436" width="414" height="426"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Omg-DS-H3Y">
+                                    <size key="itemSize" width="190" height="250"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ibS-jg-ekF" firstAttribute="top" secondItem="tgh-fj-oyL" secondAttribute="bottom" constant="8" id="4K6-ZL-YRv"/>
+                            <constraint firstItem="nvx-Bq-vxr" firstAttribute="leading" secondItem="Tpl-Vz-CuL" secondAttribute="leading" id="KEq-5J-hHx"/>
                             <constraint firstItem="Tpl-Vz-CuL" firstAttribute="trailing" secondItem="TWz-fV-7U3" secondAttribute="trailing" constant="20" id="XIy-2R-O4g"/>
+                            <constraint firstItem="nvx-Bq-vxr" firstAttribute="top" secondItem="ibS-jg-ekF" secondAttribute="bottom" constant="40" id="Xoa-ur-jIe"/>
                             <constraint firstItem="TWz-fV-7U3" firstAttribute="leading" secondItem="Tpl-Vz-CuL" secondAttribute="leading" constant="20" id="dF2-aB-HiN"/>
+                            <constraint firstItem="nvx-Bq-vxr" firstAttribute="bottom" secondItem="Tpl-Vz-CuL" secondAttribute="bottom" id="hlC-5P-cPS"/>
                             <constraint firstItem="TWz-fV-7U3" firstAttribute="top" secondItem="Tpl-Vz-CuL" secondAttribute="top" constant="20" id="jPc-Gb-mff"/>
                             <constraint firstItem="tgh-fj-oyL" firstAttribute="centerX" secondItem="oZJ-Qj-o2X" secondAttribute="centerX" id="nZl-Iv-89A"/>
+                            <constraint firstItem="nvx-Bq-vxr" firstAttribute="trailing" secondItem="Tpl-Vz-CuL" secondAttribute="trailing" id="o41-o3-KTg"/>
                             <constraint firstItem="tgh-fj-oyL" firstAttribute="top" secondItem="TWz-fV-7U3" secondAttribute="bottom" constant="40" id="uvs-PL-rFl"/>
                             <constraint firstItem="ibS-jg-ekF" firstAttribute="centerX" secondItem="oZJ-Qj-o2X" secondAttribute="centerX" id="wsO-Km-Bny"/>
                         </constraints>
@@ -284,6 +299,7 @@
                     <navigationItem key="navigationItem" title="Barter" id="xMx-Hv-f3f"/>
                     <connections>
                         <outlet property="productBox" destination="TWz-fV-7U3" id="v1P-ET-S0q"/>
+                        <outlet property="productCollectionView" destination="nvx-Bq-vxr" id="yku-A5-SGf"/>
                         <outlet property="productImage" destination="89c-Ag-eTy" id="1My-YG-jxX"/>
                         <outlet property="productPriceLabel" destination="Cil-DD-q8d" id="vyI-6x-0G1"/>
                         <outlet property="productQuantityLabel" destination="Qqp-DN-Sqq" id="HqD-Gm-lcC"/>
