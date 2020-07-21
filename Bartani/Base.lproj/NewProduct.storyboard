@@ -105,14 +105,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xn-Aj-GxZ">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xn-Aj-GxZ">
                                 <rect key="frame" x="20" y="642" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="PxA-dM-7BH"/>
+                                    <constraint firstAttribute="height" constant="31" id="VC5-Po-Em6"/>
+                                    <constraint firstAttribute="width" secondItem="3Xn-Aj-GxZ" secondAttribute="height" multiplier="47:31" id="wHk-1Y-1qU"/>
+                                </constraints>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lk-yA-zGc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lk-yA-zGc">
                                 <rect key="frame" x="20" y="807" width="374" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Qoq-Aq-zVo"/>
+                                    <constraint firstAttribute="width" constant="374" id="v98-XW-NWf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Konfirmasi">
                                     <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -120,6 +127,13 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3Lk-yA-zGc" firstAttribute="leading" secondItem="N83-co-eXL" secondAttribute="leading" constant="20" id="7w2-56-3Yo"/>
+                            <constraint firstItem="N83-co-eXL" firstAttribute="bottom" secondItem="3Lk-yA-zGc" secondAttribute="bottom" constant="15" id="Lfg-7g-cR7"/>
+                            <constraint firstItem="N83-co-eXL" firstAttribute="trailing" secondItem="3Lk-yA-zGc" secondAttribute="trailing" constant="20" id="MmR-0f-TF5"/>
+                            <constraint firstItem="3Lk-yA-zGc" firstAttribute="top" secondItem="3Xn-Aj-GxZ" secondAttribute="bottom" constant="134" id="a8G-Dl-QUp"/>
+                            <constraint firstItem="3Xn-Aj-GxZ" firstAttribute="leading" secondItem="N83-co-eXL" secondAttribute="leading" constant="20" id="fbq-ig-44o"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="N83-co-eXL"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Product" image="plus.app" catalog="system" id="geG-gn-ySz"/>
@@ -150,10 +164,13 @@
                                 <color key="textColor" red="0.12941176470588234" green="0.37647058823529411" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBS-tJ-PdK">
-                                <rect key="frame" x="20" y="811" width="374" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBS-tJ-PdK">
+                                <rect key="frame" x="20" y="806" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="OIJ-Pq-iDb"/>
+                                    <constraint firstAttribute="height" constant="40" id="vsn-W2-Isz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Okay">
                                     <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -161,6 +178,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QYz-SV-ZuS" firstAttribute="bottom" secondItem="VBS-tJ-PdK" secondAttribute="bottom" constant="16" id="Jbm-bW-SuL"/>
+                            <constraint firstItem="QYz-SV-ZuS" firstAttribute="trailing" secondItem="VBS-tJ-PdK" secondAttribute="trailing" constant="20" id="S12-ST-En1"/>
+                            <constraint firstItem="VBS-tJ-PdK" firstAttribute="leading" secondItem="QYz-SV-ZuS" secondAttribute="leading" constant="20" id="gay-Xk-wch"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QYz-SV-ZuS"/>
                     </view>
                 </viewController>
