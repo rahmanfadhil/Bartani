@@ -9,11 +9,36 @@
 import UIKit
 
 class BarterViewController: UIViewController {
+    
+    var product: Product?
 
+    @IBOutlet weak var productBox: UIView!
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productPriceLabel: UILabel!
+    @IBOutlet weak var productTitleLabel: UILabel!
+    @IBOutlet weak var productQuantityLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        productBox.layer.cornerRadius = 10
+        productBox.clipsToBounds = true
+        
+        productTitleLabel.text = product?.title
+        productQuantityLabel.text = product?.quantity
+        productImage.image = product?.image
+        
+        if let price = product?.price {
+            productPriceLabel.text = "Rp \(price)"
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
 
