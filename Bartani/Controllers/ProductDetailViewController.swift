@@ -12,6 +12,7 @@ class ProductDetailViewController: UIViewController {
     
     var product: Product?
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var barterButton: UIButton!
     @IBOutlet weak var productThumbnailImage: UIImageView!
     @IBOutlet weak var productTitleLabel: UILabel!
@@ -31,6 +32,12 @@ class ProductDetailViewController: UIViewController {
         if let price = product?.price {
             productPriceLabel.text = "Rp \(price)"
         }
+        
+        searchBar.backgroundImage = UIImage()
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
 

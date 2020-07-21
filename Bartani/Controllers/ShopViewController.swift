@@ -58,15 +58,7 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         
-        productCollectionView.showsVerticalScrollIndicator = false
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.isNavigationBarHidden = true
     }
 
     // MARK: - Navigation

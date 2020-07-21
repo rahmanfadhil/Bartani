@@ -78,13 +78,13 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cabai" translatesAutoresizingMaskIntoConstraints="NO" id="O6q-qv-ww9">
-                                <rect key="frame" x="0.0" y="88" width="414" height="230"/>
+                                <rect key="frame" x="0.0" y="137" width="414" height="230"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="0Mc-sK-47W"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cabai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOb-mP-1bw">
-                                <rect key="frame" x="20" y="344" width="374" height="41"/>
+                                <rect key="frame" x="20" y="393" width="374" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="yeb-BN-c5z"/>
                                 </constraints>
@@ -93,7 +93,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,5 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mee-KH-4Xj">
-                                <rect key="frame" x="20" y="399" width="374" height="21"/>
+                                <rect key="frame" x="20" y="448" width="374" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="EqE-vr-5nT"/>
                                 </constraints>
@@ -102,7 +102,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp 20000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8a-hx-xPq">
-                                <rect key="frame" x="20" y="438" width="185" height="24"/>
+                                <rect key="frame" x="20" y="487" width="185" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="UNH-qF-PP8"/>
                                     <constraint firstAttribute="width" constant="185" id="qpv-H7-mPh"/>
@@ -112,7 +112,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5y-Ih-13Z">
-                                <rect key="frame" x="319" y="438" width="75" height="24"/>
+                                <rect key="frame" x="319" y="487" width="75" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="90a-Z2-JuO"/>
                                     <constraint firstAttribute="width" constant="75" id="KFQ-wi-Xne"/>
@@ -121,20 +121,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeZ-4j-HPw">
+                                <rect key="frame" x="0.0" y="88" width="40" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3cP-5E-ocr"/>
+                                    <constraint firstAttribute="width" constant="40" id="nuM-H0-jLE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="79i-zr-qLo" eventType="touchUpInside" id="gvw-Zr-ssy"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="9Ca-cI-gfz">
+                                <rect key="frame" x="40" y="88" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="m2f-1g-PBK"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="92k-MX-LI9" firstAttribute="leading" secondItem="xcG-Xu-86W" secondAttribute="leading" constant="20" id="1wC-BV-HOq"/>
+                            <constraint firstItem="9Ca-cI-gfz" firstAttribute="leading" secondItem="WeZ-4j-HPw" secondAttribute="trailing" id="4ie-cB-uZd"/>
                             <constraint firstItem="Mee-KH-4Xj" firstAttribute="top" secondItem="kOb-mP-1bw" secondAttribute="bottom" constant="14" id="LhC-Up-dnO"/>
                             <constraint firstItem="kOb-mP-1bw" firstAttribute="top" secondItem="O6q-qv-ww9" secondAttribute="bottom" constant="26" id="MHq-M5-XD3"/>
                             <constraint firstItem="xcG-Xu-86W" firstAttribute="bottom" secondItem="92k-MX-LI9" secondAttribute="bottom" constant="20" id="MYl-yr-gaV"/>
-                            <constraint firstItem="O6q-qv-ww9" firstAttribute="top" secondItem="xcG-Xu-86W" secondAttribute="top" id="Mlb-7O-D3n"/>
+                            <constraint firstItem="WeZ-4j-HPw" firstAttribute="top" secondItem="xcG-Xu-86W" secondAttribute="top" id="QZ6-o8-Gia"/>
                             <constraint firstItem="kOb-mP-1bw" firstAttribute="leading" secondItem="xcG-Xu-86W" secondAttribute="leading" constant="20" id="Qp8-tN-bg4"/>
                             <constraint firstItem="xcG-Xu-86W" firstAttribute="trailing" secondItem="Mee-KH-4Xj" secondAttribute="trailing" constant="20" id="Twg-JV-Zds"/>
                             <constraint firstItem="o8a-hx-xPq" firstAttribute="top" secondItem="Mee-KH-4Xj" secondAttribute="bottom" constant="18" id="YMW-XX-OAM"/>
+                            <constraint firstItem="9Ca-cI-gfz" firstAttribute="top" secondItem="xcG-Xu-86W" secondAttribute="top" id="bNc-jr-00Z"/>
                             <constraint firstItem="xcG-Xu-86W" firstAttribute="trailing" secondItem="kOb-mP-1bw" secondAttribute="trailing" constant="20" id="ek9-vo-abO"/>
+                            <constraint firstItem="WeZ-4j-HPw" firstAttribute="leading" secondItem="xcG-Xu-86W" secondAttribute="leading" id="fae-iN-9oe"/>
                             <constraint firstItem="O6q-qv-ww9" firstAttribute="leading" secondItem="xcG-Xu-86W" secondAttribute="leading" id="gId-EC-fyb"/>
                             <constraint firstItem="xcG-Xu-86W" firstAttribute="trailing" secondItem="Z5y-Ih-13Z" secondAttribute="trailing" constant="20" id="oqB-g9-gMM"/>
+                            <constraint firstItem="O6q-qv-ww9" firstAttribute="top" secondItem="9Ca-cI-gfz" secondAttribute="bottom" constant="5" id="qKn-H7-bmq"/>
+                            <constraint firstItem="9Ca-cI-gfz" firstAttribute="trailing" secondItem="xcG-Xu-86W" secondAttribute="trailing" id="sRf-qR-o2V"/>
                             <constraint firstItem="Z5y-Ih-13Z" firstAttribute="top" secondItem="Mee-KH-4Xj" secondAttribute="bottom" constant="18" id="tVx-kb-wFl"/>
                             <constraint firstItem="O6q-qv-ww9" firstAttribute="trailing" secondItem="xcG-Xu-86W" secondAttribute="trailing" id="uj4-hB-mgx"/>
                             <constraint firstItem="xcG-Xu-86W" firstAttribute="trailing" secondItem="92k-MX-LI9" secondAttribute="trailing" constant="20" id="yJD-mI-EOe"/>
@@ -150,6 +174,7 @@
                         <outlet property="productQuantityLabel" destination="Mee-KH-4Xj" id="6nM-Dv-mHD"/>
                         <outlet property="productThumbnailImage" destination="O6q-qv-ww9" id="ejk-b9-GBV"/>
                         <outlet property="productTitleLabel" destination="kOb-mP-1bw" id="S4Q-4Q-Tb9"/>
+                        <outlet property="searchBar" destination="9Ca-cI-gfz" id="Dp7-1r-3OO"/>
                         <outlet property="sellerDistanceLabel" destination="Z5y-Ih-13Z" id="5Qu-i8-KB5"/>
                     </connections>
                 </viewController>
@@ -237,6 +262,7 @@
     </scenes>
     <resources>
         <image name="cabai" width="731" height="488"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
     </resources>
 </document>
