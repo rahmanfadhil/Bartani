@@ -10,10 +10,7 @@ import UIKit
 
 class BarterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var products: [Product] = [
-        Product(title: "Kentang", price: 5500, quantity: "1 kg", address: "Lorem", image: UIImage(named: "kentang")),
-        Product(title: "Kangkung", price: 3000, quantity: "2 ikat", address: "Lorem", image: UIImage(named: "kangkung"))
-    ]
+    var products = [Product]()
     
     var product: Product?
 
@@ -60,6 +57,14 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        
+        CloudKitHelper.fetchMyProducts { (products) in
+            self.products = products
+            
+            DispatchQueue.main.async {
+                self.productCollectionView.reloadData()
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

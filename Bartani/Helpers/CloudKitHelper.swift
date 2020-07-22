@@ -14,7 +14,8 @@ struct CloudKitHelper {
         static let Products = "Products"
     }
     
-    // MARK: - Save
+    // MARK: - Save product
+    
     static func saveProduct(data: Product) {
         let product = CKRecord(recordType: RecordType.Products)
         product.setValue(data.title, forKey: "title")
@@ -32,18 +33,48 @@ struct CloudKitHelper {
         }
     }
     
+    // MARK: - All products
+    
     static func fetchProducts(onComplete: @escaping ([Product]) -> Void) {
+        let container = CKContainer.default()
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: RecordType.Products, predicate: predicate)
         
-        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { (records, error) in
+        container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
-                print(error)
+                print(error.localizedDescription)
                 return
             }
             
             guard let records = records else { return }
             onComplete(Product.fromRecords(data: records))
+        }
+    }
+    
+    // MARK: - Current user products
+    
+    static func fetchMyProducts(onComplete: @escaping ([Product]) -> Void) {
+        let container = CKContainer.default()
+        
+        container.fetchUserRecordID { (userID, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            let reference = CKRecord.Reference(recordID: userID!, action: .none)
+            let predicate = NSPredicate(format: "creatorUserRecordID == %@", reference)
+            let query = CKQuery(recordType: RecordType.Products, predicate: predicate)
+            
+            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    return
+                }
+
+                guard let records = records else { return }
+                onComplete(Product.fromRecords(data: records))
+            }
         }
     }
 }

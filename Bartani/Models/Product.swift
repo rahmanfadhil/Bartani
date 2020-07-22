@@ -18,7 +18,7 @@ struct Product {
     
     static func fromRecords(data: [CKRecord]) -> [Product] {
         data.map { (record) -> Product in
-            Product(
+            return Product(
                 title: record.value(forKey: "title") as? String ?? "",
                 price: record.value(forKey: "price") as? Int ?? 0,
                 quantity: record.value(forKey: "quantity") as? String ?? "",
