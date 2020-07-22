@@ -10,15 +10,15 @@ import UIKit
 
 class BarterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var products = [
-        Product(title: "Bayam", price: 5500, quantity: "1 ikat", image: UIImage(named: "bayam")),
-        Product(title: "Cabai", price: 7000, quantity: "1,5 kg", image: UIImage(named: "cabai")),
-        Product(title: "Kentang", price: 8000, quantity: "5 buah", image: UIImage(named: "kentang")),
-        Product(title: "Kangkung", price: 3000, quantity: "2 ikat", image: UIImage(named: "kangkung")),
-        Product(title: "Bayam", price: 5500, quantity: "1 ikat", image: UIImage(named: "bayam")),
-        Product(title: "Cabai", price: 7000, quantity: "1,5 kg", image: UIImage(named: "cabai")),
-        Product(title: "Kentang", price: 8000, quantity: "5 buah", image: UIImage(named: "kentang")),
-        Product(title: "Kangkung", price: 3000, quantity: "2 ikat", image: UIImage(named: "kangkung"))
+    var products: [Product] = [
+//        Product(title: "Bayam", price: 5500, quantity: "1 ikat", image: UIImage(named: "bayam")),
+//        Product(title: "Cabai", price: 7000, quantity: "1,5 kg", image: UIImage(named: "cabai")),
+//        Product(title: "Kentang", price: 8000, quantity: "5 buah", image: UIImage(named: "kentang")),
+//        Product(title: "Kangkung", price: 3000, quantity: "2 ikat", image: UIImage(named: "kangkung")),
+//        Product(title: "Bayam", price: 5500, quantity: "1 ikat", image: UIImage(named: "bayam")),
+//        Product(title: "Cabai", price: 7000, quantity: "1,5 kg", image: UIImage(named: "cabai")),
+//        Product(title: "Kentang", price: 8000, quantity: "5 buah", image: UIImage(named: "kentang")),
+//        Product(title: "Kangkung", price: 3000, quantity: "2 ikat", image: UIImage(named: "kangkung"))
     ]
     
     var product: Product?

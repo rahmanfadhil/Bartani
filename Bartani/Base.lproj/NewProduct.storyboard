@@ -124,6 +124,9 @@
                                 <state key="normal" title="Konfirmasi">
                                     <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmTapped:" destination="ghV-3v-5Kb" eventType="touchUpInside" id="qe1-Mt-ptX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -138,6 +141,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Product" image="plus.app" catalog="system" id="geG-gn-ySz"/>
                     <connections>
+                        <outlet property="productAddressTextField" destination="LAl-rh-9Mh" id="ldz-s0-IuC"/>
+                        <outlet property="productPriceTextField" destination="hJf-Z8-deL" id="eJ3-ro-GhC"/>
+                        <outlet property="productQuantityTextField" destination="U2i-Xn-nxL" id="RZJ-9F-KMY"/>
+                        <outlet property="productTitleTextField" destination="vwU-n6-A0a" id="SSi-6H-Uec"/>
                         <segue destination="oNN-5Y-IoC" kind="custom" id="Hrz-Lk-ajb"/>
                     </connections>
                 </viewController>
