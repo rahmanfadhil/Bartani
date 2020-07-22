@@ -25,6 +25,7 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.priceLabel.text = "Rp \(product.price)"
         cell.thumbnailImage.image = product.image
         cell.amountLabel.text = product.quantity
+        cell.checkmarkImage.alpha = 0
         return cell
     }
     
@@ -43,7 +44,9 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         productCollectionView.dataSource = self
         
         navigationController?.isNavigationBarHidden = true
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         CloudKitHelper.fetchProducts { (records) in
             self.products = records
             DispatchQueue.main.async {

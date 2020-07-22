@@ -66,10 +66,19 @@
                             <constraint firstItem="Zwl-WY-eaR" firstAttribute="leading" secondItem="lQv-Ji-5KU" secondAttribute="leading" id="rYq-19-IPJ"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="GS3-vt-qop">
+                        <rect key="frame" x="165" y="0.0" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="04B-0i-TMs"/>
+                            <constraint firstAttribute="height" constant="25" id="sOP-18-Mk2"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="GS3-vt-qop" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Qk5-fY-DOx"/>
                 <constraint firstAttribute="trailing" secondItem="lYU-aB-9gw" secondAttribute="trailing" constant="8" id="Xim-H3-Snd"/>
+                <constraint firstAttribute="trailing" secondItem="GS3-vt-qop" secondAttribute="trailing" id="Z1J-Z0-NY2"/>
                 <constraint firstItem="lYU-aB-9gw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Z8t-n9-4cK"/>
                 <constraint firstItem="lYU-aB-9gw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="fdt-Sl-zHw"/>
                 <constraint firstAttribute="bottom" secondItem="lYU-aB-9gw" secondAttribute="bottom" constant="8" id="uqp-to-1XU"/>
@@ -79,6 +88,7 @@
             <connections>
                 <outlet property="amountLabel" destination="lQv-Ji-5KU" id="PSF-J9-JVt"/>
                 <outlet property="boxView" destination="lYU-aB-9gw" id="RJ5-j1-fkB"/>
+                <outlet property="checkmarkImage" destination="GS3-vt-qop" id="XTB-qV-tDh"/>
                 <outlet property="priceLabel" destination="AHf-nf-GZ2" id="pYZ-yL-5jB"/>
                 <outlet property="thumbnailImage" destination="gnH-sm-uE9" id="rn7-ZC-hUl"/>
                 <outlet property="titleLabel" destination="Zwl-WY-eaR" id="h0f-Tl-msE"/>
@@ -88,5 +98,6 @@
     </objects>
     <resources>
         <image name="cabai" width="731" height="488"/>
+        <image name="checkmark" width="31" height="31"/>
     </resources>
 </document>

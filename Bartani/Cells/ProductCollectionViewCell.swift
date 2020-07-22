@@ -15,6 +15,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var checkmarkImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +33,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
         boxView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
         boxView.layer.masksToBounds = false
         boxView.layer.cornerRadius = 7
+        
+        checkmarkImage.isHidden = true
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            self.checkmarkImage.isHidden = !isSelected
+        }
     }
 
 }
