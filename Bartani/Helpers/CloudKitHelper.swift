@@ -16,7 +16,7 @@ struct CloudKitHelper {
     
     // MARK: - Save product
     
-    static func saveProduct(data: Product) {
+    static func saveProduct(data: Product, onComplete: @escaping () -> Void) {
         let product = CKRecord(recordType: RecordType.Products)
         product.setValue(data.title, forKey: "title")
         product.setValue(data.price, forKey: "price")
@@ -28,8 +28,7 @@ struct CloudKitHelper {
                 return
             }
             
-            guard let record = record else { return }
-            print(record)
+            onComplete()
         }
     }
     
