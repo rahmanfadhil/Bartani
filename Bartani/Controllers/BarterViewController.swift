@@ -13,6 +13,8 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     var products = [Product]()
     
     var product: Product?
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var productBox: UIView!
     @IBOutlet weak var productImage: UIImageView!
@@ -21,6 +23,8 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var productQuantityLabel: UILabel!
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var proceedButton: UIButton!
+    
+    // MARK: - Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +59,8 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
         productCollectionView.register(nib, forCellWithReuseIdentifier: "productCell")
     }
     
+    // MARK: - Appear and dissapear
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         
@@ -70,6 +76,8 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    // MARK: - Collection view
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
