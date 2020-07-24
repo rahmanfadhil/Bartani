@@ -57,8 +57,8 @@ class NewProductViewController: UIViewController, UINavigationControllerDelegate
                 imageURL: imageURL
             )
             
-//            CloudKitHelper.saveProduct(data: product) {
-//                DispatchQueue.main.async {
+            CloudKitHelper.saveProduct(data: product) {
+                DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toSuccessPage", sender: self)
                     self.imageURL = nil
                     self.productImage.image = UIImage(named: "image-placeholder")
@@ -66,8 +66,8 @@ class NewProductViewController: UIViewController, UINavigationControllerDelegate
                     self.productPriceTextField.text = ""
                     self.productQuantityTextField.text = ""
                     self.productAddressTextField.text = ""
-//                }
-//            }
+                }
+            }
         } else {
             let alert = UIAlertController(title: "Product must have an image!", message: "You must provide at least one image for a product.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
