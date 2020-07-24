@@ -27,6 +27,7 @@
 		16DCB8C824C7CDAE00C7EAC8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DCB8C724C7CDAE00C7EAC8 /* CloudKit.framework */; };
 		16DCB8CB24C7D0BA00C7EAC8 /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DCB8CA24C7D0BA00C7EAC8 /* CloudKitHelper.swift */; };
 		16DCB8CE24C7E02E00C7EAC8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DCB8CD24C7E02E00C7EAC8 /* Product.swift */; };
+		16DCB8D024C80B0C00C7EAC8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DCB8CF24C80B0C00C7EAC8 /* Offer.swift */; };
 		16F5A99624C549DA00DBF7D7 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F5A99424C549DA00DBF7D7 /* ProductCollectionViewCell.swift */; };
 		16F5A99724C549DA00DBF7D7 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F5A99524C549DA00DBF7D7 /* ProductCollectionViewCell.xib */; };
 		7F2F02E124C547DE00544571 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F2F02E024C547DE00544571 /* ImageAssets.xcassets */; };
@@ -56,6 +57,7 @@
 		16DCB8C724C7CDAE00C7EAC8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		16DCB8CA24C7D0BA00C7EAC8 /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		16DCB8CD24C7E02E00C7EAC8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		16DCB8CF24C80B0C00C7EAC8 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		16F5A99424C549DA00DBF7D7 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		16F5A99524C549DA00DBF7D7 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F2F02E024C547DE00544571 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				16DCB8CD24C7E02E00C7EAC8 /* Product.swift */,
+				16DCB8CF24C80B0C00C7EAC8 /* Offer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				1604FFB124C1593B000AE266 /* NewProductViewController.swift in Sources */,
 				1604FFBB24C15978000AE266 /* BarterViewController.swift in Sources */,
 				1604FFB724C1595A000AE266 /* HistoryDetailViewController.swift in Sources */,
+				16DCB8D024C80B0C00C7EAC8 /* Offer.swift in Sources */,
 				1604FFBD24C15A19000AE266 /* HistoryTableViewController.swift in Sources */,
 				1604FF9824C14F20000AE266 /* AppDelegate.swift in Sources */,
 				16F5A99624C549DA00DBF7D7 /* ProductCollectionViewCell.swift in Sources */,

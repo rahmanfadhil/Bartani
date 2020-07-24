@@ -29,7 +29,7 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        proceedButton.layer.cornerRadius = 10
+        proceedButton.layer.cornerRadius = 6
         
         productTitleLabel.text = product?.title
         productQuantityLabel.text = product?.quantity

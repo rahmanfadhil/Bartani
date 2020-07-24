@@ -23,7 +23,7 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        barterButton.layer.cornerRadius = 10
+        barterButton.layer.cornerRadius = 6
         
         productTitleLabel.text = product?.title
         productThumbnailImage.image = product?.image

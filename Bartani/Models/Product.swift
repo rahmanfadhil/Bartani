@@ -17,14 +17,20 @@ struct Product {
     var image: UIImage?
     
     static func fromRecords(data: [CKRecord]) -> [Product] {
-        data.map { (record) -> Product in
-            return Product(
-                title: record.value(forKey: "title") as? String ?? "",
-                price: record.value(forKey: "price") as? Int ?? 0,
-                quantity: record.value(forKey: "quantity") as? String ?? "",
-                address: record.value(forKey: "address") as? String ?? "",
-                image: UIImage(named: "cabai")
-            )
+        var products = [Product]()
+        
+        for record in data {
+            if let image = record.value(forKey: "image") as? CKAsset, let url = image.fileURL, let data = NSData(contentsOf: url) {
+                products.append(Product(
+                    title: record.value(forKey: "title") as? String ?? "",
+                    price: record.value(forKey: "price") as? Int ?? 0,
+                    quantity: record.value(forKey: "quantity") as? String ?? "",
+                    address: record.value(forKey: "address") as? String ?? "",
+                    image: UIImage(data: data as Data)
+                ))
+            }
         }
+        
+        return products
     }
 }

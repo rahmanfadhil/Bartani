@@ -9,16 +9,25 @@
 import UIKit
 
 class RequestSubmittedViewController: UIViewController {
-
+    
+    @IBOutlet weak var okayButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        okayButton.layer.cornerRadius = 6
     }
     
     @IBAction func okayTapped(_ sender: Any) {
-        tabBarController?.selectedIndex = 0
-        navigationController?.popViewController(animated: false)
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
 }

@@ -14,13 +14,23 @@ struct CloudKitHelper {
         static let Products = "Products"
     }
     
-    // MARK: - Save product
+    struct InsertProduct {
+        let title: String
+        let price: Int
+        let quantity: String
+        let address: String
+        let imageURL: URL
+    }
     
-    static func saveProduct(data: Product, onComplete: @escaping () -> Void) {
+    // MARK: - Save product
+
+    static func saveProduct(data: InsertProduct, onComplete: @escaping () -> Void) {
         let product = CKRecord(recordType: RecordType.Products)
         product.setValue(data.title, forKey: "title")
         product.setValue(data.price, forKey: "price")
         product.setValue(data.quantity, forKey: "quantity")
+        product.setValue(data.address, forKey: "address")
+        product.setValue(CKAsset(fileURL: data.imageURL), forKey: "image")
         
         CKContainer.default().publicCloudDatabase.save(product) { (record, error) in
             if let error = error {
