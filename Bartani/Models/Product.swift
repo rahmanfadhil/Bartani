@@ -13,7 +13,7 @@ struct Product {
     var title: String
     var price: Int
     var quantity: String
-    var address: String
+    var description: String
     var image: UIImage?
     
     static func fromRecords(data: [CKRecord]) -> [Product] {
@@ -25,7 +25,7 @@ struct Product {
                     title: record.value(forKey: "title") as? String ?? "",
                     price: record.value(forKey: "price") as? Int ?? 0,
                     quantity: record.value(forKey: "quantity") as? String ?? "",
-                    address: record.value(forKey: "address") as? String ?? "",
+                    description: record.value(forKey: "description") as? String ?? "",
                     image: UIImage(data: data as Data)
                 ))
             }
