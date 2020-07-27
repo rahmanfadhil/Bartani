@@ -89,4 +89,12 @@ struct CloudKitHelper {
             }
         }
     }
+    
+     // MARK: - Delete Record
+    
+    static func delete(withRecordID recordID: CKRecord.ID,
+                       completionHandler: @escaping (CKRecord.ID?, Error?) -> Void){
+        
+        
+    }
 }

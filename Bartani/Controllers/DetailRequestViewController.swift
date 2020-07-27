@@ -9,6 +9,8 @@
 import UIKit
 
 class DetailRequestViewController: UIViewController {
+    
+    var product : Product?
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var nameProductLabel: UILabel!
@@ -23,10 +25,21 @@ class DetailRequestViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        productImageView.image = product?.image
+        nameProductLabel.text = product?.title
+        weightProductLabel.text = product?.quantity
+        
+         if let price = product?.price {
+            priceProductLabel.text = "Rp \(price)"
+        }
     }
 
-    @IBAction func deleteOffers(_ sender: Any) {
+    @IBAction func showDeleteOffer(_ sender: UIButton) {
+        let alert = UIAlertController(title: <#String?#>, message: "This offer will be deleted from this app", preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: "Delete Offers", style: .cancel, handler: {(ACTION) in
+            
+        }))
     }
     /*
     // MARK: - Navigation

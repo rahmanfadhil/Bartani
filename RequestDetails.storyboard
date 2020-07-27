@@ -82,7 +82,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete" image="DeleteIcon"/>
                                 <connections>
-                                    <action selector="deleteOffers:" destination="udK-X2-eVP" eventType="touchUpInside" id="K2A-OE-Dz7"/>
+                                    <action selector="showDeleteOffer:" destination="udK-X2-eVP" eventType="touchUpInside" id="K2A-OE-Dz7"/>
                                 </connections>
                             </button>
                         </subviews>
