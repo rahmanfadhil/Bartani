@@ -113,11 +113,11 @@
                                     <constraint firstAttribute="height" constant="40" id="pxC-XE-GcD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Confirm">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="confirmTapped:" destination="ghV-3v-5Kb" eventType="touchUpInside" id="qe1-Mt-ptX"/>
+                                    <action selector="nextTapped:" destination="ghV-3v-5Kb" eventType="touchUpInside" id="qe1-Mt-ptX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOo-N0-C3i">
@@ -197,18 +197,68 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Product" id="CNV-Hj-mhG"/>
                     <connections>
-                        <outlet property="confirmButton" destination="3Lk-yA-zGc" id="i4d-Rd-yIt"/>
+                        <outlet property="nextButton" destination="3Lk-yA-zGc" id="i4d-Rd-yIt"/>
                         <outlet property="productAddressTextField" destination="LAl-rh-9Mh" id="ldz-s0-IuC"/>
                         <outlet property="productImage" destination="nCj-gO-Yee" id="uiG-53-J9B"/>
                         <outlet property="productPriceTextField" destination="hJf-Z8-deL" id="eJ3-ro-GhC"/>
                         <outlet property="productQuantityTextField" destination="U2i-Xn-nxL" id="RZJ-9F-KMY"/>
                         <outlet property="productTitleTextField" destination="vwU-n6-A0a" id="SSi-6H-Uec"/>
-                        <segue destination="oNN-5Y-IoC" kind="show" identifier="toSuccessPage" id="cfq-WQ-eoA"/>
+                        <segue destination="fvg-nh-8Xv" kind="show" identifier="toLocation" id="LGS-dK-vGv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eun-sM-muX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1937.68115942029" y="827.67857142857144"/>
+        </scene>
+        <!--Set Location-->
+        <scene sceneID="NGf-WV-bPR">
+            <objects>
+                <viewController id="fvg-nh-8Xv" customClass="SetLocationViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lhc-Jv-BKs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EGP-OY-yqq">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mY6-LQ-aGa">
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kHy-f0-BVs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmTapped:" destination="fvg-nh-8Xv" eventType="touchUpInside" id="y0t-mK-AGC"/>
+                                    <action selector="nextTapped:" destination="ghV-3v-5Kb" eventType="touchUpInside" id="tSt-O4-1dE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yIW-st-2Th" firstAttribute="bottom" secondItem="mY6-LQ-aGa" secondAttribute="bottom" constant="20" id="1VH-Od-Hj9"/>
+                            <constraint firstItem="EGP-OY-yqq" firstAttribute="trailing" secondItem="yIW-st-2Th" secondAttribute="trailing" id="2gJ-9w-Ct9"/>
+                            <constraint firstItem="yIW-st-2Th" firstAttribute="trailing" secondItem="mY6-LQ-aGa" secondAttribute="trailing" constant="20" id="4IX-Vf-1CJ"/>
+                            <constraint firstItem="EGP-OY-yqq" firstAttribute="leading" secondItem="yIW-st-2Th" secondAttribute="leading" id="RzF-Ws-APX"/>
+                            <constraint firstAttribute="bottom" secondItem="EGP-OY-yqq" secondAttribute="bottom" id="jXl-QK-ixL"/>
+                            <constraint firstItem="mY6-LQ-aGa" firstAttribute="leading" secondItem="yIW-st-2Th" secondAttribute="leading" constant="20" id="loP-3k-5U0"/>
+                            <constraint firstItem="EGP-OY-yqq" firstAttribute="top" secondItem="yIW-st-2Th" secondAttribute="top" id="rhn-fo-QLz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yIW-st-2Th"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Set Location" id="c52-zD-hyj"/>
+                    <connections>
+                        <outlet property="confirmButton" destination="mY6-LQ-aGa" id="3Kw-tL-jHM"/>
+                        <outlet property="mapView" destination="EGP-OY-yqq" id="Yix-oZ-xoR"/>
+                        <segue destination="oNN-5Y-IoC" kind="show" identifier="toSuccess" id="awZ-jq-f4i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUl-aQ-Ygh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2779.7101449275365" y="827.67857142857144"/>
         </scene>
         <!--Success-->
         <scene sceneID="rZ5-E6-7gU">
@@ -270,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1m-bY-xDV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2713.04347826087" y="827.67857142857144"/>
+            <point key="canvasLocation" x="3596" y="828"/>
         </scene>
         <!--Add Product-->
         <scene sceneID="QYY-Q7-wAp">
