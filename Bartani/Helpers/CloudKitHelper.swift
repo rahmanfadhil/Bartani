@@ -139,7 +139,7 @@ struct CloudKitHelper {
             
             let reference = CKRecord.Reference(recordID: userID!, action: .none)
             let predicate = NSPredicate(format: "buyer == %@", reference)
-            let query = CKQuery(recordType: RecordType.Products, predicate: predicate)
+            let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
             container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
                 if let err = err {
@@ -166,7 +166,7 @@ struct CloudKitHelper {
             
             let reference = CKRecord.Reference(recordID: userID!, action: .none)
             let predicate = NSPredicate(format: "seller == %@", reference)
-            let query = CKQuery(recordType: RecordType.Products, predicate: predicate)
+            let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
             container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
                 if let err = err {
