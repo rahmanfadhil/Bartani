@@ -27,6 +27,7 @@
 		1686985024CA809000E867C5 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1686984F24CA809000E867C5 /* SetLocationViewController.swift */; };
 		16D682FF24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D682FE24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift */; };
 		16D6830124CE8E8C00CB52FE /* NewProductSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D6830024CE8E8C00CB52FE /* NewProductSuccessViewController.swift */; };
+		16D6830324CE976E00CB52FE /* BarterConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D6830224CE976E00CB52FE /* BarterConfirmViewController.swift */; };
 		16DCB8C824C7CDAE00C7EAC8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DCB8C724C7CDAE00C7EAC8 /* CloudKit.framework */; };
 		16DCB8CB24C7D0BA00C7EAC8 /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DCB8CA24C7D0BA00C7EAC8 /* CloudKitHelper.swift */; };
 		16DCB8CE24C7E02E00C7EAC8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DCB8CD24C7E02E00C7EAC8 /* Product.swift */; };
@@ -59,6 +60,7 @@
 		1686984F24CA809000E867C5 /* SetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
 		16D682FE24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTopAlignLabel.swift; sourceTree = "<group>"; };
 		16D6830024CE8E8C00CB52FE /* NewProductSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductSuccessViewController.swift; sourceTree = "<group>"; };
+		16D6830224CE976E00CB52FE /* BarterConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarterConfirmViewController.swift; sourceTree = "<group>"; };
 		16DCB8C524C7CD9500C7EAC8 /* Bartani.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bartani.entitlements; sourceTree = "<group>"; };
 		16DCB8C724C7CDAE00C7EAC8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		16DCB8CA24C7D0BA00C7EAC8 /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				1604FFBA24C15978000AE266 /* BarterViewController.swift */,
 				1604FFBC24C15A19000AE266 /* HistoryTableViewController.swift */,
 				1686984F24CA809000E867C5 /* SetLocationViewController.swift */,
+				16D6830224CE976E00CB52FE /* BarterConfirmViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				16D682FF24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift in Sources */,
 				1686985024CA809000E867C5 /* SetLocationViewController.swift in Sources */,
 				16DCB8CE24C7E02E00C7EAC8 /* Product.swift in Sources */,
+				16D6830324CE976E00CB52FE /* BarterConfirmViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

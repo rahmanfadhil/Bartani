@@ -101,28 +101,19 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - Proceed
 
     @IBAction func proceedTapped(_ sender: Any) {
-        if let selectedProduct = selectedProduct, let product = product {
-            CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
-                buyerName: "John",
-                sellerName: "Doe",
-                buyerProduct: selectedProduct.ckRecord,
-                sellerProduct: product.ckRecord
-            )) {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "toSuccess", sender: nil)
-                }
-            }
+        if selectedProduct != nil && product != nil {
+            performSegue(withIdentifier: "toConfirm", sender: nil)
         }
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? BarterConfirmViewController, let buyerProduct = selectedProduct, let sellerProduct = product {
+            vc.buyerProduct = buyerProduct
+            vc.sellerProduct = sellerProduct
+        }
     }
-    */
 
 }
