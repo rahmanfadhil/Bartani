@@ -263,7 +263,7 @@
         <!--Success-->
         <scene sceneID="rZ5-E6-7gU">
             <objects>
-                <viewController id="oNN-5Y-IoC" customClass="RequestSubmittedViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oNN-5Y-IoC" customClass="NewProductSuccessViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="od3-d9-lcv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,7 +315,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Success" id="Zuh-Q3-98Y"/>
                     <connections>
-                        <outlet property="okayButton" destination="VBS-tJ-PdK" id="0Ko-uR-PPA"/>
+                        <outlet property="okayButton" destination="VBS-tJ-PdK" id="95y-LH-NSM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1m-bY-xDV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

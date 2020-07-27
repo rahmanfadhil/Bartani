@@ -47,6 +47,8 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        CloudKitHelper.fetchMyOffers()
+        CloudKitHelper.fetchMyRequests()
         CloudKitHelper.fetchProducts { (records) in
             self.products = records
             DispatchQueue.main.async {

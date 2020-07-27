@@ -367,18 +367,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Success!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-BL-9GG">
-                                <rect key="frame" x="172" y="438" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success confirmation" translatesAutoresizingMaskIntoConstraints="NO" id="rAw-eM-odp">
+                                <rect key="frame" x="110" y="308.5" width="194" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="p6X-WS-nrw"/>
+                                    <constraint firstAttribute="width" constant="194" id="u4f-mG-5Hv"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3F-g1-v4G">
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="azZ-qs-5Su"/>
+                                    <constraint firstAttribute="height" constant="40" id="c4y-Oq-3Ty"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Okay">
+                                    <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="okayTapped:" destination="WuW-oH-mri" eventType="touchUpInside" id="ryy-ER-FNu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Product Added Successfully!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6C-gw-jpZ">
+                                <rect key="frame" x="85" y="507.5" width="244" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="244" id="YWW-Jf-F68"/>
+                                    <constraint firstAttribute="height" constant="90" id="yY2-xR-hGs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" red="0.12941176469999999" green="0.37647058820000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rAw-eM-odp" firstAttribute="centerY" secondItem="p7r-dt-Sfz" secondAttribute="centerY" constant="-50" id="2IO-lN-5xy"/>
+                            <constraint firstItem="K6C-gw-jpZ" firstAttribute="top" secondItem="rAw-eM-odp" secondAttribute="bottom" constant="20" id="3VI-rF-szI"/>
+                            <constraint firstItem="S7w-AJ-cRc" firstAttribute="bottom" secondItem="D3F-g1-v4G" secondAttribute="bottom" constant="20" id="4WR-Ap-fe6"/>
+                            <constraint firstItem="rAw-eM-odp" firstAttribute="centerX" secondItem="p7r-dt-Sfz" secondAttribute="centerX" id="Usz-bN-GD0"/>
+                            <constraint firstItem="S7w-AJ-cRc" firstAttribute="trailing" secondItem="D3F-g1-v4G" secondAttribute="trailing" constant="20" id="X7L-es-38i"/>
+                            <constraint firstItem="D3F-g1-v4G" firstAttribute="leading" secondItem="S7w-AJ-cRc" secondAttribute="leading" constant="20" id="cs1-Vu-OgP"/>
+                            <constraint firstItem="K6C-gw-jpZ" firstAttribute="centerX" secondItem="p7r-dt-Sfz" secondAttribute="centerX" id="gW8-lw-joQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="S7w-AJ-cRc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Success" id="uLm-fA-W1G"/>
+                    <connections>
+                        <outlet property="okayButton" destination="D3F-g1-v4G" id="K9K-qH-xfr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Yk-a1-Sh9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,5 +445,6 @@
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="image-placeholder" width="500" height="500"/>
+        <image name="success confirmation" width="170" height="170"/>
     </resources>
 </document>
