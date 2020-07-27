@@ -68,7 +68,7 @@ struct CloudKitHelper {
             let buyer = CKRecord.Reference(recordID: userID, action: .none)
             let seller = CKRecord.Reference(recordID: sellerID, action: .none)
             offer.setValue(buyer, forKey: "buyer")
-            offer.setValue(seller, forKey: "buyer")
+            offer.setValue(seller, forKey: "seller")
             
             CKContainer.default().publicCloudDatabase.save(offer) { (record, error) in
                 if let error = error {
@@ -122,6 +122,60 @@ struct CloudKitHelper {
 
                 guard let records = records else { return }
                 onComplete(Product.fromRecords(data: records))
+            }
+        }
+    }
+    
+    // MARK: - Fetch my barter offers
+    
+    static func fetchMyOffers() {
+        let container = CKContainer.default()
+        
+        container.fetchUserRecordID { (userID, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            let reference = CKRecord.Reference(recordID: userID!, action: .none)
+            let predicate = NSPredicate(format: "buyer == %@", reference)
+            let query = CKQuery(recordType: RecordType.Products, predicate: predicate)
+            
+            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    return
+                }
+
+                guard let records = records else { return }
+                print(records)
+            }
+        }
+    }
+    
+    // MARK: - Fetch my requests from other people
+    
+    static func fetchMyRequests() {
+        let container = CKContainer.default()
+        
+        container.fetchUserRecordID { (userID, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            let reference = CKRecord.Reference(recordID: userID!, action: .none)
+            let predicate = NSPredicate(format: "seller == %@", reference)
+            let query = CKQuery(recordType: RecordType.Products, predicate: predicate)
+            
+            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    return
+                }
+
+                guard let records = records else { return }
+                print(records)
             }
         }
     }
