@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CloudKit
 
 struct CloudKitHelper {
@@ -18,8 +19,9 @@ struct CloudKitHelper {
         let title: String
         let price: Int
         let quantity: String
-        let address: String
+        let description: String
         let imageURL: URL
+        let location: CLLocation
     }
     
     // MARK: - Save product
@@ -29,8 +31,9 @@ struct CloudKitHelper {
         product.setValue(data.title, forKey: "title")
         product.setValue(data.price, forKey: "price")
         product.setValue(data.quantity, forKey: "quantity")
-        product.setValue(data.address, forKey: "address")
+        product.setValue(data.description, forKey: "description")
         product.setValue(CKAsset(fileURL: data.imageURL), forKey: "image")
+        product.setValue(data.location, forKey: "location")
         
         CKContainer.default().publicCloudDatabase.save(product) { (record, error) in
             if let error = error {

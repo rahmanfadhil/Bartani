@@ -24,6 +24,7 @@
 		164C67EF24C5333B006D681F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67ED24C5333B006D681F /* Profile.storyboard */; };
 		164C67F224C53357006D681F /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67F024C53357006D681F /* Shop.storyboard */; };
 		164C67F524C53373006D681F /* NewProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67F324C53373006D681F /* NewProduct.storyboard */; };
+		1686985024CA809000E867C5 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1686984F24CA809000E867C5 /* SetLocationViewController.swift */; };
 		16DCB8C824C7CDAE00C7EAC8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DCB8C724C7CDAE00C7EAC8 /* CloudKit.framework */; };
 		16DCB8CB24C7D0BA00C7EAC8 /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DCB8CA24C7D0BA00C7EAC8 /* CloudKitHelper.swift */; };
 		16DCB8CE24C7E02E00C7EAC8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DCB8CD24C7E02E00C7EAC8 /* Product.swift */; };
@@ -53,6 +54,7 @@
 		164C67EE24C5333B006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		164C67F124C53357006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/Shop.storyboard; sourceTree = "<group>"; };
 		164C67F424C53373006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/NewProduct.storyboard; sourceTree = "<group>"; };
+		1686984F24CA809000E867C5 /* SetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
 		16DCB8C524C7CD9500C7EAC8 /* Bartani.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bartani.entitlements; sourceTree = "<group>"; };
 		16DCB8C724C7CDAE00C7EAC8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		16DCB8CA24C7D0BA00C7EAC8 /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				1604FFB824C15970000AE266 /* RequestSubmittedViewController.swift */,
 				1604FFBA24C15978000AE266 /* BarterViewController.swift */,
 				1604FFBC24C15A19000AE266 /* HistoryTableViewController.swift */,
+				1686984F24CA809000E867C5 /* SetLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				1604FF9824C14F20000AE266 /* AppDelegate.swift in Sources */,
 				16F5A99624C549DA00DBF7D7 /* ProductCollectionViewCell.swift in Sources */,
 				1604FF9A24C14F20000AE266 /* SceneDelegate.swift in Sources */,
+				1686985024CA809000E867C5 /* SetLocationViewController.swift in Sources */,
 				16DCB8CE24C7E02E00C7EAC8 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,7 +428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Bartani/Bartani.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CJNFX75753;
+				DEVELOPMENT_TEAM = WX488TK3G3;
 				INFOPLIST_FILE = Bartani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,7 +447,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Bartani/Bartani.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CJNFX75753;
+				DEVELOPMENT_TEAM = WX488TK3G3;
 				INFOPLIST_FILE = Bartani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
