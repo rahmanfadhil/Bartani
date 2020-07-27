@@ -92,8 +92,18 @@ struct CloudKitHelper {
     
      // MARK: - Delete Record
     
-    static func delete(withRecordID recordID: CKRecord.ID,
-                       completionHandler: @escaping (CKRecord.ID?, Error?) -> Void){
+    static func deleteRecord(recordID: CKRecord.ID,
+                       completionHandler: @escaping (Result<CKRecord.ID, Error>) -> ()){
+        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordID) { (recordId, err) in
+            if let err = err{
+                completionHandler(.failure(err))
+                return
+            }
+            completionHandler(.success(recordId!))
+            
+        }
+        
+        
         
         
     }
