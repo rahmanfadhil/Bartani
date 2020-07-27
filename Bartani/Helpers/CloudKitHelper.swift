@@ -13,6 +13,7 @@ import CloudKit
 struct CloudKitHelper {
     struct RecordType {
         static let Products = "Products"
+        static let Offers = "Offers"
     }
     
     struct InsertProduct {
@@ -22,6 +23,13 @@ struct CloudKitHelper {
         let description: String
         let imageURL: URL
         let location: CLLocation
+    }
+    
+    struct InsertOffer {
+        let buyerName: String
+        let sellerName: String
+        let buyerProduct: CKRecord
+        let sellerProduct: CKRecord
     }
     
     // MARK: - Save product
@@ -42,6 +50,34 @@ struct CloudKitHelper {
             }
             
             onComplete()
+        }
+    }
+    
+    // MARK: - Save offer
+    
+    static func saveOffer(data: InsertOffer, onComplete: @escaping () -> Void) {
+        let offer = CKRecord(recordType: RecordType.Offers)
+        offer.setValue(data.buyerName, forKey: "buyerName")
+        offer.setValue(data.sellerName, forKey: "sellerName")
+        let buyerProductReference = CKRecord.Reference(record: data.buyerProduct, action: .deleteSelf)
+        offer.setValue(buyerProductReference, forKey: "buyerProduct")
+        let sellerProductReference = CKRecord.Reference(record: data.sellerProduct, action: .deleteSelf)
+        offer.setValue(sellerProductReference, forKey: "sellerProduct")
+        
+        if let userID = data.buyerProduct.creatorUserRecordID, let sellerID = data.sellerProduct.creatorUserRecordID {
+            let buyer = CKRecord.Reference(recordID: userID, action: .none)
+            let seller = CKRecord.Reference(recordID: sellerID, action: .none)
+            offer.setValue(buyer, forKey: "buyer")
+            offer.setValue(seller, forKey: "buyer")
+            
+            CKContainer.default().publicCloudDatabase.save(offer) { (record, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                onComplete()
+            }
         }
     }
     

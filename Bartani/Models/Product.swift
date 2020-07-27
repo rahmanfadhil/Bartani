@@ -15,6 +15,7 @@ struct Product {
     var quantity: String
     var description: String
     var image: UIImage?
+    var ckRecord: CKRecord
     
     static func fromRecords(data: [CKRecord]) -> [Product] {
         var products = [Product]()
@@ -26,7 +27,8 @@ struct Product {
                     price: record.value(forKey: "price") as? Int ?? 0,
                     quantity: record.value(forKey: "quantity") as? String ?? "",
                     description: record.value(forKey: "description") as? String ?? "",
-                    image: UIImage(data: data as Data)
+                    image: UIImage(data: data as Data),
+                    ckRecord: record
                 ))
             }
         }

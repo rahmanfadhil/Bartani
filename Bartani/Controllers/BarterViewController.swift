@@ -11,6 +11,7 @@ import UIKit
 class BarterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var products = [Product]()
+    var selectedProduct: Product?
     
     var product: Product?
     
@@ -92,7 +93,28 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedProduct = products[indexPath.row]
+    }
+    
+    // MARK: - Proceed
 
+    @IBAction func proceedTapped(_ sender: Any) {
+        if let selectedProduct = selectedProduct, let product = product {
+            CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
+                buyerName: "John",
+                sellerName: "Doe",
+                buyerProduct: selectedProduct.ckRecord,
+                sellerProduct: product.ckRecord
+            )) {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toSuccess", sender: nil)
+                }
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
