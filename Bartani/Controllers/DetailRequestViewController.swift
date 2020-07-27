@@ -10,13 +10,24 @@ import UIKit
 
 class DetailRequestViewController: UIViewController {
 
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var nameProductLabel: UILabel!
+    @IBOutlet weak var weightProductLabel: UILabel!
+    @IBOutlet weak var priceProductLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var descriptionTitleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
+    @IBAction func deleteOffers(_ sender: Any) {
+        
+    }
     /*
     // MARK: - Navigation
 
