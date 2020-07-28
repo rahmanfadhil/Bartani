@@ -49,6 +49,7 @@
                     <navigationItem key="navigationItem" title="Shop" id="Pbs-og-DzK"/>
                     <connections>
                         <outlet property="productCollectionView" destination="s7y-uo-djF" id="Sub-4F-32k"/>
+                        <outlet property="searchBar" destination="enn-Ae-QaH" id="zMo-WP-wo7"/>
                         <segue destination="79i-zr-qLo" kind="show" identifier="toProductDetail" id="0ex-11-u2i"/>
                     </connections>
                 </viewController>

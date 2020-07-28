@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ShopViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ShopViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     var products = [Product]()
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,6 +45,19 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         productCollectionView.dataSource = self
         
         navigationController?.isNavigationBarHidden = true
+        
+        searchBar.delegate = self
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            CloudKitHelper.searchProducts(search: text) { (records) in
+                self.products = records
+                DispatchQueue.main.async {
+                    self.productCollectionView.reloadData()
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

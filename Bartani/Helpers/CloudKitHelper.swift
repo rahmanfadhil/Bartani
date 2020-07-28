@@ -81,6 +81,31 @@ struct CloudKitHelper {
         }
     }
     
+    // MARK: - Search products
+    
+    static func searchProducts(search: String, onComplete: @escaping ([Product]) -> Void) {
+        let container = CKContainer.default()
+        var predicate: NSPredicate
+        
+        if search.count >= 1 {
+            predicate = NSPredicate(format: "allTokens TOKENMATCHES[cdl] %@", search)
+        } else {
+            predicate = NSPredicate(value: true)
+        }
+        
+        let query = CKQuery(recordType: RecordType.Products, predicate: predicate)
+        
+        container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let records = records else { return }
+            onComplete(Product.fromRecords(data: records))
+        }
+    }
+    
     // MARK: - All products
     
     static func fetchProducts(onComplete: @escaping ([Product]) -> Void) {
