@@ -15,7 +15,7 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = UIColor.red
+        refreshControl.tintColor = #colorLiteral(red: 1, green: 0.5843137255, blue: 0, alpha: 1)
         return refreshControl
     }()
 
