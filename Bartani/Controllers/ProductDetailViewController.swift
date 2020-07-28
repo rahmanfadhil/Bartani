@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol ProductDetailDelegate {
+    func searchProducts(text: String)
+}
+
 class ProductDetailViewController: UIViewController {
     
     var product: Product?
-
+    var delegate: ProductDetailDelegate?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var barterButton: UIButton!
     @IBOutlet weak var productThumbnailImage: UIImageView!
@@ -40,6 +45,7 @@ class ProductDetailViewController: UIViewController {
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+        delegate?.searchProducts(text: "Air")
     }
     
 
