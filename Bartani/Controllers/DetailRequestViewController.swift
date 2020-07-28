@@ -35,11 +35,24 @@ class DetailRequestViewController: UIViewController {
     }
 
     @IBAction func showDeleteOffer(_ sender: UIButton) {
-        let alert = UIAlertController(title: <#String?#>, message: "This offer will be deleted from this app", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Delete Offers", style: .cancel, handler: {(ACTION) in
             
         }))
+    }
+    
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toRequestDetail" {
+            if let vc = segue.destination as? ProfileViewController {
+                vc.self
+            }
+        }
     }
     /*
     // MARK: - Navigation
