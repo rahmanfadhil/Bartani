@@ -12,7 +12,7 @@ protocol ProductDetailDelegate {
     func searchProducts(text: String)
 }
 
-class ProductDetailViewController: UIViewController {
+class ProductDetailViewController: UIViewController, UISearchBarDelegate {
     
     var product: Product?
     var delegate: ProductDetailDelegate?
@@ -25,6 +25,7 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var sellerDistanceLabel: UILabel!
     @IBOutlet weak var productDescriptionLabel: VerticalTopAlignLabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,19 @@ class ProductDetailViewController: UIViewController {
         }
         
         searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
         productDescriptionLabel.text = product?.description
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-        delegate?.searchProducts(text: "Air")
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            navigationController?.popViewController(animated: true)
+            delegate?.searchProducts(text: text)
+        }
     }
     
 
