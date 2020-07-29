@@ -8,12 +8,31 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "OfferTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "cell")
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.rowHeight = 100
 
-        // Do any additional setup after loading the view.
+        profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OfferTableViewCell
+        return cell
     }
     
 
