@@ -151,9 +151,9 @@ struct CloudKitHelper {
         }
     }
     
-    // MARK: - Fetch my barter offers
+    // MARK: - Fetch my requests to other people
     
-    static func fetchMyOffers() {
+    static func fetchMyRequest() {
         let container = CKContainer.default()
         
         container.fetchUserRecordID { (userID, error) in
@@ -178,9 +178,9 @@ struct CloudKitHelper {
         }
     }
     
-    // MARK: - Fetch my requests from other people
+    // MARK: - Fetch other people's offers to my products
     
-    static func fetchMyRequests() {
+    static func fetchMyOffers() {
         let container = CKContainer.default()
         
         container.fetchUserRecordID { (userID, error) in
