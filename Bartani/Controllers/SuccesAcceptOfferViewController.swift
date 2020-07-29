@@ -1,5 +1,5 @@
 //
-//  MyOfferItemViewController.swift
+//  SuccesAcceptOfferViewController.swift
 //  Bartani
 //
 //  Created by Arif Rahman Sidik on 28/07/20.
@@ -8,16 +8,8 @@
 
 import UIKit
 
-class MyOfferItemViewController: UIViewController {
-    @IBOutlet weak var viewProductBox: UIView!
-    @IBOutlet weak var titleOfferLabel: UILabel!
-    @IBOutlet weak var imageProduct: UIImageView!
-    @IBOutlet weak var labelProductName: UILabel!
-    @IBOutlet weak var labelProductQuantity: UILabel!
-    @IBOutlet weak var labelProductPrice: UILabel!
-    @IBOutlet weak var labelRequestItem: UILabel!
-    @IBOutlet weak var collectionViewRequestItem: UICollectionView!
-    
+class SuccesAcceptOfferViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

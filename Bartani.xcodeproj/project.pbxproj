@@ -34,6 +34,7 @@
 		7F0E765224CFC71000D6DFD2 /* OfferDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F0E765124CFC71000D6DFD2 /* OfferDetails.storyboard */; };
 		7F0E765424CFCB5400D6DFD2 /* OfferDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E765324CFCB5400D6DFD2 /* OfferDetailsViewController.swift */; };
 		7F0E765624CFD87F00D6DFD2 /* MyOfferItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E765524CFD87F00D6DFD2 /* MyOfferItemViewController.swift */; };
+		7F0E765824CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E765724CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift */; };
 		7F2F02E124C547DE00544571 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F2F02E024C547DE00544571 /* ImageAssets.xcassets */; };
 		7FE75CA724CE789000360032 /* RequestDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE75CA624CE789000360032 /* RequestDetails.storyboard */; };
 		7FE75CA924CE794B00360032 /* DetailRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE75CA824CE794B00360032 /* DetailRequestViewController.swift */; };
@@ -70,6 +71,7 @@
 		7F0E765124CFC71000D6DFD2 /* OfferDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OfferDetails.storyboard; sourceTree = "<group>"; };
 		7F0E765324CFCB5400D6DFD2 /* OfferDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDetailsViewController.swift; sourceTree = "<group>"; };
 		7F0E765524CFD87F00D6DFD2 /* MyOfferItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOfferItemViewController.swift; sourceTree = "<group>"; };
+		7F0E765724CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccesAcceptOfferViewController.swift; sourceTree = "<group>"; };
 		7F2F02E024C547DE00544571 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
 		7FE75CA624CE789000360032 /* RequestDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RequestDetails.storyboard; sourceTree = "<group>"; };
 		7FE75CA824CE794B00360032 /* DetailRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRequestViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				7FE75CA824CE794B00360032 /* DetailRequestViewController.swift */,
 				7F0E765324CFCB5400D6DFD2 /* OfferDetailsViewController.swift */,
 				7F0E765524CFD87F00D6DFD2 /* MyOfferItemViewController.swift */,
+				7F0E765724CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				1604FFBD24C15A19000AE266 /* HistoryTableViewController.swift in Sources */,
 				1604FF9824C14F20000AE266 /* AppDelegate.swift in Sources */,
 				16F5A99624C549DA00DBF7D7 /* ProductCollectionViewCell.swift in Sources */,
+				7F0E765824CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift in Sources */,
 				1604FF9A24C14F20000AE266 /* SceneDelegate.swift in Sources */,
 				1686985024CA809000E867C5 /* SetLocationViewController.swift in Sources */,
 				7FE75CA924CE794B00360032 /* DetailRequestViewController.swift in Sources */,

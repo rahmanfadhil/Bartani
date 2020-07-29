@@ -10,6 +10,18 @@ import UIKit
 
 class OfferDetailsViewController: UIViewController {
 
+    @IBOutlet weak var imageProduct: UIImageView!
+    @IBOutlet weak var labelProductName: UILabel!
+    @IBOutlet weak var labelProductQuantity: UILabel!
+    @IBOutlet weak var labelProductPrice: UILabel!
+    @IBOutlet weak var labelUserDistance: UILabel!
+    @IBOutlet weak var labelProductDescriptionTitle: UILabel!
+    @IBOutlet weak var labelDescription: UILabel!
+    @IBOutlet weak var buttonCallOwner: UIButton!
+    @IBOutlet weak var buttonAccept: UIButton!
+    @IBOutlet weak var buttonDecline: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
