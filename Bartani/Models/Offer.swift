@@ -14,8 +14,6 @@ struct Offer {
     var sellerName: String
     var buyerProduct: Product?
     var sellerProduct: Product?
-    var location: String
-    var isMine: Bool
     
     static func fromRecords(records: [CKRecord]) -> [Offer] {
         return records.map { (record) -> Offer in
@@ -23,9 +21,7 @@ struct Offer {
                 buyerName: record.value(forKey: "buyerName") as? String ?? "",
                 sellerName: record.value(forKey: "sellerName") as? String ?? "",
                 buyerProduct: nil,
-                sellerProduct: nil,
-                location: record.value(forKey: "location") as? String ?? "",
-                isMine: false
+                sellerProduct: nil
             )
         }
     }

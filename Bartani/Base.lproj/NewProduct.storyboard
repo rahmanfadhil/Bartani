@@ -83,7 +83,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OP-sQ-8z3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OP-sQ-8z3">
                                 <rect key="frame" x="20" y="506" width="374" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="inC-jy-yXE"/>
@@ -92,7 +92,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Your Address ..." adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LAl-rh-9Mh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Please describe your product..." adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LAl-rh-9Mh">
                                 <rect key="frame" x="20" y="536" width="374" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="npj-lq-D1k"/>
@@ -263,7 +263,7 @@
         <!--Success-->
         <scene sceneID="rZ5-E6-7gU">
             <objects>
-                <viewController id="oNN-5Y-IoC" customClass="RequestSubmittedViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oNN-5Y-IoC" customClass="NewProductSuccessViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="od3-d9-lcv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,7 +315,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Success" id="Zuh-Q3-98Y"/>
                     <connections>
-                        <outlet property="okayButton" destination="VBS-tJ-PdK" id="0Ko-uR-PPA"/>
+                        <outlet property="okayButton" destination="VBS-tJ-PdK" id="95y-LH-NSM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1m-bY-xDV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -8,11 +8,21 @@
 
 import UIKit
 
-class ShopViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ShopViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, ProductDetailDelegate {
     
     var products = [Product]()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = #colorLiteral(red: 1, green: 0.5843137255, blue: 0, alpha: 1)
+        return refreshControl
+    }()
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productCollectionView: UICollectionView!
+    
+    // MARK: - Collection view
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
@@ -34,6 +44,8 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         performSegue(withIdentifier: "toProductDetail", sender: product)
     }
     
+    // MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,9 +56,11 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         productCollectionView.dataSource = self
         
         navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
+        searchBar.delegate = self
+        
+        productCollectionView.refreshControl = refreshControl
+        
         CloudKitHelper.fetchProducts { (records) in
             self.products = records
             DispatchQueue.main.async {
@@ -54,16 +68,45 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
     }
-
+    
+    // MARK: - Search bar
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            searchProducts(text: text)
+        }
+    }
+    
+    // MARK: - Search proudcts
+    
+    func searchProducts(text: String) {
+        CloudKitHelper.searchProducts(search: text) { (records) in
+            self.products = records
+            DispatchQueue.main.async {
+                self.productCollectionView.reloadData()
+            }
+        }
+    }
+    
+    // MARK: - Refresh control
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        CloudKitHelper.fetchProducts { (records) in
+            self.products = records
+            DispatchQueue.main.async {
+                self.productCollectionView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ProductDetailViewController, let product = sender as? Product {
+        if segue.identifier == "toProductDetail", let vc = segue.destination as? ProductDetailViewController, let product = sender as? Product {
             vc.product = product
+            vc.delegate = self
         }
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
 
 }

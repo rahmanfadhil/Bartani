@@ -13,6 +13,7 @@ import CloudKit
 struct CloudKitHelper {
     struct RecordType {
         static let Products = "Products"
+        static let Offers = "Offers"
     }
     
     struct InsertProduct {
@@ -22,6 +23,13 @@ struct CloudKitHelper {
         let description: String
         let imageURL: URL
         let location: CLLocation
+    }
+    
+    struct InsertOffer {
+        let buyerName: String
+        let sellerName: String
+        let buyerProduct: CKRecord
+        let sellerProduct: CKRecord
     }
     
     // MARK: - Save product
@@ -42,6 +50,59 @@ struct CloudKitHelper {
             }
             
             onComplete()
+        }
+    }
+    
+    // MARK: - Save offer
+    
+    static func saveOffer(data: InsertOffer, onComplete: @escaping () -> Void) {
+        let offer = CKRecord(recordType: RecordType.Offers)
+        offer.setValue(data.buyerName, forKey: "buyerName")
+        offer.setValue(data.sellerName, forKey: "sellerName")
+        let buyerProductReference = CKRecord.Reference(record: data.buyerProduct, action: .deleteSelf)
+        offer.setValue(buyerProductReference, forKey: "buyerProduct")
+        let sellerProductReference = CKRecord.Reference(record: data.sellerProduct, action: .deleteSelf)
+        offer.setValue(sellerProductReference, forKey: "sellerProduct")
+        
+        if let userID = data.buyerProduct.creatorUserRecordID, let sellerID = data.sellerProduct.creatorUserRecordID {
+            let buyer = CKRecord.Reference(recordID: userID, action: .none)
+            let seller = CKRecord.Reference(recordID: sellerID, action: .none)
+            offer.setValue(buyer, forKey: "buyer")
+            offer.setValue(seller, forKey: "seller")
+            
+            CKContainer.default().publicCloudDatabase.save(offer) { (record, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                onComplete()
+            }
+        }
+    }
+    
+    // MARK: - Search products
+    
+    static func searchProducts(search: String, onComplete: @escaping ([Product]) -> Void) {
+        let container = CKContainer.default()
+        var predicate: NSPredicate
+        
+        if search.count >= 1 {
+            predicate = NSPredicate(format: "allTokens TOKENMATCHES[cdl] %@", search)
+        } else {
+            predicate = NSPredicate(value: true)
+        }
+        
+        let query = CKQuery(recordType: RecordType.Products, predicate: predicate)
+        
+        container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let records = records else { return }
+            onComplete(Product.fromRecords(data: records))
         }
     }
     
@@ -90,21 +151,57 @@ struct CloudKitHelper {
         }
     }
     
-     // MARK: - Delete Record
+    // MARK: - Fetch my barter offers
     
-    static func deleteRecord(recordID: CKRecord.ID,
-                       completionHandler: @escaping (Result<CKRecord.ID, Error>) -> ()){
-        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordID) { (recordId, err) in
-            if let err = err{
-                completionHandler(.failure(err))
+    static func fetchMyOffers() {
+        let container = CKContainer.default()
+        
+        container.fetchUserRecordID { (userID, error) in
+            if let error = error {
+                print(error.localizedDescription)
                 return
             }
-            completionHandler(.success(recordId!))
             
+            let reference = CKRecord.Reference(recordID: userID!, action: .none)
+            let predicate = NSPredicate(format: "buyer == %@", reference)
+            let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
+            
+            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    return
+                }
+
+                guard let records = records else { return }
+                print(records)
+            }
         }
+    }
+    
+    // MARK: - Fetch my requests from other people
+    
+    static func fetchMyRequests() {
+        let container = CKContainer.default()
         
-        
-        
-        
+        container.fetchUserRecordID { (userID, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            let reference = CKRecord.Reference(recordID: userID!, action: .none)
+            let predicate = NSPredicate(format: "seller == %@", reference)
+            let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
+            
+            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    return
+                }
+
+                guard let records = records else { return }
+                print(records)
+            }
+        }
     }
 }

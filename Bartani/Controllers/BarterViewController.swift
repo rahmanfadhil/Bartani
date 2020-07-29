@@ -11,6 +11,7 @@ import UIKit
 class BarterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var products = [Product]()
+    var selectedProduct: Product?
     
     var product: Product?
     
@@ -92,15 +93,27 @@ class BarterViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedProduct = products[indexPath.row]
+    }
+    
+    // MARK: - Proceed
 
-    /*
+    @IBAction func proceedTapped(_ sender: Any) {
+        if selectedProduct != nil && product != nil {
+            performSegue(withIdentifier: "toConfirm", sender: nil)
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? BarterConfirmViewController, let buyerProduct = selectedProduct, let sellerProduct = product {
+            vc.buyerProduct = buyerProduct
+            vc.sellerProduct = sellerProduct
+        }
     }
-    */
 
 }

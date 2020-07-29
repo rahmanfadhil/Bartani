@@ -8,10 +8,15 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController {
+protocol ProductDetailDelegate {
+    func searchProducts(text: String)
+}
+
+class ProductDetailViewController: UIViewController, UISearchBarDelegate {
     
     var product: Product?
-
+    var delegate: ProductDetailDelegate?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var barterButton: UIButton!
     @IBOutlet weak var productThumbnailImage: UIImageView!
@@ -19,6 +24,8 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productQuantityLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var sellerDistanceLabel: UILabel!
+    @IBOutlet weak var productDescriptionLabel: VerticalTopAlignLabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +41,19 @@ class ProductDetailViewController: UIViewController {
         }
         
         searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        productDescriptionLabel.text = product?.description
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            navigationController?.popViewController(animated: true)
+            delegate?.searchProducts(text: text)
+        }
     }
     
 
