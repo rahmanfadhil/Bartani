@@ -73,6 +73,8 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
+            searchBar.text = text
+            searchBar.endEditing(false)
             searchProducts(text: text)
         }
     }
@@ -80,6 +82,7 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - Search proudcts
     
     func searchProducts(text: String) {
+        self.searchBar.text = text
         CloudKitHelper.searchProducts(search: text) { (records) in
             self.products = records
             DispatchQueue.main.async {

@@ -14,6 +14,7 @@ struct Product {
     var price: Int
     var quantity: String
     var description: String
+    var location: CLLocation?
     var image: UIImage?
     var ckRecord: CKRecord
     
@@ -27,6 +28,7 @@ struct Product {
                     price: record.value(forKey: "price") as? Int ?? 0,
                     quantity: record.value(forKey: "quantity") as? String ?? "",
                     description: record.value(forKey: "description") as? String ?? "",
+                    location: record.value(forKey: "location") as? CLLocation,
                     image: UIImage(data: data as Data),
                     ckRecord: record
                 ))
