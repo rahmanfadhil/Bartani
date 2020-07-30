@@ -11,6 +11,7 @@ import UIKit
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    var offers = [Offer]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +22,30 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.rowHeight = 132 + 20
+        tableView.rowHeight = 120
         tableView.separatorStyle = .none
 
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
+        
+        CloudKitHelper.fetchMyOffers { (offers) in
+            print(offers)
+            self.offers = offers
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return offers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OfferTableViewCell
+        let offer = offers[indexPath.row]
+        cell.productTitle.text = offer.buyerProduct.title
+        cell.productDescription.text = offer.buyerProduct.description
+        cell.thumbnailImage.image = offer.buyerProduct.image
         return cell
     }
     

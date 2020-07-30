@@ -22,19 +22,27 @@ struct Product {
         var products = [Product]()
         
         for record in data {
-            if let image = record.value(forKey: "image") as? CKAsset, let url = image.fileURL, let data = NSData(contentsOf: url) {
-                products.append(Product(
-                    title: record.value(forKey: "title") as? String ?? "",
-                    price: record.value(forKey: "price") as? Int ?? 0,
-                    quantity: record.value(forKey: "quantity") as? String ?? "",
-                    description: record.value(forKey: "description") as? String ?? "",
-                    location: record.value(forKey: "location") as? CLLocation,
-                    image: UIImage(data: data as Data),
-                    ckRecord: record
-                ))
+            if let product = fromRecord(record: record) {
+                products.append(product)
             }
         }
         
         return products
+    }
+    
+    static func fromRecord(record: CKRecord) -> Product? {
+        if let image = record.value(forKey: "image") as? CKAsset, let url = image.fileURL, let data = NSData(contentsOf: url) {
+            return Product(
+                title: record.value(forKey: "title") as? String ?? "",
+                price: record.value(forKey: "price") as? Int ?? 0,
+                quantity: record.value(forKey: "quantity") as? String ?? "",
+                description: record.value(forKey: "description") as? String ?? "",
+                location: record.value(forKey: "location") as? CLLocation,
+                image: UIImage(data: data as Data),
+                ckRecord: record
+            )
+        }
+        
+        return nil
     }
 }

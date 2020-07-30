@@ -9,15 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="KGk-i7-Jjw" customClass="OfferTableViewCell" customModule="Bartani" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="OfferTableViewCell" customModule="Bartani" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXP-3P-9o1">
-                        <rect key="frame" x="132" y="16" width="172" height="29"/>
+                        <rect key="frame" x="100" y="16" width="204" height="29"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="29" id="HhK-7P-hRX"/>
                         </constraints>
@@ -26,13 +26,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cabai" translatesAutoresizingMaskIntoConstraints="NO" id="1Mo-DV-sg1">
-                        <rect key="frame" x="16" y="16" width="100" height="100"/>
+                        <rect key="frame" x="16" y="16" width="68" height="68"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="ce3-r3-IiE"/>
+                            <constraint firstAttribute="width" constant="68" id="ce3-r3-IiE"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k4-rp-YCI" customClass="VerticalTopAlignLabel" customModule="Bartani" customModuleProvider="target">
-                        <rect key="frame" x="132" y="61" width="188" height="55"/>
+                        <rect key="frame" x="100" y="61" width="220" height="23"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -55,10 +55,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="boxView" destination="H2p-sc-9uM" id="HWj-5w-GLv"/>
+                <outlet property="productDescription" destination="9k4-rp-YCI" id="5tN-W9-Jal"/>
                 <outlet property="productTitle" destination="WXP-3P-9o1" id="q8Y-i1-nrc"/>
                 <outlet property="thumbnailImage" destination="1Mo-DV-sg1" id="lxj-Da-xCz"/>
             </connections>
-            <point key="canvasLocation" x="81.159420289855078" y="168.08035714285714"/>
+            <point key="canvasLocation" x="81.159420289855078" y="157.36607142857142"/>
         </tableViewCell>
     </objects>
     <resources>

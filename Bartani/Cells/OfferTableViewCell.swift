@@ -13,6 +13,7 @@ class OfferTableViewCell: UITableViewCell {
     @IBOutlet weak var boxView: UIView!
     @IBOutlet weak var thumbnailImage: UIImageView!
     
+    @IBOutlet weak var productDescription: VerticalTopAlignLabel!
     @IBOutlet weak var productTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
