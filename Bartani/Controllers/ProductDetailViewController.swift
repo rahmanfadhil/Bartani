@@ -34,9 +34,18 @@ class ProductDetailViewController: UIViewController, UISearchBarDelegate, CLLoca
         
         barterButton.layer.cornerRadius = 6
         
-        productTitleLabel.text = product?.title
+        if let title = product?.title, let quantity = product?.quantity {
+            productTitleLabel.text = "\(title) (\(quantity))"
+        }
+        
         productThumbnailImage.image = product?.image
-        productQuantityLabel.text = product?.quantity
+        
+        if let date = product?.harvestedAt {
+            let formatter = RelativeDateTimeFormatter()
+            let time = formatter.localizedString(for: date, relativeTo: Date())
+            productQuantityLabel.text = "Harvested \(time)"
+        }
+        
         
         if let price = product?.price {
             productPriceLabel.text = "Rp \(price)"

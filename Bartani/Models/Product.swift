@@ -17,6 +17,7 @@ struct Product {
     var location: CLLocation?
     var image: UIImage?
     var ckRecord: CKRecord
+    var harvestedAt: Date
     
     static func fromRecords(data: [CKRecord]) -> [Product] {
         var products = [Product]()
@@ -31,7 +32,7 @@ struct Product {
     }
     
     static func fromRecord(record: CKRecord) -> Product? {
-        if let image = record.value(forKey: "image") as? CKAsset, let url = image.fileURL, let data = NSData(contentsOf: url) {
+        if let image = record.value(forKey: "image") as? CKAsset, let url = image.fileURL, let data = NSData(contentsOf: url), let date = record.value(forKey: "harvestedAt") as? Date {
             return Product(
                 title: record.value(forKey: "title") as? String ?? "",
                 price: record.value(forKey: "price") as? Int ?? 0,
@@ -39,7 +40,8 @@ struct Product {
                 description: record.value(forKey: "description") as? String ?? "",
                 location: record.value(forKey: "location") as? CLLocation,
                 image: UIImage(data: data as Data),
-                ckRecord: record
+                ckRecord: record,
+                harvestedAt: date
             )
         }
         
