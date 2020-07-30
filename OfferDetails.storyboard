@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="4Nr-I6-58a" kind="show" identifier="toOfferCollection" id="PfM-8U-nEy"/>
+                        <segue destination="4Nr-I6-58a" kind="relationship" relationship="rootViewController" id="jPv-9I-yJl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQQ-Yh-thF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -101,6 +101,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="acI-gy-tRQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wz2-Hb-56u"/>
                     <connections>
                         <outlet property="collectionViewRequestItem" destination="xpF-35-CIZ" id="MeS-PG-fYv"/>
                         <outlet property="imageProduct" destination="UZm-vm-KIv" id="Rdc-dv-uRe"/>
@@ -210,6 +211,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ps9-Kv-2Jo"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vJK-Ho-13m"/>
                     <connections>
                         <outlet property="buttonAccept" destination="r0e-H8-1sG" id="u6D-MH-shC"/>
                         <outlet property="buttonCallOwner" destination="PFc-xm-9U7" id="0zG-nL-b2A"/>
@@ -258,11 +260,11 @@
                                     <action selector="okayTapped:" destination="x91-Vz-MWk" eventType="touchUpInside" id="ndo-by-nYY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You Already Accept a Request" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udD-k1-XvD">
-                                <rect key="frame" x="85" y="508" width="241" height="90"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Already Accept a Request" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udD-k1-XvD">
+                                <rect key="frame" x="85" y="507.5" width="241" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="EMb-nt-Ne5"/>
-                                    <constraint firstAttribute="width" constant="244" id="GIY-sQ-pPz"/>
+                                    <constraint firstAttribute="width" constant="241" id="GIY-sQ-pPz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.12941176469999999" green="0.37647058820000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -282,7 +284,7 @@
                             <constraint firstItem="bHH-Qp-TO1" firstAttribute="centerY" secondItem="MpS-gd-Ikg" secondAttribute="centerY" constant="-50" id="IoE-Be-8yg"/>
                             <constraint firstItem="bHH-Qp-TO1" firstAttribute="centerX" secondItem="MpS-gd-Ikg" secondAttribute="centerX" id="Ltq-qI-3Ds"/>
                             <constraint firstItem="udD-k1-XvD" firstAttribute="top" secondItem="bHH-Qp-TO1" secondAttribute="bottom" constant="20" id="QkY-FL-Pqv"/>
-                            <constraint firstItem="udD-k1-XvD" firstAttribute="centerX" secondItem="MpS-gd-Ikg" secondAttribute="centerX" id="atD-bf-6XA"/>
+                            <constraint firstItem="udD-k1-XvD" firstAttribute="centerX" secondItem="MpS-gd-Ikg" secondAttribute="centerX" constant="-1.5" id="atD-bf-6XA"/>
                             <constraint firstItem="ET9-7v-ivU" firstAttribute="trailing" secondItem="Xhn-Ab-Upu" secondAttribute="trailing" constant="20" id="iKg-30-kFk"/>
                             <constraint firstItem="ET9-7v-ivU" firstAttribute="bottom" secondItem="Xhn-Ab-Upu" secondAttribute="bottom" constant="16" id="nGe-Up-LYh"/>
                         </constraints>
