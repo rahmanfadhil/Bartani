@@ -21,13 +21,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.rowHeight = 100
+        tableView.rowHeight = 132 + 20
+        tableView.separatorStyle = .none
 
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

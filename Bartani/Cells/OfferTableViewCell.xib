@@ -9,24 +9,59 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="OfferTableViewCell" customModule="Bartani" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="KGk-i7-Jjw" customClass="OfferTableViewCell" customModule="Bartani" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXP-3P-9o1">
-                        <rect key="frame" x="29" y="40" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXP-3P-9o1">
+                        <rect key="frame" x="132" y="16" width="172" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="HhK-7P-hRX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cabai" translatesAutoresizingMaskIntoConstraints="NO" id="1Mo-DV-sg1">
+                        <rect key="frame" x="16" y="16" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="ce3-r3-IiE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k4-rp-YCI" customClass="VerticalTopAlignLabel" customModule="Bartani" customModuleProvider="target">
+                        <rect key="frame" x="132" y="61" width="188" height="55"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="WXP-3P-9o1" firstAttribute="leading" secondItem="1Mo-DV-sg1" secondAttribute="trailing" constant="16" id="5V2-4c-Mta"/>
+                    <constraint firstAttribute="bottom" secondItem="1Mo-DV-sg1" secondAttribute="bottom" constant="16" id="CZ5-CW-M4v"/>
+                    <constraint firstItem="1Mo-DV-sg1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="EAG-Ll-cDJ"/>
+                    <constraint firstItem="1Mo-DV-sg1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HE4-S6-fEF"/>
+                    <constraint firstItem="9k4-rp-YCI" firstAttribute="bottom" secondItem="1Mo-DV-sg1" secondAttribute="bottom" id="WpP-Eu-PoU"/>
+                    <constraint firstItem="9k4-rp-YCI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="16" id="byv-4U-wRC"/>
+                    <constraint firstAttribute="trailing" secondItem="WXP-3P-9o1" secondAttribute="trailing" constant="16" id="cob-cG-3D7"/>
+                    <constraint firstItem="9k4-rp-YCI" firstAttribute="leading" secondItem="1Mo-DV-sg1" secondAttribute="trailing" constant="16" id="dSG-yc-X5K"/>
+                    <constraint firstItem="WXP-3P-9o1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="rXT-AV-cvW"/>
+                    <constraint firstItem="9k4-rp-YCI" firstAttribute="top" secondItem="WXP-3P-9o1" secondAttribute="bottom" constant="16" id="sLe-AO-Pug"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="81.159420289855078" y="150.66964285714286"/>
+            <connections>
+                <outlet property="boxView" destination="H2p-sc-9uM" id="HWj-5w-GLv"/>
+                <outlet property="productTitle" destination="WXP-3P-9o1" id="q8Y-i1-nrc"/>
+                <outlet property="thumbnailImage" destination="1Mo-DV-sg1" id="lxj-Da-xCz"/>
+            </connections>
+            <point key="canvasLocation" x="81.159420289855078" y="168.08035714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cabai" width="731" height="488"/>
+    </resources>
 </document>
