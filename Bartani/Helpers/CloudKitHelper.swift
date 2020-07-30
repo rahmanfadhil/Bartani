@@ -166,15 +166,7 @@ struct CloudKitHelper {
             let predicate = NSPredicate(format: "buyer == %@", reference)
             let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
-            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
-                if let err = err {
-                    print(err.localizedDescription)
-                    return
-                }
-
-                guard let records = records else { return }
-                print(records)
-            }
+            queryOffers(container: container, query: query)
         }
     }
     
@@ -193,52 +185,56 @@ struct CloudKitHelper {
             let predicate = NSPredicate(format: "seller == %@", reference)
             let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
-            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
-                if let err = err {
-                    print(err.localizedDescription)
-                    return
-                }
+            queryOffers(container: container, query: query)
+        }
+    }
+    
+    static func queryOffers(container: CKContainer, query: CKQuery) {
+        container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            }
 
-                guard let records = records else { return }
-                
-                var offers = [Offer]()
-                
-                let mainGroup = DispatchGroup()
-                
-                for record in records {
-                    mainGroup.enter()
-                    if let spReference = record.value(forKey: "sellerProduct") as? CKRecord.Reference, let bpReference = record.value(forKey: "buyerProduct") as? CKRecord.Reference {
-                        var sellerProduct: Product?
-                        var buyerProduct: Product?
-                        
-                        let group = DispatchGroup()
-                        group.enter()
-                        getProductFromId(id: spReference.recordID) { (product) in
-                            sellerProduct = product
-                            group.leave()
-                        }
-                        group.enter()
-                        getProductFromId(id: bpReference.recordID) { (product) in
-                            buyerProduct = product
-                            group.leave()
-                        }
-                        group.notify(queue: .main) {
-                            guard let sellerProduct = sellerProduct else { return }
-                            guard let buyerProduct = buyerProduct else { return }
-                            offers.append(Offer(
-                                buyerName: record.value(forKey: "buyerName") as? String ?? "",
-                                sellerName: record.value(forKey: "sellerName") as? String ?? "",
-                                buyerProduct: sellerProduct,
-                                sellerProduct: buyerProduct
-                            ))
-                            mainGroup.leave()
-                        }
+            guard let records = records else { return }
+            
+            var offers = [Offer]()
+            
+            let mainGroup = DispatchGroup()
+            
+            for record in records {
+                mainGroup.enter()
+                if let spReference = record.value(forKey: "sellerProduct") as? CKRecord.Reference, let bpReference = record.value(forKey: "buyerProduct") as? CKRecord.Reference {
+                    var sellerProduct: Product?
+                    var buyerProduct: Product?
+                    
+                    let group = DispatchGroup()
+                    group.enter()
+                    getProductFromId(id: spReference.recordID) { (product) in
+                        sellerProduct = product
+                        group.leave()
+                    }
+                    group.enter()
+                    getProductFromId(id: bpReference.recordID) { (product) in
+                        buyerProduct = product
+                        group.leave()
+                    }
+                    group.notify(queue: .main) {
+                        guard let sellerProduct = sellerProduct else { return }
+                        guard let buyerProduct = buyerProduct else { return }
+                        offers.append(Offer(
+                            buyerName: record.value(forKey: "buyerName") as? String ?? "",
+                            sellerName: record.value(forKey: "sellerName") as? String ?? "",
+                            buyerProduct: sellerProduct,
+                            sellerProduct: buyerProduct
+                        ))
+                        mainGroup.leave()
                     }
                 }
-                
-                mainGroup.notify(queue: .main) {
-                    onComplete(offers)
-                }
+            }
+            
+            mainGroup.notify(queue: .main) {
+                onComplete(offers)
             }
         }
     }
