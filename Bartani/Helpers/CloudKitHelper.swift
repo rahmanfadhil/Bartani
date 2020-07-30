@@ -23,6 +23,7 @@ struct CloudKitHelper {
         let description: String
         let imageURL: URL
         let location: CLLocation
+        let harvestedAt: Date
     }
     
     struct InsertOffer {
@@ -42,6 +43,7 @@ struct CloudKitHelper {
         product.setValue(data.description, forKey: "description")
         product.setValue(CKAsset(fileURL: data.imageURL), forKey: "image")
         product.setValue(data.location, forKey: "location")
+        product.setValue(data.harvestedAt, forKey: "harvestedAt")
         
         CKContainer.default().publicCloudDatabase.save(product) { (record, error) in
             if let error = error {

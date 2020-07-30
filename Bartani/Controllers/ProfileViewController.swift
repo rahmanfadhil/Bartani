@@ -11,7 +11,10 @@ import UIKit
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
     var offers = [Offer]()
+    
+    // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.separatorStyle = .none
 
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
-        
+    }
+    
+    // MARK: - View did apppear
+    
+    override func viewDidAppear(_ animated: Bool) {
         CloudKitHelper.fetchMyOffers { (offers) in
             print(offers)
             self.offers = offers
@@ -35,6 +42,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
+    
+    // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return offers.count
