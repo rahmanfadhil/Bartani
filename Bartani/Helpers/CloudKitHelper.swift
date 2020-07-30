@@ -153,7 +153,7 @@ struct CloudKitHelper {
     
     // MARK: - Fetch my requests to other people
     
-    static func fetchMyRequest() {
+    static func fetchMyRequest(onComplete: @escaping ([Offer]) -> Void) {
         let container = CKContainer.default()
         
         container.fetchUserRecordID { (userID, error) in
@@ -166,7 +166,9 @@ struct CloudKitHelper {
             let predicate = NSPredicate(format: "buyer == %@", reference)
             let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
-            queryOffers(container: container, query: query)
+            queryOffers(container: container, query: query) { offers in
+                onComplete(offers)
+            }
         }
     }
     
@@ -185,11 +187,13 @@ struct CloudKitHelper {
             let predicate = NSPredicate(format: "seller == %@", reference)
             let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
-            queryOffers(container: container, query: query)
+            queryOffers(container: container, query: query) { offers in
+                onComplete(offers)
+            }
         }
     }
     
-    static func queryOffers(container: CKContainer, query: CKQuery) {
+    static func queryOffers(container: CKContainer, query: CKQuery, onComplete: @escaping ([Offer]) -> Void) {
         container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
             if let err = err {
                 print(err.localizedDescription)
