@@ -151,9 +151,9 @@ struct CloudKitHelper {
         }
     }
     
-    // MARK: - Fetch my barter offers
+    // MARK: - Fetch my requests to other people
     
-    static func fetchMyOffers() {
+    static func fetchMyRequest() {
         let container = CKContainer.default()
         
         container.fetchUserRecordID { (userID, error) in
@@ -178,9 +178,9 @@ struct CloudKitHelper {
         }
     }
     
-    // MARK: - Fetch my requests from other people
+    // MARK: - Fetch other people's offers to my products
     
-    static func fetchMyRequests() {
+    static func fetchMyOffers(onComplete: @escaping ([Offer]) -> Void) {
         let container = CKContainer.default()
         
         container.fetchUserRecordID { (userID, error) in
@@ -200,8 +200,62 @@ struct CloudKitHelper {
                 }
 
                 guard let records = records else { return }
-                print(records)
+                
+                var offers = [Offer]()
+                
+                let mainGroup = DispatchGroup()
+                
+                for record in records {
+                    mainGroup.enter()
+                    if let spReference = record.value(forKey: "sellerProduct") as? CKRecord.Reference, let bpReference = record.value(forKey: "buyerProduct") as? CKRecord.Reference {
+                        var sellerProduct: Product?
+                        var buyerProduct: Product?
+                        
+                        let group = DispatchGroup()
+                        group.enter()
+                        getProductFromId(id: spReference.recordID) { (product) in
+                            sellerProduct = product
+                            group.leave()
+                        }
+                        group.enter()
+                        getProductFromId(id: bpReference.recordID) { (product) in
+                            buyerProduct = product
+                            group.leave()
+                        }
+                        group.notify(queue: .main) {
+                            guard let sellerProduct = sellerProduct else { return }
+                            guard let buyerProduct = buyerProduct else { return }
+                            offers.append(Offer(
+                                buyerName: record.value(forKey: "buyerName") as? String ?? "",
+                                sellerName: record.value(forKey: "sellerName") as? String ?? "",
+                                buyerProduct: sellerProduct,
+                                sellerProduct: buyerProduct
+                            ))
+                            mainGroup.leave()
+                        }
+                    }
+                }
+                
+                mainGroup.notify(queue: .main) {
+                    onComplete(offers)
+                }
             }
         }
+    }
+    
+    static func getProductFromId(id: CKRecord.ID, onComplete: @escaping (Product) -> Void) {
+        CKContainer.default().publicCloudDatabase.fetch(withRecordID: id) { (record, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let record = record {
+                if let product = Product.fromRecord(record: record) {
+                    onComplete(product)
+                }
+            }
+        }
+        
     }
 }

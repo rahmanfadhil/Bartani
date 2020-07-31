@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2sl-Ty-DF4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,29 +12,99 @@
             <objects>
                 <viewController id="a6s-iR-04r" customClass="ProfileViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a52-nl-oiu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nw-Tf-9wq">
-                                <rect key="frame" x="169" y="438" width="77" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-picture" translatesAutoresizingMaskIntoConstraints="NO" id="faP-8d-BwM">
+                                <rect key="frame" x="20" y="108" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="3Ln-gq-Yq7"/>
+                                    <constraint firstAttribute="height" constant="100" id="D1N-m1-EPP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombeko Mabandala" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kq3-rx-7Uf">
+                                <rect key="frame" x="145" y="129" width="249" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Vib-PQ-B6a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FM6-E4-ZFZ">
-                                <rect key="frame" x="170" y="478" width="74" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="My History"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Havana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBz-SW-uHO">
+                                <rect key="frame" x="145" y="166" width="249" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1jZ-R2-ZPT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saya sudah menekuni budidaya hidroponik selama 4 bulan dan saya fokus pada penanaman selada." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D56-wO-AfA">
+                                <rect key="frame" x="20" y="228" width="374" height="38.5"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfv-h2-FAt">
+                                <rect key="frame" x="20" y="286.5" width="132" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="5eY-R8-9Ye"/>
+                                    <constraint firstAttribute="height" constant="34" id="RwC-ET-mCK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="All Transactions">
+                                    <color key="titleColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
-                                    <segue destination="aaQ-2M-zFd" kind="show" id="eTU-Hp-k7O"/>
+                                    <segue destination="aaQ-2M-zFd" kind="show" id="nzb-7r-GCe"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z4p-1e-E97">
+                                <rect key="frame" x="20" y="340.5" width="374" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ysA-bw-o8A"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="My Offers"/>
+                                    <segment title="My Requests"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-IR-DEy">
+                                <rect key="frame" x="20" y="390.5" width="374" height="471.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Tie-IR-DEy" firstAttribute="leading" secondItem="HWm-bU-TJa" secondAttribute="leading" constant="20" id="0L1-eo-eaO"/>
+                            <constraint firstItem="kq3-rx-7Uf" firstAttribute="leading" secondItem="faP-8d-BwM" secondAttribute="trailing" constant="25" id="1Ft-71-hyS"/>
+                            <constraint firstItem="D56-wO-AfA" firstAttribute="top" secondItem="faP-8d-BwM" secondAttribute="bottom" constant="20" id="5YY-qe-F54"/>
+                            <constraint firstItem="Xfv-h2-FAt" firstAttribute="leading" secondItem="HWm-bU-TJa" secondAttribute="leading" constant="20" id="EuG-JW-u1i"/>
+                            <constraint firstItem="Tie-IR-DEy" firstAttribute="bottom" secondItem="HWm-bU-TJa" secondAttribute="bottom" id="LFa-zg-Mda"/>
+                            <constraint firstItem="z4p-1e-E97" firstAttribute="leading" secondItem="HWm-bU-TJa" secondAttribute="leading" constant="20" id="Wln-4L-VxH"/>
+                            <constraint firstItem="aBz-SW-uHO" firstAttribute="top" secondItem="kq3-rx-7Uf" secondAttribute="bottom" constant="8" id="XuM-a3-gpZ"/>
+                            <constraint firstItem="HWm-bU-TJa" firstAttribute="trailing" secondItem="Tie-IR-DEy" secondAttribute="trailing" constant="20" id="cuu-JT-rlL"/>
+                            <constraint firstItem="aBz-SW-uHO" firstAttribute="leading" secondItem="faP-8d-BwM" secondAttribute="trailing" constant="25" id="dUh-kX-hdz"/>
+                            <constraint firstItem="HWm-bU-TJa" firstAttribute="trailing" secondItem="D56-wO-AfA" secondAttribute="trailing" constant="20" id="dfL-cD-QRI"/>
+                            <constraint firstItem="faP-8d-BwM" firstAttribute="top" secondItem="kq3-rx-7Uf" secondAttribute="bottom" constant="-50" id="eiZ-4V-5bQ"/>
+                            <constraint firstItem="faP-8d-BwM" firstAttribute="top" secondItem="HWm-bU-TJa" secondAttribute="top" constant="20" id="gTu-qB-rjg"/>
+                            <constraint firstItem="HWm-bU-TJa" firstAttribute="trailing" secondItem="aBz-SW-uHO" secondAttribute="trailing" constant="20" id="gsK-Wn-oly"/>
+                            <constraint firstItem="faP-8d-BwM" firstAttribute="leading" secondItem="HWm-bU-TJa" secondAttribute="leading" constant="20" id="izE-AZ-cQE"/>
+                            <constraint firstItem="D56-wO-AfA" firstAttribute="leading" secondItem="HWm-bU-TJa" secondAttribute="leading" constant="20" id="myy-Q9-yCV"/>
+                            <constraint firstItem="HWm-bU-TJa" firstAttribute="trailing" secondItem="z4p-1e-E97" secondAttribute="trailing" constant="20" id="ovD-fk-aQq"/>
+                            <constraint firstItem="HWm-bU-TJa" firstAttribute="trailing" secondItem="kq3-rx-7Uf" secondAttribute="trailing" constant="20" id="sLh-BJ-CTU"/>
+                            <constraint firstItem="z4p-1e-E97" firstAttribute="top" secondItem="Xfv-h2-FAt" secondAttribute="bottom" constant="20" id="vdH-54-TGU"/>
+                            <constraint firstItem="Xfv-h2-FAt" firstAttribute="top" secondItem="D56-wO-AfA" secondAttribute="bottom" constant="20" id="wRv-cB-kUp"/>
+                            <constraint firstItem="Tie-IR-DEy" firstAttribute="top" secondItem="z4p-1e-E97" secondAttribute="bottom" constant="20" id="xcV-cg-ggS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HWm-bU-TJa"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="SiI-u3-lfY"/>
+                    <connections>
+                        <outlet property="profilePicture" destination="faP-8d-BwM" id="zoL-Ip-MnY"/>
+                        <outlet property="tableView" destination="Tie-IR-DEy" id="Fn6-xL-kB1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgE-J9-YMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +115,7 @@
             <objects>
                 <tableViewController id="aaQ-2M-zFd" customClass="HistoryTableViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NNd-rS-VpI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -76,7 +147,7 @@
             <objects>
                 <viewController id="kgR-p3-XZl" customClass="HistoryDetailViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="93p-MY-YIe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PQ-b6-RJd">
@@ -118,5 +189,6 @@
     </scenes>
     <resources>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="profile-picture" width="128" height="128"/>
     </resources>
 </document>
