@@ -35,8 +35,7 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var selectProduct: Product?
     var product: Product?
-    var sellerProduct: Product?
-    var buyerProduct: Product?
+
     
     
     @IBOutlet weak var viewProductBox: UIView!
@@ -85,7 +84,6 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
                let nib = UINib(nibName: "ProductCollectionViewCell", bundle: nil)
                collectionViewRequestItem.register(nib, forCellWithReuseIdentifier: "productCell")
            }
-        // Do any additional setup after loading the view.
     }
 
  // MARK: - Appear and dissapear

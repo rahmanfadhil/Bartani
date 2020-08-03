@@ -10,7 +10,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xeS-cS-eEI">
             <objects>
-                <navigationController id="xRy-QX-8tx" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="xRy-QX-8tx" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QlK-Gk-nj2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

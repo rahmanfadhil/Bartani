@@ -34,6 +34,7 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         buttonAccept.layer.cornerRadius = 6
+        buttonAccept.layer.borderWidth = 1
         buttonAccept.layer.borderColor = #colorLiteral(red: 1, green: 0.5575068593, blue: 0, alpha: 1)
         
         buttonDecline.layer.cornerRadius = 6

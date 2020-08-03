@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var offers = [Offer]()
     
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -77,15 +78,41 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if segmentedControl.selectedSegmentIndex == 0{
+            print(indexPath.row)
+            let offer = offers[indexPath.row]
+            performSegue(withIdentifier: "toOfferDetails", sender: offer)
+        } else {
+            print(indexPath.row)
+            let offer = offers[indexPath.row]
+            performSegue(withIdentifier: "toRequestDetails", sender: offer)
+        }
+        
+        
+        
+        //let offer = offers[indexPath.row]
+        
+        //performSegue(withIdentifier: "toOfferDetails", sender: vc)
+//        if indexPath.section == 0 {
+//
+//        }
+//        else if indexPath.section == 1 {
+//
+//        }
+    }
+    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? MyOfferItemViewController, let product = sender as? Product{
+            vc.product = product
+        }
     }
-    */
+    
 
 }
