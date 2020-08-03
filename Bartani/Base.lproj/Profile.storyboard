@@ -69,6 +69,9 @@
                                     <segment title="My Offers"/>
                                     <segment title="My Requests"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentTapped:" destination="a6s-iR-04r" eventType="valueChanged" id="uhE-Rw-opV"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-IR-DEy">
                                 <rect key="frame" x="20" y="390.5" width="374" height="471.5"/>
@@ -103,6 +106,7 @@
                     <navigationItem key="navigationItem" title="My Profile" id="SiI-u3-lfY"/>
                     <connections>
                         <outlet property="profilePicture" destination="faP-8d-BwM" id="zoL-Ip-MnY"/>
+                        <outlet property="segmentedControl" destination="z4p-1e-E97" id="9GX-KV-YF5"/>
                         <outlet property="tableView" destination="Tie-IR-DEy" id="Fn6-xL-kB1"/>
                     </connections>
                 </viewController>

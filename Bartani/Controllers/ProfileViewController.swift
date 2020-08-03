@@ -11,6 +11,7 @@ import UIKit
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var offers = [Offer]()
     
@@ -31,16 +32,34 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
     }
     
+    @IBAction func segmentTapped(_ sender: Any) {
+        updateSegment()
+    }
+    
+    func updateSegment() {
+        let index = segmentedControl.selectedSegmentIndex
+        
+        if index == 0 {
+            CloudKitHelper.fetchMyOffers { (offers) in
+                self.offers = offers
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        } else {
+            CloudKitHelper.fetchMyRequest { (offers) in
+                self.offers = offers
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+
     // MARK: - View did apppear
     
     override func viewDidAppear(_ animated: Bool) {
-        CloudKitHelper.fetchMyOffers { (offers) in
-            print(offers)
-            self.offers = offers
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        updateSegment()
     }
     
     // MARK: - Table view delegate
