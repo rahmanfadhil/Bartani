@@ -179,6 +179,9 @@
                                 <state key="normal" title="Decline">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="declineOffer:" destination="zc3-UI-Dsc" eventType="touchUpInside" id="hAZ-p7-P8a"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0e-H8-1sG">
                                 <rect key="frame" x="20" y="820" width="164" height="30"/>
@@ -190,6 +193,9 @@
                                     <color key="titleColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="acceptOffer:" destination="zc3-UI-Dsc" eventType="touchUpInside" id="kJP-Ac-6Sb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgm-79-PPY">
                                 <rect key="frame" x="335" y="574" width="48" height="26"/>
@@ -211,8 +217,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ps9-Kv-2Jo"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vJK-Ho-13m"/>
                     <connections>
+                        <outlet property="backNavButton" destination="tvb-Rn-qZm" id="cF5-dY-J1E"/>
                         <outlet property="buttonAccept" destination="r0e-H8-1sG" id="u6D-MH-shC"/>
                         <outlet property="buttonCallOwner" destination="PFc-xm-9U7" id="0zG-nL-b2A"/>
                         <outlet property="buttonDecline" destination="w9Z-1q-P1M" id="CKU-F1-Y51"/>
@@ -223,7 +229,7 @@
                         <outlet property="labelProductPrice" destination="0Qh-oj-lx6" id="sBF-na-xGG"/>
                         <outlet property="labelProductQuantity" destination="Stx-Ps-R6A" id="gH3-iL-Jzp"/>
                         <outlet property="labelUserDistance" destination="Pgm-79-PPY" id="g7e-tI-q5a"/>
-                        <segue destination="x91-Vz-MWk" kind="show" id="xkY-8O-gtj"/>
+                        <segue destination="x91-Vz-MWk" kind="show" identifier="toAcceptSuccess" id="xkY-8O-gtj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrN-46-wDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,7 +263,7 @@
                                     <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="okayTapped:" destination="x91-Vz-MWk" eventType="touchUpInside" id="ndo-by-nYY"/>
+                                    <action selector="okayTapped:" destination="x91-Vz-MWk" eventType="touchUpInside" id="Gpd-Uv-Zly"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Already Accept a Request" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udD-k1-XvD">
@@ -292,7 +298,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Success" id="YLV-eG-7pR"/>
                     <connections>
-                        <outlet property="okayButton" destination="Xhn-Ab-Upu" id="b2d-iL-ac7"/>
+                        <outlet property="okayButton" destination="Xhn-Ab-Upu" id="vbo-KO-lFF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VR1-8A-0Fl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
