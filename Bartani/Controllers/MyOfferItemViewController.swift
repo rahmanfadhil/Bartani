@@ -30,6 +30,7 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     
 
     var products = [Product]()
+    var offers = [Offer]()
     
     
     var selectProduct: Product?
