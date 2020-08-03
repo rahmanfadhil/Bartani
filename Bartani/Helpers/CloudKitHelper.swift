@@ -23,6 +23,7 @@ struct CloudKitHelper {
         let description: String
         let imageURL: URL
         let location: CLLocation
+        let harvestedAt: Date
     }
     
     struct InsertOffer {
@@ -42,6 +43,7 @@ struct CloudKitHelper {
         product.setValue(data.description, forKey: "description")
         product.setValue(CKAsset(fileURL: data.imageURL), forKey: "image")
         product.setValue(data.location, forKey: "location")
+        product.setValue(data.harvestedAt, forKey: "harvestedAt")
         
         CKContainer.default().publicCloudDatabase.save(product) { (record, error) in
             if let error = error {
@@ -153,7 +155,7 @@ struct CloudKitHelper {
     
     // MARK: - Fetch my requests to other people
     
-    static func fetchMyRequest() {
+    static func fetchMyRequest(onComplete: @escaping ([Offer]) -> Void) {
         let container = CKContainer.default()
         
         container.fetchUserRecordID { (userID, error) in
@@ -166,14 +168,8 @@ struct CloudKitHelper {
             let predicate = NSPredicate(format: "buyer == %@", reference)
             let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
-            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
-                if let err = err {
-                    print(err.localizedDescription)
-                    return
-                }
-
-                guard let records = records else { return }
-                print(records)
+            queryOffers(container: container, query: query) { offers in
+                onComplete(offers)
             }
         }
     }
@@ -193,52 +189,58 @@ struct CloudKitHelper {
             let predicate = NSPredicate(format: "seller == %@", reference)
             let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
-            container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
-                if let err = err {
-                    print(err.localizedDescription)
-                    return
-                }
+            queryOffers(container: container, query: query) { offers in
+                onComplete(offers)
+            }
+        }
+    }
+    
+    static func queryOffers(container: CKContainer, query: CKQuery, onComplete: @escaping ([Offer]) -> Void) {
+        container.publicCloudDatabase.perform(query, inZoneWith: nil) { (records, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            }
 
-                guard let records = records else { return }
-                
-                var offers = [Offer]()
-                
-                let mainGroup = DispatchGroup()
-                
-                for record in records {
-                    mainGroup.enter()
-                    if let spReference = record.value(forKey: "sellerProduct") as? CKRecord.Reference, let bpReference = record.value(forKey: "buyerProduct") as? CKRecord.Reference {
-                        var sellerProduct: Product?
-                        var buyerProduct: Product?
-                        
-                        let group = DispatchGroup()
-                        group.enter()
-                        getProductFromId(id: spReference.recordID) { (product) in
-                            sellerProduct = product
-                            group.leave()
-                        }
-                        group.enter()
-                        getProductFromId(id: bpReference.recordID) { (product) in
-                            buyerProduct = product
-                            group.leave()
-                        }
-                        group.notify(queue: .main) {
-                            guard let sellerProduct = sellerProduct else { return }
-                            guard let buyerProduct = buyerProduct else { return }
-                            offers.append(Offer(
-                                buyerName: record.value(forKey: "buyerName") as? String ?? "",
-                                sellerName: record.value(forKey: "sellerName") as? String ?? "",
-                                buyerProduct: sellerProduct,
-                                sellerProduct: buyerProduct
-                            ))
-                            mainGroup.leave()
-                        }
+            guard let records = records else { return }
+            
+            var offers = [Offer]()
+            
+            let mainGroup = DispatchGroup()
+            
+            for record in records {
+                mainGroup.enter()
+                if let spReference = record.value(forKey: "sellerProduct") as? CKRecord.Reference, let bpReference = record.value(forKey: "buyerProduct") as? CKRecord.Reference {
+                    var sellerProduct: Product?
+                    var buyerProduct: Product?
+                    
+                    let group = DispatchGroup()
+                    group.enter()
+                    getProductFromId(id: spReference.recordID) { (product) in
+                        sellerProduct = product
+                        group.leave()
+                    }
+                    group.enter()
+                    getProductFromId(id: bpReference.recordID) { (product) in
+                        buyerProduct = product
+                        group.leave()
+                    }
+                    group.notify(queue: .main) {
+                        guard let sellerProduct = sellerProduct else { return }
+                        guard let buyerProduct = buyerProduct else { return }
+                        offers.append(Offer(
+                            buyerName: record.value(forKey: "buyerName") as? String ?? "",
+                            sellerName: record.value(forKey: "sellerName") as? String ?? "",
+                            buyerProduct: sellerProduct,
+                            sellerProduct: buyerProduct
+                        ))
+                        mainGroup.leave()
                     }
                 }
-                
-                mainGroup.notify(queue: .main) {
-                    onComplete(offers)
-                }
+            }
+            
+            mainGroup.notify(queue: .main) {
+                onComplete(offers)
             }
         }
     }

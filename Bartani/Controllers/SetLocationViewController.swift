@@ -110,16 +110,14 @@ class SetLocationViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func confirmTapped(_ sender: Any) {
         if let currentLocation = currentLocation, let data = productData {
-            print(data)
-            print(currentLocation)
-            
             CloudKitHelper.saveProduct(data: CloudKitHelper.InsertProduct(
                 title: data.title,
                 price: data.price,
                 quantity: data.quantity,
                 description: data.description,
                 imageURL: data.imageURL,
-                location: CLLocation(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+                location: CLLocation(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude),
+                harvestedAt: data.harvestedAt
             )) {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toSuccess", sender: nil)
