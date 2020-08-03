@@ -10,13 +10,26 @@ import UIKit
 
 class SuccesAcceptOfferViewController: UIViewController {
 
+    @IBOutlet weak var okayButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func okayTapped(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           navigationController?.setNavigationBarHidden(true, animated: animated)
+       }
+       
+       override func viewWillDisappear(_ animated: Bool) {
+           navigationController?.setNavigationBarHidden(false, animated: animated)
+       }
+    
+    
     /*
     // MARK: - Navigation
 
