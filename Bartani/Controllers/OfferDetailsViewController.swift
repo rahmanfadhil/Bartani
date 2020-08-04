@@ -25,7 +25,6 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
     
     var product: Product?
     var sellerProduct: Product?
-    var buyerProduct: Product?
     
     var delegate: ProductDetailDelegate?
     let locationManager = CLLocationManager()
@@ -34,6 +33,7 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         buttonAccept.layer.cornerRadius = 6
+        buttonAccept.layer.borderWidth = 1
         buttonAccept.layer.borderColor = #colorLiteral(red: 1, green: 0.5575068593, blue: 0, alpha: 1)
         
         buttonDecline.layer.cornerRadius = 6
@@ -42,21 +42,27 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
         labelProductName.text = product?.title
         imageProduct.image = product?.image
         labelProductQuantity.text = product?.quantity
-        labelDescription.text = product?.description
+        
+        if let date = product?.harvestedAt, let quantity = product?.quantity {
+            let formatter = RelativeDateTimeFormatter()
+            let time = formatter.localizedString(for: date, relativeTo: Date())
+            labelProductQuantity.text = "\(quantity) - harvested \(time)"
+        }
         
         if let price = product?.price {
             labelProductPrice.text = "Rp \(price)"
         }
         
         locationManager.delegate = self
-        
-        
+        labelDescription.text = product?.description
         
         if CLLocationManager.locationServicesEnabled() {
             checkLocationAuthorization(CLLocationManager.authorizationStatus())
         } else {
             // Show alert
         }
+        
+   
         
         // Do any additional setup after loading the view.
     }

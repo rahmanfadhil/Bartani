@@ -73,7 +73,7 @@
                                     <action selector="segmentTapped:" destination="a6s-iR-04r" eventType="valueChanged" id="uhE-Rw-opV"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-IR-DEy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-IR-DEy">
                                 <rect key="frame" x="20" y="390.5" width="374" height="471.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
@@ -108,11 +108,33 @@
                         <outlet property="profilePicture" destination="faP-8d-BwM" id="zoL-Ip-MnY"/>
                         <outlet property="segmentedControl" destination="z4p-1e-E97" id="9GX-KV-YF5"/>
                         <outlet property="tableView" destination="Tie-IR-DEy" id="Fn6-xL-kB1"/>
+                        <segue destination="gYv-Ia-mnI" kind="show" identifier="toOfferDetails" id="52t-q2-oBX"/>
+                        <segue destination="zdz-Hd-Ey0" kind="show" identifier="toRequestDetails" id="Pzw-LE-o4Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgE-J9-YMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1949.2753623188407" y="-581.91964285714278"/>
+        </scene>
+        <!--OfferDetails-->
+        <scene sceneID="IEk-eQ-Dq6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OfferDetails" id="gYv-Ia-mnI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KzW-XA-RqX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nm-LZ-6td" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="-120"/>
+        </scene>
+        <!--RequestDetails-->
+        <scene sceneID="W7d-eB-jSg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RequestDetails" id="zdz-Hd-Ey0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="v7j-iR-2Eo"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Epe-xu-WeF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2321" y="-121"/>
         </scene>
         <!--History-->
         <scene sceneID="oSl-aq-ym7">
