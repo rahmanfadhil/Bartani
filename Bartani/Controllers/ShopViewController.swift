@@ -49,6 +49,10 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        CloudKitHelper.getUserName(onComplete: { (name) in
+            print(name)
+        })
+        
         let nib = UINib(nibName: "ProductCollectionViewCell", bundle: nil)
         productCollectionView.register(nib, forCellWithReuseIdentifier: "productCell")
 
