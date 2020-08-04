@@ -22,16 +22,16 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     var products = [Product]()
     
     var selectProduct: Product?
-    var product: Product?
+    // var product: Product?
+    var offer: Offer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("cetak")
-    
         
-        labelProductName.text = product?.title
-        imageProduct.image = product?.image
-        labelProductQuantity.text = product?.quantity
+        labelProductName.text = offer?.buyerProduct.title
+        imageProduct.image = offer?.buyerProduct.image
+        labelProductQuantity.text = offer?.buyerProduct.quantity
         
 //        labelProductName.text = selectProduct?.title
 //        labelProductQuantity.text = selectProduct?.quantity

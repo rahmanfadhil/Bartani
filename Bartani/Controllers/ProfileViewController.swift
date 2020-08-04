@@ -109,8 +109,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? MyOfferItemViewController, let product = sender as? Product{
-            vc.product = product
+        if let vc = segue.destination as? MyOfferItemViewController, let offer = sender as? Offer {
+            vc.offer = offer
         }
     }
     

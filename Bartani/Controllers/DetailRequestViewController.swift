@@ -8,9 +8,8 @@
 
 import UIKit
 
-class DetailRequestViewController: UIViewController {
-    
-    var product : Product?
+class DetailRequestViewController: UIViewController, UIAlertViewDelegate {
+
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var nameProductLabel: UILabel!
@@ -20,16 +19,17 @@ class DetailRequestViewController: UIViewController {
     @IBOutlet weak var descriptionTitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var offer: Offer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         // Do any additional setup after loading the view.
-        productImageView.image = product?.image
-        nameProductLabel.text = product?.title
-        weightProductLabel.text = product?.quantity
+        productImageView.image = offer?.buyerProduct.image
+        nameProductLabel.text = offer?.buyerProduct.title
+        weightProductLabel.text = offer?.buyerProduct.quantity
         
-         if let price = product?.price {
+        if let price = offer?.buyerProduct.price {
             priceProductLabel.text = "Rp \(price)"
         }
     }
@@ -40,11 +40,6 @@ class DetailRequestViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Delete Offers", style: .cancel, handler: {(ACTION) in
             
         }))
-    }
-    
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
     }
     
     /*
