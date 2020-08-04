@@ -9,6 +9,9 @@
 import UIKit
 
 class SuccesAcceptOfferViewController: UIViewController {
+    
+    var offer : Offer?
+    var product : Product?
 
     @IBOutlet weak var okayButton: UIButton!
     override func viewDidLoad() {
@@ -19,6 +22,7 @@ class SuccesAcceptOfferViewController: UIViewController {
     
     @IBAction func okayTapped(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
