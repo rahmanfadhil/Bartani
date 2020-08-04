@@ -47,13 +47,6 @@ class DetailRequestViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toRequestDetail" {
-            if let vc = segue.destination as? ProfileViewController {
-                vc.self
-            }
-        }
-    }
     /*
     // MARK: - Navigation
 
