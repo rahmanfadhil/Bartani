@@ -33,6 +33,17 @@ struct CloudKitHelper {
         let sellerProduct: CKRecord
     }
     
+    static func getUserName(onComplete: @escaping (String) -> Void) {
+        CKContainer.default().requestApplicationPermission(.userDiscoverability) { (status, error) in
+            CKContainer.default().fetchUserRecordID { (record, error) in
+                CKContainer.default().discoverUserIdentity(withUserRecordID: record!, completionHandler: { (userID, error) in
+                    let username = (userID?.nameComponents?.givenName)! + " " + (userID?.nameComponents?.familyName)!
+                    onComplete(username)
+                })
+            }
+        }
+    }
+    
     // MARK: - Save product
 
     static func saveProduct(data: InsertProduct, onComplete: @escaping () -> Void) {
@@ -190,6 +201,34 @@ struct CloudKitHelper {
             let query = CKQuery(recordType: RecordType.Offers, predicate: predicate)
             
             queryOffers(container: container, query: query) { offers in
+                let data = offers.reduce(into: [Offer]()) { result, element in
+                    if !result.contains(where: { (offer) -> Bool in
+                        return offer.sellerProduct.ckRecord.recordID == element.sellerProduct.ckRecord.recordID
+                    }) {
+                        result.append(element)
+                    }
+                }
+                onComplete(data)
+            }
+        }
+    }
+    
+    static func fetchOffersWithSameProduct(product: Product, onComplete: @escaping ([Offer]) -> Void) {
+        let container = CKContainer.default()
+        
+        container.fetchUserRecordID { (userID, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            let sellerReference = CKRecord.Reference(recordID: userID!, action: .none)
+            let productReference = CKRecord.Reference(recordID: product.ckRecord.recordID, action: .none)
+            let predicate1 = NSPredicate(format: "seller == %@", sellerReference)
+            let predicate2 = NSPredicate(format: "sellerProduct == %@", productReference)
+            let query = CKQuery(recordType: RecordType.Offers, predicate: NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1]))
+            
+            queryOffers(container: container, query: query) { offers in
                 onComplete(offers)
             }
         }
@@ -245,7 +284,11 @@ struct CloudKitHelper {
         }
     }
     
-    static func getProductFromId(id: CKRecord.ID, onComplete: @escaping (Product) -> Void) {
+    static func getOfferProducts(product: Product) {
+        
+    }
+    
+    private static func getProductFromId(id: CKRecord.ID, onComplete: @escaping (Product) -> Void) {
         CKContainer.default().publicCloudDatabase.fetch(withRecordID: id) { (record, err) in
             if let err = err {
                 print(err.localizedDescription)
