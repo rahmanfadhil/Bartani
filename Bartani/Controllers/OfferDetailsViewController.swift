@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
+class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var imageProduct: UIImageView!
     @IBOutlet weak var labelProductName: UILabel!
@@ -22,6 +22,10 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var buttonDecline: UIButton!
 
     var product: Product?
+    var offer: Offer?
+    
+    var buyerProduct: Product?
+    var sellerProduct: Product?
     
     //let locationManager = CLLocationManager()
     
@@ -56,19 +60,37 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
         
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
+
     
     @IBAction func acceptOffer(_ sender: Any) {
         //data diterima, ubah status jadi transaksi diterima
-        
-        
+        if let buyerProduct = buyerProduct, let sellerProduct = sellerProduct{
+            CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
+            buyerName: "BuyyerName",
+            sellerName: "SellerName",
+            buyerProduct: buyerProduct.ckRecord,
+            sellerProduct: sellerProduct.ckRecord
+            )){
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toAcceptSuccess", sender: nil)
+                }
+            }
+        }
     }
     
     @IBAction func declineOffer(_ sender: Any) {
-        // data di remove dari list offer
+        if let offer = offer {
+            let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+                CloudKitHelper.deleteProduct(offer: offer) {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
         
     }
     
