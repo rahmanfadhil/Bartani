@@ -102,9 +102,10 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "toOfferDetail", let vc = segue.destination as? OfferDetailsViewController, let offer = sender as? Product{
-        vc.product = offer
+        if segue.identifier == "toOfferDetail", let vc = segue.destination as? OfferDetailsViewController, let product = sender as? Product {
+            vc.product = product
         }
+        
     }
     
     

@@ -18,20 +18,15 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var labelUserDistance: UILabel!
     @IBOutlet weak var labelProductDescriptionTitle: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
-    @IBOutlet weak var buttonCallOwner: UIButton!
     @IBOutlet weak var buttonAccept: UIButton!
     @IBOutlet weak var buttonDecline: UIButton!
-    @IBOutlet weak var backNavButton: UINavigationItem!
 
-    
-    var offer: Offer?
     var product: Product?
     
-    let locationManager = CLLocationManager()
+    //let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(offer)
         
         buttonAccept.layer.cornerRadius = 6
         buttonAccept.layer.borderWidth = 1
@@ -40,28 +35,22 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
         buttonDecline.layer.cornerRadius = 6
         
         
-        labelProductName.text = offer?.buyerProduct.title
-        imageProduct.image = offer?.buyerProduct.image
-        labelProductQuantity.text = offer?.buyerProduct.quantity
+        labelProductName.text = product?.title
+        imageProduct.image = product?.image
+        labelProductQuantity.text = product?.quantity
         
-        if let date = offer?.buyerProduct.harvestedAt, let quantity = offer?.buyerProduct.quantity {
-            let formatter = RelativeDateTimeFormatter()
-            let time = formatter.localizedString(for: date, relativeTo: Date())
-            labelProductQuantity.text = "\(quantity) - harvested \(time)"
-        }
-        
-        if let price = offer?.buyerProduct.price {
+        if let price = product?.price {
             labelProductPrice.text = "Rp \(price)"
         }
         
-        locationManager.delegate = self
-        labelDescription.text = offer?.buyerProduct.description
+        //locationManager.delegate = self
+        labelDescription.text = product?.description
         
-        if CLLocationManager.locationServicesEnabled() {
-            checkLocationAuthorization(CLLocationManager.authorizationStatus())
-        } else {
-            // Show alert
-        }
+//        if CLLocationManager.locationServicesEnabled() {
+//            checkLocationAuthorization(CLLocationManager.authorizationStatus())
+//        } else {
+//            // Show alert
+//        }
         
    
         
@@ -84,38 +73,38 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    func checkLocationAuthorization(_ status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedWhenInUse:
-            locationManager.requestLocation()
-            break
-        case .denied:
-            // Show alert instructing them how to turn it on
-            break
-        case .notDetermined:
-            // Request the permission
-            locationManager.requestWhenInUseAuthorization()
-            break
-        case .restricted:
-            // Show alert letting them know what's up
-            break
-        case .authorizedAlways:
-            break
-        default:
-            break
-        }
-    }
+//    func checkLocationAuthorization(_ status: CLAuthorizationStatus) {
+//        switch status {
+//        case .authorizedWhenInUse:
+//            locationManager.requestLocation()
+//            break
+//        case .denied:
+//            // Show alert instructing them how to turn it on
+//            break
+//        case .notDetermined:
+//            // Request the permission
+//            locationManager.requestWhenInUseAuthorization()
+//            break
+//        case .restricted:
+//            // Show alert letting them know what's up
+//            break
+//        case .authorizedAlways:
+//            break
+//        default:
+//            break
+//        }
+//    }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        checkLocationAuthorization(status)
-    }
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        checkLocationAuthorization(status)
+//    }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first, let productLocation = offer?.buyerProduct.location {
-            let distance = location.distance(from: productLocation) / 1000
-            labelUserDistance.text = "\(String(format: "%.1f", distance)) km"
-        }
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.first, let productLocation = offer?.buyerProduct.location {
+//            let distance = location.distance(from: productLocation) / 1000
+//            labelUserDistance.text = "\(String(format: "%.1f", distance)) km"
+//        }
+//    }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
@@ -126,8 +115,8 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAcceptSuccess" {
-            if let vc = segue.destination as? SuccesAcceptOfferViewController, let offer = sender{
-                
+            if let vc = segue.destination as? SuccesAcceptOfferViewController, let offer = sender as? Offer{
+                vc.offer = offer
             }
         }
     }
