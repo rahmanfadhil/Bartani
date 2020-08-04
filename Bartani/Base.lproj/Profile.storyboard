@@ -15,14 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-picture" translatesAutoresizingMaskIntoConstraints="NO" id="faP-8d-BwM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="faP-8d-BwM">
                                 <rect key="frame" x="20" y="108" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="3Ln-gq-Yq7"/>
                                     <constraint firstAttribute="height" constant="100" id="D1N-m1-EPP"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombeko Mabandala" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kq3-rx-7Uf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kq3-rx-7Uf">
                                 <rect key="frame" x="145" y="129" width="249" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Vib-PQ-B6a"/>
@@ -31,7 +31,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Havana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBz-SW-uHO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jakarta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBz-SW-uHO">
                                 <rect key="frame" x="145" y="166" width="249" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1jZ-R2-ZPT"/>
@@ -105,6 +105,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="SiI-u3-lfY"/>
                     <connections>
+                        <outlet property="profileName" destination="kq3-rx-7Uf" id="7A6-BC-IKA"/>
                         <outlet property="profilePicture" destination="faP-8d-BwM" id="zoL-Ip-MnY"/>
                         <outlet property="segmentedControl" destination="z4p-1e-E97" id="9GX-KV-YF5"/>
                         <outlet property="tableView" destination="Tie-IR-DEy" id="Fn6-xL-kB1"/>
@@ -215,6 +216,6 @@
     </scenes>
     <resources>
         <image name="person" catalog="system" width="128" height="117"/>
-        <image name="profile-picture" width="128" height="128"/>
+        <image name="profile" width="300" height="300"/>
     </resources>
 </document>

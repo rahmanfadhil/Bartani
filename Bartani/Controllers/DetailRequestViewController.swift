@@ -35,11 +35,18 @@ class DetailRequestViewController: UIViewController, UIAlertViewDelegate {
     }
 
     @IBAction func showDeleteOffer(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Delete Offers", style: .cancel, handler: {(ACTION) in
-            
-        }))
+        if let offer = offer {
+            let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+                CloudKitHelper.deleteProduct(offer: offer) {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     /*

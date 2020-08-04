@@ -35,12 +35,24 @@ struct CloudKitHelper {
     
     static func getUserName(onComplete: @escaping (String) -> Void) {
         CKContainer.default().requestApplicationPermission(.userDiscoverability) { (status, error) in
-            CKContainer.default().fetchUserRecordID { (record, error) in
-                CKContainer.default().discoverUserIdentity(withUserRecordID: record!, completionHandler: { (userID, error) in
-                    let username = (userID?.nameComponents?.givenName)! + " " + (userID?.nameComponents?.familyName)!
-                    onComplete(username)
-                })
+            if status == .granted {
+                CKContainer.default().fetchUserRecordID { (record, error) in
+                    CKContainer.default().discoverUserIdentity(withUserRecordID: record!, completionHandler: { (userID, error) in
+                        let username = (userID?.nameComponents?.givenName)! + " " + (userID?.nameComponents?.familyName)!
+                        onComplete(username)
+                    })
+                }
             }
+        }
+    }
+    
+    // MARK: - Delete offer
+    
+    static func deleteProduct(offer: Offer, onComplete: @escaping () -> Void) {
+        let database = CKContainer.default().publicCloudDatabase
+        
+        database.delete(withRecordID: offer.ckRecord.recordID) { (id, error) in
+            onComplete()
         }
     }
     
@@ -268,6 +280,7 @@ struct CloudKitHelper {
                         guard let sellerProduct = sellerProduct else { return }
                         guard let buyerProduct = buyerProduct else { return }
                         offers.append(Offer(
+                            ckRecord: record,
                             buyerName: record.value(forKey: "buyerName") as? String ?? "",
                             sellerName: record.value(forKey: "sellerName") as? String ?? "",
                             buyerProduct: sellerProduct,
@@ -301,6 +314,5 @@ struct CloudKitHelper {
                 }
             }
         }
-        
     }
 }
