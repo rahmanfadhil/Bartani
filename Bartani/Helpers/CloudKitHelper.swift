@@ -46,6 +46,16 @@ struct CloudKitHelper {
         }
     }
     
+    // MARK: - Delete offer
+    
+    static func deleteProduct(offer: Offer, onComplete: @escaping () -> Void) {
+        let database = CKContainer.default().publicCloudDatabase
+        
+        database.delete(withRecordID: offer.ckRecord.recordID) { (id, error) in
+            onComplete()
+        }
+    }
+    
     // MARK: - Save product
 
     static func saveProduct(data: InsertProduct, onComplete: @escaping () -> Void) {
@@ -228,7 +238,7 @@ struct CloudKitHelper {
             let productReference = CKRecord.Reference(recordID: product.ckRecord.recordID, action: .none)
             let predicate1 = NSPredicate(format: "seller == %@", sellerReference)
             let predicate2 = NSPredicate(format: "sellerProduct == %@", productReference)
-            let query = CKQuery(recordType: RecordType.Offers, predicate: NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1]))
+            let query = CKQuery(recordType: RecordType.Offers, predicate: NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2]))
             
             queryOffers(container: container, query: query) { offers in
                 onComplete(offers)
@@ -270,6 +280,7 @@ struct CloudKitHelper {
                         guard let sellerProduct = sellerProduct else { return }
                         guard let buyerProduct = buyerProduct else { return }
                         offers.append(Offer(
+                            ckRecord: record,
                             buyerName: record.value(forKey: "buyerName") as? String ?? "",
                             sellerName: record.value(forKey: "sellerName") as? String ?? "",
                             buyerProduct: sellerProduct,
@@ -303,6 +314,5 @@ struct CloudKitHelper {
                 }
             }
         }
-        
     }
 }

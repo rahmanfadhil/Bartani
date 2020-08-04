@@ -10,6 +10,7 @@ import Foundation
 import CloudKit
 
 struct Offer {
+    var ckRecord: CKRecord
     var buyerName: String
     var sellerName: String
     var buyerProduct: Product
