@@ -35,11 +35,13 @@ struct CloudKitHelper {
     
     static func getUserName(onComplete: @escaping (String) -> Void) {
         CKContainer.default().requestApplicationPermission(.userDiscoverability) { (status, error) in
-            CKContainer.default().fetchUserRecordID { (record, error) in
-                CKContainer.default().discoverUserIdentity(withUserRecordID: record!, completionHandler: { (userID, error) in
-                    let username = (userID?.nameComponents?.givenName)! + " " + (userID?.nameComponents?.familyName)!
-                    onComplete(username)
-                })
+            if status == .granted {
+                CKContainer.default().fetchUserRecordID { (record, error) in
+                    CKContainer.default().discoverUserIdentity(withUserRecordID: record!, completionHandler: { (userID, error) in
+                        let username = (userID?.nameComponents?.givenName)! + " " + (userID?.nameComponents?.familyName)!
+                        onComplete(username)
+                    })
+                }
             }
         }
     }

@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -31,6 +32,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.separatorStyle = .none
 
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
+        
+        CloudKitHelper.getUserName { (name) in
+            DispatchQueue.main.async {
+                self.profileName.text = name
+            }
+        }
     }
     
     @IBAction func segmentTapped(_ sender: Any) {
