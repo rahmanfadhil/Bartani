@@ -20,9 +20,9 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var collectionViewRequestItem: UICollectionView!
     
     var products = [Product]()
+    var offers = [Offer]()
     
     var selectProduct: Product?
-    // var product: Product?
     var offer: Offer?
     
     override func viewDidLoad() {
@@ -62,18 +62,24 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if let product = offer?.buyerProduct {
+            CloudKitHelper.fetchOffersWithSameProduct(product: product) { (offers) in
+                let products = offers.map { (offer) -> Product in
+                    offer.buyerProduct
+                }
+                self.products = products
+                DispatchQueue.main.async {
+                    self.collectionViewRequestItem.reloadData()
+                }
+            }
+        }
+        
         navigationController?.setNavigationBarHidden(false, animated: animated)
         //1. select database
         //udah ada di helper
         //2. select record
         //udah ada helper
         //3.excecute query
-        CloudKitHelper.fetchMyProducts { (record) in
-            self.products = record
-            DispatchQueue.main.async {
-                self.collectionViewRequestItem.reloadData()
-            }
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -82,27 +88,32 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
-        let product = products[indexPath.row]
-        cell.titleLabel.text = product.title
-        cell.priceLabel.text = "Rp \(product.price)"
-        cell.thumbnailImage.image = product.image
-        cell.amountLabel.text = product.quantity
+        //let product = offers[indexPath.row]
+        let product = offer
+        cell.titleLabel.text = product?.sellerProduct.title
+        cell.priceLabel.text = "Rp \(product?.sellerProduct.price)"
+        cell.thumbnailImage.image = product?.sellerProduct.image
+        cell.amountLabel.text = product?.sellerProduct.quantity
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+        print(offers)
+        return offers.count
+        //return offers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectProduct = products[indexPath.row]
+        //selectProduct = offer?.sellerProduct.self
         performSegue(withIdentifier: "toOfferDetail", sender: nil)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "toOfferDetails", let vc = segue.destination as? OfferDetailsViewController, let product = sender as? Product{
-        vc.product = product
+    if segue.identifier == "toOfferDetails", let vc = segue.destination as? OfferDetailsViewController, let offer = sender as? Product{
+        vc.product = offer
         }
     }
     

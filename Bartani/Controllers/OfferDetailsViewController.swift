@@ -22,15 +22,16 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var buttonAccept: UIButton!
     @IBOutlet weak var buttonDecline: UIButton!
     @IBOutlet weak var backNavButton: UINavigationItem!
+
     
+    var offer: Offer?
     var product: Product?
-    var sellerProduct: Product?
     
-    var delegate: ProductDetailDelegate?
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(offer)
         
         buttonAccept.layer.cornerRadius = 6
         buttonAccept.layer.borderWidth = 1
@@ -39,22 +40,22 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
         buttonDecline.layer.cornerRadius = 6
         
         
-        labelProductName.text = product?.title
-        imageProduct.image = product?.image
-        labelProductQuantity.text = product?.quantity
+        labelProductName.text = offer?.buyerProduct.title
+        imageProduct.image = offer?.buyerProduct.image
+        labelProductQuantity.text = offer?.buyerProduct.quantity
         
-        if let date = product?.harvestedAt, let quantity = product?.quantity {
+        if let date = offer?.buyerProduct.harvestedAt, let quantity = offer?.buyerProduct.quantity {
             let formatter = RelativeDateTimeFormatter()
             let time = formatter.localizedString(for: date, relativeTo: Date())
             labelProductQuantity.text = "\(quantity) - harvested \(time)"
         }
         
-        if let price = product?.price {
+        if let price = offer?.buyerProduct.price {
             labelProductPrice.text = "Rp \(price)"
         }
         
         locationManager.delegate = self
-        labelDescription.text = product?.description
+        labelDescription.text = offer?.buyerProduct.description
         
         if CLLocationManager.locationServicesEnabled() {
             checkLocationAuthorization(CLLocationManager.authorizationStatus())
@@ -110,7 +111,7 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first, let productLocation = product?.location {
+        if let location = locations.first, let productLocation = offer?.buyerProduct.location {
             let distance = location.distance(from: productLocation) / 1000
             labelUserDistance.text = "\(String(format: "%.1f", distance)) km"
         }
@@ -125,8 +126,8 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAcceptSuccess" {
-            if let vc = segue.destination as? BarterViewController {
-                vc.product = product
+            if let vc = segue.destination as? SuccesAcceptOfferViewController, let offer = sender{
+                
             }
         }
     }

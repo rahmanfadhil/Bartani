@@ -118,7 +118,7 @@
                         <outlet property="labelRequestItem" destination="VKZ-3F-zWv" id="GJy-aU-A2q"/>
                         <outlet property="titleOfferLabel" destination="a0C-89-tWW" id="u4G-cT-8zs"/>
                         <outlet property="viewProductBox" destination="Dn3-81-L9D" id="TWs-zo-6x4"/>
-                        <segue destination="zc3-UI-Dsc" kind="show" identifier="toOfferDetail" id="p7I-Fe-HEp"/>
+                        <segue destination="zc3-UI-Dsc" kind="showDetail" identifier="toOfferDetail" id="p7I-Fe-HEp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iDA-Ww-Czg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

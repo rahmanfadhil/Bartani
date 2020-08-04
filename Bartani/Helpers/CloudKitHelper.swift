@@ -226,7 +226,7 @@ struct CloudKitHelper {
             let productReference = CKRecord.Reference(recordID: product.ckRecord.recordID, action: .none)
             let predicate1 = NSPredicate(format: "seller == %@", sellerReference)
             let predicate2 = NSPredicate(format: "sellerProduct == %@", productReference)
-            let query = CKQuery(recordType: RecordType.Offers, predicate: NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1]))
+            let query = CKQuery(recordType: RecordType.Offers, predicate: NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2]))
             
             queryOffers(container: container, query: query) { offers in
                 onComplete(offers)
