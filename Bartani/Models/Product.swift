@@ -18,6 +18,7 @@ struct Product {
     var image: UIImage?
     var ckRecord: CKRecord
     var harvestedAt: Date
+    var ownerName: String
     
     static func fromRecords(data: [CKRecord]) -> [Product] {
         var products = [Product]()
@@ -41,7 +42,8 @@ struct Product {
                 location: record.value(forKey: "location") as? CLLocation,
                 image: UIImage(data: data as Data),
                 ckRecord: record,
-                harvestedAt: date
+                harvestedAt: date,
+                ownerName: record.value(forKey: "ownerName") as? String ?? "Unknown"
             )
         }
         

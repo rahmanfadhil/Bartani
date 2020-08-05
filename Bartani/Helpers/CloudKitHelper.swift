@@ -35,7 +35,7 @@ struct CloudKitHelper {
     
     // Get user name
     
-    static func getUserName(onComplete: @escaping (String) -> Void) {
+    static func getUserName(onComplete: @escaping (String?) -> Void) {
         CKContainer.default().requestApplicationPermission(.userDiscoverability) { (status, error) in
             if status == .granted {
                 CKContainer.default().fetchUserRecordID { (record, error) in
@@ -44,6 +44,8 @@ struct CloudKitHelper {
                         onComplete(username)
                     })
                 }
+            } else {
+                onComplete(nil)
             }
         }
     }
@@ -61,22 +63,30 @@ struct CloudKitHelper {
     // MARK: - Save product
 
     static func saveProduct(data: InsertProduct, onComplete: @escaping () -> Void) {
-        let product = CKRecord(recordType: RecordType.Products)
-        product.setValue(data.title, forKey: "title")
-        product.setValue(data.price, forKey: "price")
-        product.setValue(data.quantity, forKey: "quantity")
-        product.setValue(data.description, forKey: "description")
-        product.setValue(CKAsset(fileURL: data.imageURL), forKey: "image")
-        product.setValue(data.location, forKey: "location")
-        product.setValue(data.harvestedAt, forKey: "harvestedAt")
-        
-        CKContainer.default().publicCloudDatabase.save(product) { (record, error) in
-            if let error = error {
-                print(error)
-                return
+        getUserName { (name) in
+            let product = CKRecord(recordType: RecordType.Products)
+            product.setValue(data.title, forKey: "title")
+            product.setValue(data.price, forKey: "price")
+            product.setValue(data.quantity, forKey: "quantity")
+            product.setValue(data.description, forKey: "description")
+            product.setValue(CKAsset(fileURL: data.imageURL), forKey: "image")
+            product.setValue(data.location, forKey: "location")
+            product.setValue(data.harvestedAt, forKey: "harvestedAt")
+            
+            if let name = name {
+                product.setValue(name, forKey: "ownerName")
+            } else {
+                product.setValue("Unknown", forKey: "ownerName")
             }
             
-            onComplete()
+            CKContainer.default().publicCloudDatabase.save(product) { (record, error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                onComplete()
+            }
         }
     }
     
