@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--My Offer Item View Controller-->
         <scene sceneID="J7U-8E-GCB">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="4Nr-I6-58a" customClass="MyOfferItemViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,7 +108,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="acI-gy-tRQ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="wk9-ie-cfR"/>
+                    <navigationItem key="navigationItem" id="wk9-ie-cfR"/>
                     <connections>
                         <outlet property="collectionViewRequestItem" destination="xpF-35-CIZ" id="MeS-PG-fYv"/>
                         <outlet property="imageProduct" destination="UZm-vm-KIv" id="Rdc-dv-uRe"/>
@@ -118,14 +118,14 @@
                         <outlet property="labelRequestItem" destination="VKZ-3F-zWv" id="GJy-aU-A2q"/>
                         <outlet property="titleOfferLabel" destination="a0C-89-tWW" id="u4G-cT-8zs"/>
                         <outlet property="viewProductBox" destination="Dn3-81-L9D" id="TWs-zo-6x4"/>
-                        <segue destination="zc3-UI-Dsc" kind="showDetail" identifier="toDetailOffer" id="p7I-Fe-HEp"/>
+                        <segue destination="zc3-UI-Dsc" kind="show" identifier="toDetailOffer" id="a0F-Cu-Xz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iDA-Ww-Czg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-417.39130434782612" y="-1029.2410714285713"/>
         </scene>
-        <!--Title-->
+        <!--Offer Details View Controller-->
         <scene sceneID="Toi-9p-1t2">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="zc3-UI-Dsc" customClass="OfferDetailsViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bayam" translatesAutoresizingMaskIntoConstraints="NO" id="wnH-1H-qIg">
-                                <rect key="frame" x="0.0" y="67" width="414" height="435"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="403"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hA6-Wi-drj">
@@ -203,15 +203,28 @@
                                 </state>
                                 <connections>
                                     <action selector="acceptOffer:" destination="zc3-UI-Dsc" eventType="touchUpInside" id="kJP-Ac-6Sb"/>
+                                    <segue destination="x91-Vz-MWk" kind="show" identifier="toSuccessAccept" id="THA-xL-4j8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adT-Mi-y3N">
+                                <rect key="frame" x="342" y="661" width="51" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Call" image="phone.circle.fill" catalog="system">
+                                    <color key="titleColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="chatWA:" destination="zc3-UI-Dsc" eventType="touchUpInside" id="McG-vH-wmN"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ps9-Kv-2Jo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Ha3-aK-Gkh"/>
+                    <navigationItem key="navigationItem" id="Ha3-aK-Gkh"/>
                     <connections>
                         <outlet property="buttonAccept" destination="r0e-H8-1sG" id="u6D-MH-shC"/>
+                        <outlet property="buttonChatWA" destination="adT-Mi-y3N" id="73f-Kr-jGa"/>
                         <outlet property="buttonDecline" destination="w9Z-1q-P1M" id="CKU-F1-Y51"/>
                         <outlet property="imageProduct" destination="wnH-1H-qIg" id="pgP-3c-miU"/>
                         <outlet property="labelDescription" destination="MRk-th-0aW" id="NiJ-Wo-ItH"/>
@@ -220,14 +233,13 @@
                         <outlet property="labelProductPrice" destination="G6Y-WN-IW7" id="eqS-OJ-1ac"/>
                         <outlet property="labelProductQuantity" destination="sWa-H5-qEN" id="9Hi-zQ-rGk"/>
                         <outlet property="labelUserDistance" destination="4ZC-LR-PjV" id="EeH-nP-uKu"/>
-                        <segue destination="x91-Vz-MWk" kind="show" identifier="toAcceptSuccess" id="xkY-8O-gtj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrN-46-wDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="356.52173913043481" y="-1029.2410714285713"/>
         </scene>
-        <!--Success-->
+        <!--Succes Accept Offer View Controller-->
         <scene sceneID="fxC-hA-ABd">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="x91-Vz-MWk" customClass="SuccesAcceptOfferViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
@@ -287,7 +299,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ET9-7v-ivU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Success" id="YLV-eG-7pR"/>
+                    <navigationItem key="navigationItem" id="YLV-eG-7pR"/>
                     <connections>
                         <outlet property="okayButton" destination="Xhn-Ab-Upu" id="vbo-KO-lFF"/>
                     </connections>
@@ -299,6 +311,7 @@
     </scenes>
     <resources>
         <image name="bayam" width="650" height="365"/>
+        <image name="phone.circle.fill" catalog="system" width="128" height="121"/>
         <image name="success confirmation" width="170" height="170"/>
     </resources>
 </document>

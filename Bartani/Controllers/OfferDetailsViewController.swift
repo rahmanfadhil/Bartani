@@ -19,7 +19,8 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var buttonAccept: UIButton!
     @IBOutlet weak var buttonDecline: UIButton!
-
+    @IBOutlet weak var buttonChatWA: UIButton!
+    
     var product: Product?
     var offer: Offer?
     
@@ -59,9 +60,13 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
 
     
-    @IBAction func acceptOffer(_ sender: UIButton) {
+    @IBAction func acceptOffer(_ sender: Any) {
         //data diterima, ubah status jadi transaksi diterima
         if let buyerProduct = buyerProduct, let sellerProduct = sellerProduct{
             CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
@@ -71,17 +76,18 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
             sellerProduct: sellerProduct.ckRecord
             )){
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "toAcceptSuccess", sender: nil)
+                    self.performSegue(withIdentifier: "toSuccessAccept", sender: nil)
                 }
             }
         }
     }
     
-//    func chatWA() {
-//
-//    }
+    @IBAction func chatWA(_ sender: Any) {
+        print("coba")
+    }
     
-    @IBAction func declineOffer(_ sender: UIButton) {
+    
+    @IBAction func declineOffer(_ sender: Any) {
         if let offer = offer {
             let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
@@ -139,7 +145,7 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAcceptSuccess" {
+        if segue.identifier == "toSuccessAccept" {
             if let vc = segue.destination as? SuccesAcceptOfferViewController, let offer = sender as? Offer{
                 vc.offer = offer
             }
