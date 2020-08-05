@@ -85,8 +85,8 @@ class BarterConfirmViewController: UIViewController {
     @IBAction func proceedTapped(_ sender: Any) {
         if let buyerProduct = buyerProduct, let sellerProduct = sellerProduct {
             CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
-                buyerName: "John",
-                sellerName: "Doe",
+                buyerName: buyerProduct.ownerName,
+                sellerName: sellerProduct.ownerName,
                 buyerProduct: buyerProduct.ckRecord,
                 sellerProduct: sellerProduct.ckRecord
             )) {
