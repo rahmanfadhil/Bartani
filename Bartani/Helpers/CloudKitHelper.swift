@@ -33,6 +33,8 @@ struct CloudKitHelper {
         let sellerProduct: CKRecord
     }
     
+    // Get user name
+    
     static func getUserName(onComplete: @escaping (String) -> Void) {
         CKContainer.default().requestApplicationPermission(.userDiscoverability) { (status, error) in
             if status == .granted {
@@ -48,7 +50,7 @@ struct CloudKitHelper {
     
     // MARK: - Delete offer
     
-    static func deleteProduct(offer: Offer, onComplete: @escaping () -> Void) {
+    static func deleteOffer(offer: Offer, onComplete: @escaping () -> Void) {
         let database = CKContainer.default().publicCloudDatabase
         
         database.delete(withRecordID: offer.ckRecord.recordID) { (id, error) in
@@ -295,10 +297,6 @@ struct CloudKitHelper {
                 onComplete(offers)
             }
         }
-    }
-    
-    static func getOfferProducts(product: Product) {
-        
     }
     
     private static func getProductFromId(id: CKRecord.ID, onComplete: @escaping (Product) -> Void) {

@@ -38,7 +38,7 @@ class DetailRequestViewController: UIViewController, UIAlertViewDelegate {
         if let offer = offer {
             let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-                CloudKitHelper.deleteProduct(offer: offer) {
+                CloudKitHelper.deleteOffer(offer: offer) {
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
                     }
