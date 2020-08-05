@@ -97,12 +97,12 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //selectProduct = offer?.sellerProduct.self
-        performSegue(withIdentifier: "toOfferDetail", sender: products[indexPath.row])
+        performSegue(withIdentifier: "toDetailOffer", sender: products[indexPath.row])
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toOfferDetail", let vc = segue.destination as? OfferDetailsViewController, let product = sender as? Product {
+        if segue.identifier == "toDetailOffer", let vc = segue.destination as? OfferDetailsViewController, let product = sender as? Product{
             vc.product = product
         }
         
