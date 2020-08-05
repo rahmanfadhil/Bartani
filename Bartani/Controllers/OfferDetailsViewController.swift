@@ -50,6 +50,12 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
         //locationManager.delegate = self
         labelDescription.text = product?.description
         
+        CloudKitHelper.getUserName { (name) in
+            DispatchQueue.main.async {
+                self.buttonChatWA.setTitle(name ?? "Unknown", for: UIControl.State.normal)
+            }
+        }
+        
 //        if CLLocationManager.locationServicesEnabled() {
 //            checkLocationAuthorization(CLLocationManager.authorizationStatus())
 //        } else {
@@ -61,17 +67,12 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    
     @IBAction func acceptOffer(_ sender: Any) {
         //data diterima, ubah status jadi transaksi diterima
         if let buyerProduct = buyerProduct, let sellerProduct = sellerProduct{
             CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
-            buyerName: "BuyyerName",
-            sellerName: "SellerName",
+            buyerName: buyerProduct.ownerName,
+            sellerName: sellerProduct.ownerName,
             buyerProduct: buyerProduct.ckRecord,
             sellerProduct: sellerProduct.ckRecord
             )){
@@ -82,16 +83,13 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
         }
     }
     
-    @IBAction func chatWA(_ sender: Any) {
-        CloudKitHelper.getUserName { (name) in
-            DispatchQueue.main.async {
-                self.buttonChatWA.setTitle(name, for: UIControl.State.normal)
-            }
-        }
-        
-        //harusnya link api kontak ke wa, tapi belum dapet caranya.
-        print("coba")
-    }
+//    @IBAction func chatWA(_ sender: Any) {
+//
+//
+//        //harusnya link api kontak ke wa, tapi belum dapet caranya.
+//        print("coba")
+//        //"https://wa.me/1XXXXXXXXXX"
+//    }
     
     
     @IBAction func declineOffer(_ sender: Any) {
