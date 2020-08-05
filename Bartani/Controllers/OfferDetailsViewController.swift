@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import MapKit
 
-class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate, UIAlertViewDelegate {
+class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
 
     @IBOutlet weak var imageProduct: UIImageView!
     @IBOutlet weak var labelProductName: UILabel!
@@ -62,9 +61,8 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate, U
     }
 
     
-    @IBAction func acceptOffer(_ sender: Any) {
+    @IBAction func acceptOffer(_ sender: UIButton) {
         //data diterima, ubah status jadi transaksi diterima
-        print("cetak")
         if let buyerProduct = buyerProduct, let sellerProduct = sellerProduct{
             CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
             buyerName: "BuyyerName",
@@ -79,8 +77,11 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate, U
         }
     }
     
+//    func chatWA() {
+//
+//    }
+    
     @IBAction func declineOffer(_ sender: UIButton) {
-        print("cetak")
         if let offer = offer {
             let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
