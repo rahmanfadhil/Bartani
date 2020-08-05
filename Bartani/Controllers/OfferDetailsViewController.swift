@@ -83,6 +83,13 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
     }
     
     @IBAction func chatWA(_ sender: Any) {
+        CloudKitHelper.getUserName { (name) in
+            DispatchQueue.main.async {
+                self.buttonChatWA.setTitle(name, for: UIControl.State.normal)
+            }
+        }
+        
+        //harusnya link api kontak ke wa, tapi belum dapet caranya.
         print("coba")
     }
     
