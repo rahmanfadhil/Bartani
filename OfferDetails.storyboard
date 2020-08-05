@@ -125,7 +125,7 @@
             </objects>
             <point key="canvasLocation" x="-417.39130434782612" y="-1029.2410714285713"/>
         </scene>
-        <!--Offer Details View Controller-->
+        <!--Title-->
         <scene sceneID="Toi-9p-1t2">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="zc3-UI-Dsc" customClass="OfferDetailsViewController" customModule="Bartani" customModuleProvider="target" sceneMemberID="viewController">
@@ -159,12 +159,6 @@
                                     <action selector="acceptOffer:" destination="zc3-UI-Dsc" eventType="touchUpInside" id="kJP-Ac-6Sb"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AjC-Ey-7so">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="sTN-xY-jTu"/>
-                                </items>
-                            </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bayam" translatesAutoresizingMaskIntoConstraints="NO" id="wnH-1H-qIg">
                                 <rect key="frame" x="0.0" y="88" width="414" height="414"/>
                                 <constraints>
@@ -222,6 +216,10 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tbJ-jP-hc6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -229,9 +227,7 @@
                             <constraint firstItem="wnH-1H-qIg" firstAttribute="width" secondItem="wnH-1H-qIg" secondAttribute="height" multiplier="1:1" id="14N-yU-deX"/>
                             <constraint firstItem="G6Y-WN-IW7" firstAttribute="leading" secondItem="MRk-th-0aW" secondAttribute="leading" id="1Mw-ev-3tG"/>
                             <constraint firstAttribute="bottom" secondItem="G6Y-WN-IW7" secondAttribute="bottom" constant="265" id="5oM-jm-2nI"/>
-                            <constraint firstItem="wnH-1H-qIg" firstAttribute="trailing" secondItem="AjC-Ey-7so" secondAttribute="trailing" id="9a7-GC-vnA"/>
                             <constraint firstItem="Ps9-Kv-2Jo" firstAttribute="bottom" secondItem="r0e-H8-1sG" secondAttribute="bottom" constant="12" id="AXy-JD-0ft"/>
-                            <constraint firstItem="wnH-1H-qIg" firstAttribute="top" secondItem="AjC-Ey-7so" secondAttribute="bottom" id="ElN-BS-Ysf"/>
                             <constraint firstItem="sWa-H5-qEN" firstAttribute="top" secondItem="hA6-Wi-drj" secondAttribute="bottom" constant="20" id="HbG-XG-09g"/>
                             <constraint firstItem="r0e-H8-1sG" firstAttribute="leading" secondItem="Ps9-Kv-2Jo" secondAttribute="leading" constant="25" id="M8W-v3-8sL"/>
                             <constraint firstItem="G6Y-WN-IW7" firstAttribute="leading" secondItem="vqz-7e-s8C" secondAttribute="leading" id="OaH-Go-hRh"/>
@@ -248,10 +244,10 @@
                             <constraint firstItem="vqz-7e-s8C" firstAttribute="top" secondItem="G6Y-WN-IW7" secondAttribute="bottom" constant="30" id="rgN-PB-JI9"/>
                             <constraint firstItem="w9Z-1q-P1M" firstAttribute="leading" secondItem="r0e-H8-1sG" secondAttribute="trailing" constant="55" id="vfF-S0-owd"/>
                             <constraint firstItem="MRk-th-0aW" firstAttribute="top" secondItem="4ZC-LR-PjV" secondAttribute="bottom" constant="63" id="w7G-bs-BiW"/>
-                            <constraint firstItem="wnH-1H-qIg" firstAttribute="leading" secondItem="AjC-Ey-7so" secondAttribute="leading" id="zOU-Rv-hFd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ps9-Kv-2Jo"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="4o4-hb-Fsl"/>
                     <connections>
                         <outlet property="buttonAccept" destination="r0e-H8-1sG" id="u6D-MH-shC"/>
                         <outlet property="buttonDecline" destination="w9Z-1q-P1M" id="CKU-F1-Y51"/>

@@ -32,11 +32,11 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonAccept.layer.cornerRadius = 6
+        buttonAccept.layer.cornerRadius = 10
         buttonAccept.layer.borderWidth = 1
         buttonAccept.layer.borderColor = #colorLiteral(red: 1, green: 0.5575068593, blue: 0, alpha: 1)
         
-        buttonDecline.layer.cornerRadius = 6
+        buttonDecline.layer.cornerRadius = 10
         
         
         labelProductName.text = product?.title
@@ -64,6 +64,7 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate, U
     
     @IBAction func acceptOffer(_ sender: Any) {
         //data diterima, ubah status jadi transaksi diterima
+        print("cetak")
         if let buyerProduct = buyerProduct, let sellerProduct = sellerProduct{
             CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
             buyerName: "BuyyerName",
@@ -78,7 +79,8 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate, U
         }
     }
     
-    @IBAction func declineOffer(_ sender: Any) {
+    @IBAction func declineOffer(_ sender: UIButton) {
+        print("cetak")
         if let offer = offer {
             let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
@@ -128,9 +130,9 @@ class OfferDetailsViewController: UIViewController, CLLocationManagerDelegate, U
 //        }
 //    }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to find user's location: \(error.localizedDescription)")
-    }
+//  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        print("Failed to find user's location: \(error.localizedDescription)")
+//    }
 
     // MARK: - Navigation
 
