@@ -62,17 +62,19 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
 
     
     @IBAction func acceptOffer(_ sender: UIButton) {
-        //data diterima, ubah status jadi transaksi diterima
-        if let buyerProduct = buyerProduct, let sellerProduct = sellerProduct{
-            CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
-            buyerName: "BuyyerName",
-            sellerName: "SellerName",
-            buyerProduct: buyerProduct.ckRecord,
-            sellerProduct: sellerProduct.ckRecord
-            )){
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "toAcceptSuccess", sender: nil)
+        if let offer = offer {
+            CloudKitHelper.updateOfferStatus(offer: offer, accept: true) { (error) in
+                if error != nil {
+                    print(error!)
+                    // TODO: Show alert
+                    print("Error accepting offer!")
+                } else {
+                    DispatchQueue.main.async {
+                        print("Berhasil!")
+                        self.performSegue(withIdentifier: "toAcceptSuccess", sender: nil)
+                    }
                 }
+                
             }
         }
     }
@@ -85,9 +87,10 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
         if let offer = offer {
             let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-                CloudKitHelper.deleteOffer(offer: offer) {
+                CloudKitHelper.updateOfferStatus(offer: offer, accept: false) { (error) in
                     DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
+                        print("Berhasil!")
+                        self.performSegue(withIdentifier: "toAcceptSuccess", sender: nil)
                     }
                 }
             }))

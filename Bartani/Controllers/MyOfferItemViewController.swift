@@ -74,10 +74,6 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
         //let product = offers[indexPath.row]
@@ -102,8 +98,9 @@ class MyOfferItemViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailOffer", let vc = segue.destination as? OfferDetailsViewController, let product = sender as? Product{
+        if segue.identifier == "toDetailOffer", let vc = segue.destination as? OfferDetailsViewController, let product = sender as? Product, let offer = offer {
             vc.product = product
+            vc.offer = offer
         }
         
     }
