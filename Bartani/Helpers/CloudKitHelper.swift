@@ -50,6 +50,26 @@ struct CloudKitHelper {
         }
     }
     
+    // MARK: - Accept an offer
+    
+    static func updateOfferStatus(offer: Offer, accept: Bool, onComplete: @escaping (Error?) -> Void) {
+        let database = CKContainer.default().publicCloudDatabase
+        
+        if accept {
+            offer.ckRecord.setValue("accepted", forKey: "status")
+        } else {
+            offer.ckRecord.setValue("declined", forKey: "status")
+        }
+        
+        database.save(offer.ckRecord) { (record, error) in
+            if let error = error {
+                onComplete(error)
+            } else {
+                onComplete(nil)
+            }
+        }
+    }
+    
     // MARK: - Delete offer
     
     static func deleteOffer(offer: Offer, onComplete: @escaping () -> Void) {
@@ -100,6 +120,7 @@ struct CloudKitHelper {
         offer.setValue(buyerProductReference, forKey: "buyerProduct")
         let sellerProductReference = CKRecord.Reference(record: data.sellerProduct, action: .deleteSelf)
         offer.setValue(sellerProductReference, forKey: "sellerProduct")
+        offer.setValue("pending", forKey: "status")
         
         if let userID = data.buyerProduct.creatorUserRecordID, let sellerID = data.sellerProduct.creatorUserRecordID {
             let buyer = CKRecord.Reference(recordID: userID, action: .none)

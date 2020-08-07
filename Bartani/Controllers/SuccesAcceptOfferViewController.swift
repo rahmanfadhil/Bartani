@@ -16,7 +16,7 @@ class SuccesAcceptOfferViewController: UIViewController {
     @IBOutlet weak var okayButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -24,14 +24,6 @@ class SuccesAcceptOfferViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-           navigationController?.setNavigationBarHidden(true, animated: animated)
-       }
-       
-       override func viewWillDisappear(_ animated: Bool) {
-           navigationController?.setNavigationBarHidden(false, animated: animated)
-       }
     
     
     /*
