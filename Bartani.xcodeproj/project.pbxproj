@@ -34,6 +34,7 @@
 		16DCB8D024C80B0C00C7EAC8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DCB8CF24C80B0C00C7EAC8 /* Offer.swift */; };
 		16E3BA4624D14308007DCEDD /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3BA4424D14308007DCEDD /* OfferTableViewCell.swift */; };
 		16E3BA4724D14308007DCEDD /* OfferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E3BA4524D14308007DCEDD /* OfferTableViewCell.xib */; };
+		16E41AA624DD0F150083CFA6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E41AA524DD0F150083CFA6 /* OnboardingViewController.swift */; };
 		16F5A99624C549DA00DBF7D7 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F5A99424C549DA00DBF7D7 /* ProductCollectionViewCell.swift */; };
 		16F5A99724C549DA00DBF7D7 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F5A99524C549DA00DBF7D7 /* ProductCollectionViewCell.xib */; };
 		7F0E765224CFC71000D6DFD2 /* OfferDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F0E765124CFC71000D6DFD2 /* OfferDetails.storyboard */; };
@@ -76,6 +77,7 @@
 		16DCB8CF24C80B0C00C7EAC8 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		16E3BA4424D14308007DCEDD /* OfferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
 		16E3BA4524D14308007DCEDD /* OfferTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferTableViewCell.xib; sourceTree = "<group>"; };
+		16E41AA524DD0F150083CFA6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		16F5A99424C549DA00DBF7D7 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		16F5A99524C549DA00DBF7D7 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F0E765124CFC71000D6DFD2 /* OfferDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OfferDetails.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				7F0E765524CFD87F00D6DFD2 /* MyOfferItemViewController.swift */,
 				7F0E765724CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift */,
 				16D6830224CE976E00CB52FE /* BarterConfirmViewController.swift */,
+				16E41AA524DD0F150083CFA6 /* OnboardingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				1604FFB124C1593B000AE266 /* NewProductViewController.swift in Sources */,
 				1604FFBB24C15978000AE266 /* BarterViewController.swift in Sources */,
 				1604FFB724C1595A000AE266 /* HistoryDetailViewController.swift in Sources */,
+				16E41AA624DD0F150083CFA6 /* OnboardingViewController.swift in Sources */,
 				16DCB8D024C80B0C00C7EAC8 /* Offer.swift in Sources */,
 				1604FFBD24C15A19000AE266 /* HistoryTableViewController.swift in Sources */,
 				16D6830124CE8E8C00CB52FE /* NewProductSuccessViewController.swift in Sources */,
