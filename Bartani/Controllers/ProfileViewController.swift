@@ -37,6 +37,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         CloudKitHelper.getUserProfile { (profile) in
             if let profile = profile {
                 DispatchQueue.main.async {
+                    if let image = profile.profileImage {
+                        self.profilePicture.image = image
+                    }
                     self.profileName.text = profile.name
                     self.bioLabel.text = profile.bio
                 }
