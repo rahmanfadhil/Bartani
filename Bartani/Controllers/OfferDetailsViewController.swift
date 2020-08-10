@@ -19,7 +19,8 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var buttonAccept: UIButton!
     @IBOutlet weak var buttonDecline: UIButton!
-
+    @IBOutlet weak var buttonChatWA: UIButton!
+    
     var product: Product?
     var offer: Offer?
     
@@ -59,38 +60,47 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
 
     
-    @IBAction func acceptOffer(_ sender: UIButton) {
-        if let offer = offer {
-            CloudKitHelper.updateOfferStatus(offer: offer, accept: true) { (error) in
-                if error != nil {
-                    print(error!)
-                    // TODO: Show alert
-                    print("Error accepting offer!")
-                } else {
-                    DispatchQueue.main.async {
-                        print("Berhasil!")
-                        self.performSegue(withIdentifier: "toAcceptSuccess", sender: nil)
-                    }
+    @IBAction func acceptOffer(_ sender: Any) {
+        //data diterima, ubah status jadi transaksi diterima
+        if let buyerProduct = buyerProduct, let sellerProduct = sellerProduct{
+            CloudKitHelper.saveOffer(data: CloudKitHelper.InsertOffer(
+            buyerName: "BuyyerName",
+            sellerName: "SellerName",
+            buyerProduct: buyerProduct.ckRecord,
+            sellerProduct: sellerProduct.ckRecord
+            )){
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toSuccessAccept", sender: nil)
                 }
-                
             }
         }
     }
     
-//    func chatWA() {
-//
-//    }
+    @IBAction func chatWA(_ sender: Any) {
+        CloudKitHelper.getUserName { (name) in
+            DispatchQueue.main.async {
+                self.buttonChatWA.setTitle(name, for: UIControl.State.normal)
+            }
+        }
+        
+        //harusnya link api kontak ke wa, tapi belum dapet caranya.
+        print("coba")
+    }
     
-    @IBAction func declineOffer(_ sender: UIButton) {
+    
+    @IBAction func declineOffer(_ sender: Any) {
         if let offer = offer {
             let alert = UIAlertController(title: "Delete", message: "This offer will be deleted from this app", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-                CloudKitHelper.updateOfferStatus(offer: offer, accept: false) { (error) in
+                CloudKitHelper.deleteOffer(offer: offer) {
                     DispatchQueue.main.async {
-                        print("Berhasil!")
-                        self.performSegue(withIdentifier: "toAcceptSuccess", sender: nil)
+                        self.navigationController?.popViewController(animated: true)
                     }
                 }
             }))
@@ -142,7 +152,7 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAcceptSuccess" {
+        if segue.identifier == "toSuccessAccept" {
             if let vc = segue.destination as? SuccesAcceptOfferViewController, let offer = sender as? Offer{
                 vc.offer = offer
             }
