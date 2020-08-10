@@ -33,7 +33,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.separatorStyle = .none
 
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
-        
+    }
+    
+    @IBAction func segmentTapped(_ sender: Any) {
+        updateSegment()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         CloudKitHelper.getUserProfile { (profile) in
             if let profile = profile {
                 DispatchQueue.main.async {
@@ -47,10 +53,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.profileName.text = "Unknown"
             }
         }
-    }
-    
-    @IBAction func segmentTapped(_ sender: Any) {
-        updateSegment()
     }
     
     func updateSegment() {
