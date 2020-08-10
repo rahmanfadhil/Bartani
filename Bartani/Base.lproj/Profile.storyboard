@@ -207,7 +207,7 @@
                                     <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cLG-w4-ThK" kind="show" id="AbN-ES-jii"/>
+                                    <segue destination="cLG-w4-ThK" kind="show" identifier="toUpdateProfile" id="AbN-ES-jii"/>
                                 </connections>
                             </button>
                         </subviews>

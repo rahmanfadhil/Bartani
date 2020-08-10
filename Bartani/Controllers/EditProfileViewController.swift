@@ -9,6 +9,8 @@
 import UIKit
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var profile: Profile?
 
     @IBOutlet weak var profilePictureImage: UIImageView!
     @IBOutlet weak var nameText: UITextField!
@@ -27,6 +29,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         bioText.clipsToBounds = true
         
         saveButton.layer.cornerRadius = 6
+        
+        if let profile = profile {
+            nameText.text = profile.name
+            phoneText.text = profile.phone
+            bioText.text = profile.bio
+            profilePictureImage.image = profile.profileImage
+        }
     }
     
     @IBAction func save(_ sender: Any) {

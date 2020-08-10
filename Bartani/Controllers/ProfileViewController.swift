@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var bioLabel: UILabel!
     
     var offers = [Offer]()
+    var profile: Profile?
     
     
     // MARK: - viewDidLoad
@@ -35,14 +36,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
     }
     
-    @IBAction func segmentTapped(_ sender: Any) {
-        updateSegment()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         CloudKitHelper.getUserProfile { (profile) in
             if let profile = profile {
                 DispatchQueue.main.async {
+                    self.profile = profile
                     if let image = profile.profileImage {
                         self.profilePicture.image = image
                     }
@@ -53,6 +51,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.profileName.text = "Unknown"
             }
         }
+    }
+    
+    @IBAction func segmentTapped(_ sender: Any) {
+        updateSegment()
     }
     
     func updateSegment() {
@@ -131,10 +133,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let vc = segue.destination as? DetailRequestViewController, let offer = sender as? Offer {
                 vc.offer = offer
             }
-        } else {
+        } else if segue.identifier == "toOfferDetails" {
             if let vc = segue.destination as? MyOfferItemViewController, let offer = sender as? Offer {
                 vc.offer = offer
             }
+        } else if segue.identifier == "toUpdateProfile", let vc = segue.destination as? EditProfileViewController {
+            vc.profile = profile
         }
     }
     
