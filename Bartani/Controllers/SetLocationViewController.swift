@@ -35,10 +35,14 @@ class SetLocationViewController: UIViewController, MKMapViewDelegate {
         confirmButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
         
         checkLocationServices()
-        
-        let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-        longPressRecogniser.minimumPressDuration = 1.0
-        mapView.addGestureRecognizer(longPressRecogniser)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let gestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(handleLongPress(_:))
+        )
+        mapView.addGestureRecognizer(gestureRecognizer)
     }
     
     func setupLocationManager() {
@@ -86,25 +90,27 @@ class SetLocationViewController: UIViewController, MKMapViewDelegate {
     }
     
     @objc func handleLongPress(_ gestureRecognizer : UIGestureRecognizer){
-        if gestureRecognizer.state != .began { return }
+        if gestureRecognizer.state == .ended {
+            print("HELLO!")
+            
+            let touchPoint = gestureRecognizer.location(in: mapView)
+            let touchMapCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = touchMapCoordinate
+            annotation.title = "Product Location"
+            annotation.subtitle = "This is the location of you and your product"
+            
+            if let currentLocation = currentLocation {
+                mapView.removeAnnotation(currentLocation)
+            }
+            
+            mapView.addAnnotation(annotation)
+            currentLocation = annotation
+            
 
-        let touchPoint = gestureRecognizer.location(in: mapView)
-        let touchMapCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = touchMapCoordinate
-        annotation.title = "Product Location"
-        annotation.subtitle = "This is the location of you and your product"
-        
-        if let currentLocation = currentLocation {
-            mapView.removeAnnotation(currentLocation)
+            mapView.addAnnotation(annotation)
         }
-        
-        mapView.addAnnotation(annotation)
-        currentLocation = annotation
-        
-
-        mapView.addAnnotation(annotation)
     }
     
     

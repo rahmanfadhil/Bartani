@@ -24,6 +24,7 @@
 		164C67EF24C5333B006D681F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67ED24C5333B006D681F /* Profile.storyboard */; };
 		164C67F224C53357006D681F /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67F024C53357006D681F /* Shop.storyboard */; };
 		164C67F524C53373006D681F /* NewProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164C67F324C53373006D681F /* NewProduct.storyboard */; };
+		164E0EF624E0F51900E63DF2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164E0EF524E0F51900E63DF2 /* EditProfileViewController.swift */; };
 		1686985024CA809000E867C5 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1686984F24CA809000E867C5 /* SetLocationViewController.swift */; };
 		16D682FF24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D682FE24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift */; };
 		16D6830124CE8E8C00CB52FE /* NewProductSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D6830024CE8E8C00CB52FE /* NewProductSuccessViewController.swift */; };
@@ -66,6 +67,7 @@
 		164C67EE24C5333B006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		164C67F124C53357006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/Shop.storyboard; sourceTree = "<group>"; };
 		164C67F424C53373006D681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Bartani/Base.lproj/NewProduct.storyboard; sourceTree = "<group>"; };
+		164E0EF524E0F51900E63DF2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		1686984F24CA809000E867C5 /* SetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
 		16D682FE24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTopAlignLabel.swift; sourceTree = "<group>"; };
 		16D6830024CE8E8C00CB52FE /* NewProductSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductSuccessViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				7F0E765724CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift */,
 				16D6830224CE976E00CB52FE /* BarterConfirmViewController.swift */,
 				16E41AA524DD0F150083CFA6 /* OnboardingViewController.swift */,
+				164E0EF524E0F51900E63DF2 /* EditProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164E0EF624E0F51900E63DF2 /* EditProfileViewController.swift in Sources */,
 				16E3BA4624D14308007DCEDD /* OfferTableViewCell.swift in Sources */,
 				7F0E765424CFCB5400D6DFD2 /* OfferDetailsViewController.swift in Sources */,
 				1604FFB924C15970000AE266 /* RequestSubmittedViewController.swift in Sources */,
