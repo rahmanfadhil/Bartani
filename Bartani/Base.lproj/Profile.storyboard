@@ -28,6 +28,9 @@
                                 <state key="normal" title="Change Profile Picture">
                                     <color key="titleColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="setPhoto:" destination="cLG-w4-ThK" eventType="touchUpInside" id="zhP-mi-Idv"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlW-lu-iht">
                                 <rect key="frame" x="20" y="278" width="374" height="21"/>
@@ -67,6 +70,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mP9-0j-W1q">
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bCe-oI-6tz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="cLG-w4-ThK" eventType="touchUpInside" id="f56-VS-1UU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -80,17 +97,20 @@
                             <constraint firstItem="Uls-z3-YWq" firstAttribute="centerX" secondItem="gqf-S3-Msn" secondAttribute="centerX" id="ICq-jM-aV4"/>
                             <constraint firstItem="AlW-lu-iht" firstAttribute="top" secondItem="Uls-z3-YWq" secondAttribute="bottom" constant="20" id="NkR-Z3-dZb"/>
                             <constraint firstItem="Uls-z3-YWq" firstAttribute="top" secondItem="Amb-wZ-7fV" secondAttribute="bottom" constant="20" id="OPX-br-eOu"/>
+                            <constraint firstItem="eiT-mc-uOR" firstAttribute="bottom" secondItem="mP9-0j-W1q" secondAttribute="bottom" constant="20" id="Rli-8X-ZFp"/>
                             <constraint firstItem="XZM-ej-LnO" firstAttribute="trailing" secondItem="AlW-lu-iht" secondAttribute="trailing" id="U0k-Z8-qsJ"/>
                             <constraint firstItem="6Ed-FC-Pyk" firstAttribute="leading" secondItem="eiT-mc-uOR" secondAttribute="leading" constant="20" id="cbv-fZ-ODj"/>
                             <constraint firstItem="OvH-zC-OEr" firstAttribute="trailing" secondItem="6Ed-FC-Pyk" secondAttribute="trailing" id="eDU-cM-c3Z"/>
                             <constraint firstItem="XZM-ej-LnO" firstAttribute="top" secondItem="AlW-lu-iht" secondAttribute="bottom" constant="8" id="hQs-0Z-c3R"/>
                             <constraint firstItem="Amb-wZ-7fV" firstAttribute="centerX" secondItem="gqf-S3-Msn" secondAttribute="centerX" id="iHd-uQ-erh"/>
+                            <constraint firstItem="mP9-0j-W1q" firstAttribute="leading" secondItem="eiT-mc-uOR" secondAttribute="leading" constant="20" id="l10-qs-Dkf"/>
                             <constraint firstItem="ZIB-a6-B4E" firstAttribute="leading" secondItem="gnP-mb-hYk" secondAttribute="leading" id="m1H-jg-xCL"/>
                             <constraint firstItem="gnP-mb-hYk" firstAttribute="leading" secondItem="eiT-mc-uOR" secondAttribute="leading" constant="20" id="nR9-EG-b0l"/>
                             <constraint firstItem="OvH-zC-OEr" firstAttribute="leading" secondItem="6Ed-FC-Pyk" secondAttribute="leading" id="odd-ix-Nvm"/>
                             <constraint firstItem="OvH-zC-OEr" firstAttribute="top" secondItem="6Ed-FC-Pyk" secondAttribute="bottom" constant="8" id="sla-55-0ZH"/>
                             <constraint firstItem="eiT-mc-uOR" firstAttribute="trailing" secondItem="AlW-lu-iht" secondAttribute="trailing" constant="20" id="u33-Oj-boz"/>
                             <constraint firstItem="Amb-wZ-7fV" firstAttribute="top" secondItem="eiT-mc-uOR" secondAttribute="top" constant="20" id="uJG-LH-EJc"/>
+                            <constraint firstItem="eiT-mc-uOR" firstAttribute="trailing" secondItem="mP9-0j-W1q" secondAttribute="trailing" constant="20" id="v85-dE-5ct"/>
                             <constraint firstItem="6Ed-FC-Pyk" firstAttribute="top" secondItem="ZIB-a6-B4E" secondAttribute="bottom" constant="20" id="z9e-Vh-Num"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eiT-mc-uOR"/>
@@ -98,6 +118,10 @@
                     <navigationItem key="navigationItem" title="Edit Profile" id="MR0-qq-vGj"/>
                     <connections>
                         <outlet property="bioText" destination="OvH-zC-OEr" id="Gk6-bw-HIi"/>
+                        <outlet property="nameText" destination="XZM-ej-LnO" id="u11-oW-Ktb"/>
+                        <outlet property="phoneText" destination="ZIB-a6-B4E" id="Uwg-n9-W81"/>
+                        <outlet property="profilePictureImage" destination="Amb-wZ-7fV" id="al6-rN-h05"/>
+                        <outlet property="saveButton" destination="mP9-0j-W1q" id="3se-RZ-suJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKG-UX-vHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -137,14 +161,17 @@
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saya sudah menekuni budidaya hidroponik selama 4 bulan dan saya fokus pada penanaman selada." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D56-wO-AfA">
-                                <rect key="frame" x="20" y="228" width="374" height="38.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D56-wO-AfA">
+                                <rect key="frame" x="20" y="228" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lnj-FA-yVt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfv-h2-FAt">
-                                <rect key="frame" x="20" y="286.5" width="132" height="34"/>
+                                <rect key="frame" x="20" y="288" width="132" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="5eY-R8-9Ye"/>
                                     <constraint firstAttribute="height" constant="34" id="RwC-ET-mCK"/>
@@ -158,7 +185,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z4p-1e-E97">
-                                <rect key="frame" x="20" y="340.5" width="374" height="31"/>
+                                <rect key="frame" x="20" y="342" width="374" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ysA-bw-o8A"/>
                                 </constraints>
@@ -171,11 +198,11 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-IR-DEy">
-                                <rect key="frame" x="20" y="390.5" width="374" height="471.5"/>
+                                <rect key="frame" x="20" y="392" width="374" height="470"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uJ-rn-r5p">
-                                <rect key="frame" x="319" y="288.5" width="75" height="30"/>
+                                <rect key="frame" x="319" y="290" width="75" height="30"/>
                                 <state key="normal" title="Edit Profile">
                                     <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -213,6 +240,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="SiI-u3-lfY"/>
                     <connections>
+                        <outlet property="bioLabel" destination="D56-wO-AfA" id="GDn-h3-Es0"/>
                         <outlet property="profileName" destination="kq3-rx-7Uf" id="7A6-BC-IKA"/>
                         <outlet property="profilePicture" destination="faP-8d-BwM" id="zoL-Ip-MnY"/>
                         <outlet property="segmentedControl" destination="z4p-1e-E97" id="9GX-KV-YF5"/>

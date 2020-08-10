@@ -83,9 +83,11 @@ class OfferDetailsViewController: UIViewController, UIAlertViewDelegate {
     }
     
     @IBAction func chatWA(_ sender: Any) {
-        CloudKitHelper.getUserName { (name) in
-            DispatchQueue.main.async {
-                self.buttonChatWA.setTitle(name, for: UIControl.State.normal)
+        CloudKitHelper.getUserProfile { (profile) in
+            if let name = profile?.name {
+                DispatchQueue.main.async {
+                    self.buttonChatWA.setTitle(name, for: UIControl.State.normal)
+                }
             }
         }
         

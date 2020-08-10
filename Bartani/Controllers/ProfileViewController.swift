@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var bioLabel: UILabel!
     
     var offers = [Offer]()
     
@@ -33,9 +34,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
         
-        CloudKitHelper.getUserName { (name) in
-            DispatchQueue.main.async {
-                self.profileName.text = name
+        CloudKitHelper.getUserProfile { (profile) in
+            if let profile = profile {
+                DispatchQueue.main.async {
+                    self.profileName.text = profile.name
+                    self.bioLabel.text = profile.bio
+                }
+            } else {
+                self.profileName.text = "Unknown"
             }
         }
     }

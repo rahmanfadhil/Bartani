@@ -15,15 +15,4 @@ struct Offer {
     var sellerName: String
     var buyerProduct: Product
     var sellerProduct: Product
-    
-//    static func fromRecords(records: [CKRecord]) -> [Offer] {
-//        return records.map { (record) -> Offer in
-//            Offer(
-//                buyerName: record.value(forKey: "buyerName") as? String ?? "",
-//                sellerName: record.value(forKey: "sellerName") as? String ?? "",
-//                buyerProduct: nil,
-//                sellerProduct: nil
-//            )
-//        }
-//    }
 }

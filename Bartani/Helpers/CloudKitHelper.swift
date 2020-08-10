@@ -33,19 +33,69 @@ struct CloudKitHelper {
         let sellerProduct: CKRecord
     }
     
-    // Get user name
+    struct ProfileInput {
+        let name: String?
+        let phone: String?
+        let profileImage: URL?
+        let bio: String?
+    }
     
-    static func getUserName(onComplete: @escaping (String?) -> Void) {
-        CKContainer.default().requestApplicationPermission(.userDiscoverability) { (status, error) in
-            if status == .granted {
-                CKContainer.default().fetchUserRecordID { (record, error) in
-                    CKContainer.default().discoverUserIdentity(withUserRecordID: record!, completionHandler: { (userID, error) in
-                        let username = (userID?.nameComponents?.givenName)! + " " + (userID?.nameComponents?.familyName)!
-                        onComplete(username)
-                    })
+    // MARK: - Update profile
+    static func updateProfile(input: ProfileInput, onComplete: @escaping () -> Void) {
+        CKContainer.default().fetchUserRecordID { (recordID, error) in
+            if let error = error {
+                print(error)
+                onComplete()
+            }
+            
+            guard let recordID = recordID else { return }
+            
+            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { (record, error) in
+                if let error = error {
+                    print(error)
+                    onComplete()
                 }
-            } else {
+                
+                guard let record = record else { return }
+                
+                if let name = input.name {
+                    record.setValue(name, forKey: "name")
+                }
+                if let phone = input.phone {
+                    record.setValue(phone, forKey: "phone")
+                }
+                if let imageURL = input.profileImage {
+                    record.setValue(CKAsset(fileURL: imageURL), forKey: "profileImage")
+                }
+                if let bio = input.bio {
+                    record.setValue(bio, forKey: "bio")
+                }
+                
+                CKContainer.default().publicCloudDatabase.save(record) { (record, error) in
+                    onComplete()
+                }
+            }
+        }
+    }
+    
+    static func getUserProfile(onComplete: @escaping (Profile?) -> Void) {
+        CKContainer.default().fetchUserRecordID { (recordID, error) in
+            if let error = error {
+                print(error)
                 onComplete(nil)
+            }
+            
+            guard let recordID = recordID else { return }
+            
+            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { (record, error) in
+                if let error = error {
+                    print(error)
+                    onComplete(nil)
+                }
+                
+                guard let record = record else { return }
+                
+                onComplete(Profile.fromRecord(record: record))
             }
         }
     }
@@ -83,7 +133,7 @@ struct CloudKitHelper {
     // MARK: - Save product
 
     static func saveProduct(data: InsertProduct, onComplete: @escaping () -> Void) {
-        getUserName { (name) in
+        getUserProfile { (profile) in
             let product = CKRecord(recordType: RecordType.Products)
             product.setValue(data.title, forKey: "title")
             product.setValue(data.price, forKey: "price")
@@ -92,12 +142,7 @@ struct CloudKitHelper {
             product.setValue(CKAsset(fileURL: data.imageURL), forKey: "image")
             product.setValue(data.location, forKey: "location")
             product.setValue(data.harvestedAt, forKey: "harvestedAt")
-            
-            if let name = name {
-                product.setValue(name, forKey: "ownerName")
-            } else {
-                product.setValue("Unknown", forKey: "ownerName")
-            }
+            product.setValue(profile?.name ?? "Unknown", forKey: "ownerName")
             
             CKContainer.default().publicCloudDatabase.save(product) { (record, error) in
                 if let error = error {
