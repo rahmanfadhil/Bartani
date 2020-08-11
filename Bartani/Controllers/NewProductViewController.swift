@@ -52,14 +52,14 @@ class NewProductViewController: UIViewController, UINavigationControllerDelegate
     var isExpand : Bool = false
     @objc func keyboardAppear(){
         if !isExpand {
-            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height + 300)
+            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height + 150)
             isExpand = true
         }
     }
     
     @objc func keyboardDisappear(){
     if isExpand {
-        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 300)
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 0)
         self.isExpand = false
         }
     }

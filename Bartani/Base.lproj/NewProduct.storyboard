@@ -208,6 +208,7 @@
                                 <viewLayoutGuide key="safeArea" id="cYE-pE-wRi"/>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="aVs-Qb-bWN"/>
                         <viewLayoutGuide key="contentLayoutGuide" id="jjU-0b-aNd"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="NsD-Du-mDV"/>
