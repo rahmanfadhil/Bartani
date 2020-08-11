@@ -30,6 +30,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         saveButton.layer.cornerRadius = 6
         
+        profilePictureImage.layer.cornerRadius = profilePictureImage.frame.height / 2
+        
         if let profile = profile {
             nameText.text = profile.name
             phoneText.text = profile.phone
