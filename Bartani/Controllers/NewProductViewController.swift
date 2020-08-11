@@ -26,6 +26,7 @@ class NewProductViewController: UIViewController, UINavigationControllerDelegate
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var harvestedAtTextField: UITextField!
+    @IBOutlet var scrollView: UIScrollView!
     
     let datePicker = UIDatePicker()
     
@@ -39,21 +40,30 @@ class NewProductViewController: UIViewController, UINavigationControllerDelegate
         assignTextFieldDelegates()
         createDatePicker()
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(Notification:)), name: NSNotification.Name.UI, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
     
-//    //MARK: - keyboard
-//    deinit {
-//        NotificationCenter.removeObserver(self, name: NSNotification.Name.UIKey)
-//    }
-//
-//    func hideKeyboard() {
-//        productDescriptionTextField.resignFirstResponder()
-//    }
-//
-//    @objc func keyboardWillChange(Notification: Notification){
-//        print("Keyboard will show: \(Notification.name.rawValue)")
-//    }
+    //MARK: - Keyboard
+    
+    var isExpand : Bool = false
+    @objc func keyboardAppear(){
+        if !isExpand {
+            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height + 300)
+            isExpand = true
+        }
+    }
+    
+    @objc func keyboardDisappear(){
+    if isExpand {
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 300)
+        self.isExpand = false
+        }
+    }
+    
     // MARK: - Upload image
     
     @IBAction func addPhotoTapped(_ sender: Any) {

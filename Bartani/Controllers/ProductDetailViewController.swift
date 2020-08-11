@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import SwiftUI
+import Combine
 
 protocol ProductDetailDelegate {
     func searchProducts(text: String)
