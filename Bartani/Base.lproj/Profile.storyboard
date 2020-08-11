@@ -197,10 +197,6 @@
                                     <action selector="segmentTapped:" destination="a6s-iR-04r" eventType="valueChanged" id="uhE-Rw-opV"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-IR-DEy">
-                                <rect key="frame" x="20" y="392" width="374" height="470"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uJ-rn-r5p">
                                 <rect key="frame" x="319" y="290" width="75" height="30"/>
                                 <state key="normal" title="Edit Profile">
@@ -210,6 +206,17 @@
                                     <segue destination="cLG-w4-ThK" kind="show" identifier="toUpdateProfile" id="AbN-ES-jii"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-IR-DEy">
+                                <rect key="frame" x="20" y="403" width="374" height="470"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ErE-0b-yvZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -241,6 +248,7 @@
                     <navigationItem key="navigationItem" title="My Profile" id="SiI-u3-lfY"/>
                     <connections>
                         <outlet property="bioLabel" destination="D56-wO-AfA" id="GDn-h3-Es0"/>
+                        <outlet property="labelIfZero" destination="ErE-0b-yvZ" id="Pj5-3x-3VL"/>
                         <outlet property="profileName" destination="kq3-rx-7Uf" id="7A6-BC-IKA"/>
                         <outlet property="profilePicture" destination="faP-8d-BwM" id="zoL-Ip-MnY"/>
                         <outlet property="segmentedControl" destination="z4p-1e-E97" id="9GX-KV-YF5"/>

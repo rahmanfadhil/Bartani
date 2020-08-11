@@ -19,8 +19,11 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return refreshControl
     }()
 
+    @IBOutlet weak var imagePaktani: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productCollectionView: UICollectionView!
+    @IBOutlet weak var labelShopZero: UILabel!
+    @IBOutlet weak var labelInformation: UILabel!
     
     // MARK: - Collection view
     
@@ -67,6 +70,10 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.productCollectionView.reloadData()
             }
         }
+        
+        labelShopZero.isHidden = true
+        labelInformation.isHidden = true
+        imagePaktani.isHidden = true
     }
     
     // MARK: - Search bar
@@ -94,13 +101,13 @@ class ShopViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - Refresh control
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        CloudKitHelper.fetchProducts { (records) in
-            self.products = records
-            DispatchQueue.main.async {
-                self.productCollectionView.reloadData()
-                self.refreshControl.endRefreshing()
-            }
-        }
+//        CloudKitHelper.fetchProducts { (records) in
+//            self.products = records
+//            DispatchQueue.main.async {
+//                self.productCollectionView.reloadData()
+//                self.refreshControl.endRefreshing()
+//            }
+//        }
     }
     
     // MARK: - Navigation

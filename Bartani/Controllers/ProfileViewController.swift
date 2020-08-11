@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var labelIfZero: UILabel!
     
     var offers = [Offer]()
     var profile: Profile?
@@ -53,6 +54,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
         }
+        
+        addLabel()
     }
     
     @IBAction func segmentTapped(_ sender: Any) {
@@ -76,6 +79,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    func addLabel() {
+        
+        if offers.count == 0{
+            labelIfZero.text = "Do you have any crops? Try to list it now"
+            labelIfZero.textColor = #colorLiteral(red: 0.4291943312, green: 0.633812964, blue: 0.5594127178, alpha: 1)
+            labelIfZero.font = UIFont.boldSystemFont(ofSize: 17)
+            labelIfZero.isHidden = false
+        } else {
+            labelIfZero.isHidden = true
         }
     }
 
