@@ -48,7 +48,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.bioLabel.text = profile.bio
                 }
             } else {
-                self.profileName.text = "Unknown"
+                DispatchQueue.main.async {
+                    self.profileName.text = "Unknown"
+                }
             }
         }
     }
