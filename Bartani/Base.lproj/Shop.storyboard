@@ -33,6 +33,24 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paktani2" translatesAutoresizingMaskIntoConstraints="NO" id="8XG-fH-42O">
+                                <rect key="frame" x="0.0" y="146" width="402" height="440"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HHM... Look like everybody is growing their own crops right now." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-7W-jPn">
+                                <rect key="frame" x="39" y="531" width="329" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shall we start to sell first?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPr-S4-p39">
+                                <rect key="frame" x="44" y="591" width="329" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -48,6 +66,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Shop" id="Pbs-og-DzK"/>
                     <connections>
+                        <outlet property="imagePaktani" destination="8XG-fH-42O" id="StA-D0-1El"/>
+                        <outlet property="labelInformation" destination="SPr-S4-p39" id="4lH-y4-DYY"/>
+                        <outlet property="labelShopZero" destination="ZMd-7W-jPn" id="nCl-29-z9F"/>
                         <outlet property="productCollectionView" destination="s7y-uo-djF" id="Sub-4F-32k"/>
                         <outlet property="searchBar" destination="enn-Ae-QaH" id="zMo-WP-wo7"/>
                         <segue destination="79i-zr-qLo" kind="show" identifier="toProductDetail" id="0ex-11-u2i"/>
@@ -626,6 +647,7 @@
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="image-placeholder" width="500" height="500"/>
+        <image name="paktani2" width="1080" height="1920"/>
         <image name="success confirmation" width="170" height="170"/>
     </resources>
 </document>

@@ -38,8 +38,22 @@ class NewProductViewController: UIViewController, UINavigationControllerDelegate
         
         assignTextFieldDelegates()
         createDatePicker()
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(Notification:)), name: NSNotification.Name.UI, object: nil)
     }
     
+//    //MARK: - keyboard
+//    deinit {
+//        NotificationCenter.removeObserver(self, name: NSNotification.Name.UIKey)
+//    }
+//
+//    func hideKeyboard() {
+//        productDescriptionTextField.resignFirstResponder()
+//    }
+//
+//    @objc func keyboardWillChange(Notification: Notification){
+//        print("Keyboard will show: \(Notification.name.rawValue)")
+//    }
     // MARK: - Upload image
     
     @IBAction func addPhotoTapped(_ sender: Any) {

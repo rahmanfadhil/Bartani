@@ -44,6 +44,9 @@
 		7F0E765624CFD87F00D6DFD2 /* MyOfferItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E765524CFD87F00D6DFD2 /* MyOfferItemViewController.swift */; };
 		7F0E765824CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E765724CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift */; };
 		7F2F02E124C547DE00544571 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F2F02E024C547DE00544571 /* ImageAssets.xcassets */; };
+		7F5F663B24E226EE00F70B20 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F663A24E226EE00F70B20 /* KeyboardAvoiding.swift */; };
+		7FE704E024E23236000473F2 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE704DF24E23236000473F2 /* Publisher.swift */; };
+		7FE704E224E23260000473F2 /* Responders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE704E124E23260000473F2 /* Responders.swift */; };
 		7FE75CA724CE789000360032 /* RequestDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE75CA624CE789000360032 /* RequestDetails.storyboard */; };
 		7FE75CA924CE794B00360032 /* DetailRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE75CA824CE794B00360032 /* DetailRequestViewController.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +92,9 @@
 		7F0E765524CFD87F00D6DFD2 /* MyOfferItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOfferItemViewController.swift; sourceTree = "<group>"; };
 		7F0E765724CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccesAcceptOfferViewController.swift; sourceTree = "<group>"; };
 		7F2F02E024C547DE00544571 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
+		7F5F663A24E226EE00F70B20 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
+		7FE704DF24E23236000473F2 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
+		7FE704E124E23260000473F2 /* Responders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responders.swift; sourceTree = "<group>"; };
 		7FE75CA624CE789000360032 /* RequestDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RequestDetails.storyboard; sourceTree = "<group>"; };
 		7FE75CA824CE794B00360032 /* DetailRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRequestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +190,9 @@
 			children = (
 				16DCB8CA24C7D0BA00C7EAC8 /* CloudKitHelper.swift */,
 				16D682FE24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift */,
+				7F5F663A24E226EE00F70B20 /* KeyboardAvoiding.swift */,
+				7FE704DF24E23236000473F2 /* Publisher.swift */,
+				7FE704E124E23260000473F2 /* Responders.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -306,13 +315,16 @@
 				16DCB8D024C80B0C00C7EAC8 /* Offer.swift in Sources */,
 				1604FFBD24C15A19000AE266 /* HistoryTableViewController.swift in Sources */,
 				16D6830124CE8E8C00CB52FE /* NewProductSuccessViewController.swift in Sources */,
+				7FE704E224E23260000473F2 /* Responders.swift in Sources */,
 				1604FF9824C14F20000AE266 /* AppDelegate.swift in Sources */,
 				16F5A99624C549DA00DBF7D7 /* ProductCollectionViewCell.swift in Sources */,
 				7F0E765824CFF67100D6DFD2 /* SuccesAcceptOfferViewController.swift in Sources */,
 				1604FF9A24C14F20000AE266 /* SceneDelegate.swift in Sources */,
 				16D682FF24CE7E3D00CB52FE /* VerticalTopAlignLabel.swift in Sources */,
+				7F5F663B24E226EE00F70B20 /* KeyboardAvoiding.swift in Sources */,
 				1686985024CA809000E867C5 /* SetLocationViewController.swift in Sources */,
 				7FE75CA924CE794B00360032 /* DetailRequestViewController.swift in Sources */,
+				7FE704E024E23236000473F2 /* Publisher.swift in Sources */,
 				16DCB8CE24C7E02E00C7EAC8 /* Product.swift in Sources */,
 				16D6830324CE976E00CB52FE /* BarterConfirmViewController.swift in Sources */,
 			);
